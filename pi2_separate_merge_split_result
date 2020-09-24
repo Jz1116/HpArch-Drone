@@ -1,0 +1,328 @@
+pi@raspberrypi:~/testODM/ODM/NodeODM2/nodeodm $ node index.js
+info: Authentication using NoTokenRequired
+info: Listening on 0.0.0.0:6367 UDP for progress updates
+info: Initialized 0 tasks
+info: Checking for orphaned directories to be removed...
+info: Server has started on port 3000
+[Thu, 24 Sep 2020 02:53:13 GMT] HTTP/Method: GET URL: /info Status: 200 - 182 bytes - 67.553 ms
+[Thu, 24 Sep 2020 02:54:13 GMT] HTTP/Method: GET URL: /info Status: 200 - 182 bytes - 57.782 ms
+[Thu, 24 Sep 2020 02:55:13 GMT] HTTP/Method: GET URL: /info Status: 200 - 182 bytes - 55.554 ms
+[Thu, 24 Sep 2020 02:56:13 GMT] HTTP/Method: GET URL: /info Status: 200 - 182 bytes - 54.978 ms
+[Thu, 24 Sep 2020 02:57:13 GMT] HTTP/Method: GET URL: /info Status: 200 - 182 bytes - 52.296 ms
+[Thu, 24 Sep 2020 02:58:13 GMT] HTTP/Method: GET URL: /info Status: 200 - 182 bytes - 54.592 ms
+[Thu, 24 Sep 2020 02:59:13 GMT] HTTP/Method: GET URL: /info Status: 200 - 182 bytes - 52.228 ms
+[Thu, 24 Sep 2020 03:00:13 GMT] HTTP/Method: GET URL: /info Status: 200 - 182 bytes - 51.466 ms
+[Thu, 24 Sep 2020 03:01:13 GMT] HTTP/Method: GET URL: /info Status: 200 - 182 bytes - 54.448 ms
+[Thu, 24 Sep 2020 03:02:13 GMT] HTTP/Method: GET URL: /info Status: 200 - 182 bytes - 54.629 ms
+[Thu, 24 Sep 2020 03:03:13 GMT] HTTP/Method: GET URL: /info Status: 200 - 182 bytes - 52.422 ms
+[Thu, 24 Sep 2020 03:04:13 GMT] HTTP/Method: GET URL: /info Status: 200 - 182 bytes - 64.731 ms
+[Thu, 24 Sep 2020 03:05:13 GMT] HTTP/Method: GET URL: /info Status: 200 - 182 bytes - 54.220 ms
+[Thu, 24 Sep 2020 03:06:13 GMT] HTTP/Method: GET URL: /info Status: 200 - 182 bytes - 54.284 ms
+[Thu, 24 Sep 2020 03:07:13 GMT] HTTP/Method: GET URL: /info Status: 200 - 182 bytes - 54.229 ms
+[Thu, 24 Sep 2020 03:08:13 GMT] HTTP/Method: GET URL: /info Status: 200 - 182 bytes - 54.331 ms
+[Thu, 24 Sep 2020 03:09:13 GMT] HTTP/Method: GET URL: /info Status: 200 - 182 bytes - 54.581 ms
+[Thu, 24 Sep 2020 03:10:13 GMT] HTTP/Method: GET URL: /info Status: 200 - 182 bytes - 54.759 ms
+[Thu, 24 Sep 2020 03:11:13 GMT] HTTP/Method: GET URL: /info Status: 200 - 182 bytes - 54.835 ms
+[Thu, 24 Sep 2020 03:12:13 GMT] HTTP/Method: GET URL: /info Status: 200 - 182 bytes - 52.999 ms
+[Thu, 24 Sep 2020 03:13:13 GMT] HTTP/Method: GET URL: /info Status: 200 - 182 bytes - 54.785 ms
+[Thu, 24 Sep 2020 03:14:14 GMT] HTTP/Method: GET URL: /info Status: 200 - 182 bytes - 54.732 ms
+[Thu, 24 Sep 2020 03:15:14 GMT] HTTP/Method: GET URL: /info Status: 200 - 182 bytes - 58.014 ms
+[Thu, 24 Sep 2020 03:16:14 GMT] HTTP/Method: GET URL: /info Status: 200 - 182 bytes - 53.253 ms
+[Thu, 24 Sep 2020 03:17:09 GMT] HTTP/Method: GET URL: /options Status: 200 - 17240 bytes - 3.127 ms
+[Thu, 24 Sep 2020 03:17:09 GMT] HTTP/Method: GET URL: /info Status: 200 - 182 bytes - 50.857 ms
+[Thu, 24 Sep 2020 03:17:09 GMT] HTTP/Method: GET URL: /options Status: 200 - 17240 bytes - 1.990 ms
+Current Time in handle initialization in taskNew.js,  Thu Sep 24 2020 04:17:10 GMT+0100 (BST) and Milliseconds: 20
+Request Body in handle init in taskNew.js [{"name":"orthophoto-cutline","value":true},{"name":"dem-euclidean-map","value":true},{"name":"skip-3dmodel","value":true}]
+[Thu, 24 Sep 2020 03:17:10 GMT] HTTP/Method: GET URL: /options Status: 200 - 17240 bytes - 0.964 ms
+[Thu, 24 Sep 2020 03:17:10 GMT] HTTP/Method: POST URL: /task/new/init?token= Status: 200 - 47 bytes - 62.465 ms
+About to Upload the File DJI_0021.JPG at Path tmp/2a529fbc-90f3-401c-a996-cbeda8fb2928,  Thu Sep 24 2020 04:17:10 GMT+0100 (BST) and Milliseconds: 50
+About to Upload the File DJI_0022.JPG at Path tmp/2a529fbc-90f3-401c-a996-cbeda8fb2928,  Thu Sep 24 2020 04:17:10 GMT+0100 (BST) and Milliseconds: 82
+About to Upload the File DJI_0023.JPG at Path tmp/2a529fbc-90f3-401c-a996-cbeda8fb2928,  Thu Sep 24 2020 04:17:10 GMT+0100 (BST) and Milliseconds: 83
+About to Upload the File DJI_0024.JPG at Path tmp/2a529fbc-90f3-401c-a996-cbeda8fb2928,  Thu Sep 24 2020 04:17:10 GMT+0100 (BST) and Milliseconds: 83
+About to Upload the File DJI_0025.JPG at Path tmp/2a529fbc-90f3-401c-a996-cbeda8fb2928,  Thu Sep 24 2020 04:17:10 GMT+0100 (BST) and Milliseconds: 83
+About to Upload the File DJI_0026.JPG at Path tmp/2a529fbc-90f3-401c-a996-cbeda8fb2928,  Thu Sep 24 2020 04:17:10 GMT+0100 (BST) and Milliseconds: 83
+About to Upload the File seed.zip at Path tmp/2a529fbc-90f3-401c-a996-cbeda8fb2928,  Thu Sep 24 2020 04:17:10 GMT+0100 (BST) and Milliseconds: 93
+[Thu, 24 Sep 2020 03:17:10 GMT] HTTP/Method: POST URL: /task/new/upload/2a529fbc-90f3-401c-a996-cbeda8fb2928?token= Status: 200 - 16 bytes - 63.174 ms
+[Thu, 24 Sep 2020 03:17:10 GMT] HTTP/Method: POST URL: /task/new/upload/2a529fbc-90f3-401c-a996-cbeda8fb2928?token= Status: 200 - 16 bytes - 54.500 ms
+[Thu, 24 Sep 2020 03:17:10 GMT] HTTP/Method: POST URL: /task/new/upload/2a529fbc-90f3-401c-a996-cbeda8fb2928?token= Status: 200 - 16 bytes - 54.040 ms
+[Thu, 24 Sep 2020 03:17:10 GMT] HTTP/Method: POST URL: /task/new/upload/2a529fbc-90f3-401c-a996-cbeda8fb2928?token= Status: 200 - 16 bytes - 53.581 ms
+[Thu, 24 Sep 2020 03:17:10 GMT] HTTP/Method: POST URL: /task/new/upload/2a529fbc-90f3-401c-a996-cbeda8fb2928?token= Status: 200 - 16 bytes - 52.301 ms
+[Thu, 24 Sep 2020 03:17:10 GMT] HTTP/Method: POST URL: /task/new/upload/2a529fbc-90f3-401c-a996-cbeda8fb2928?token= Status: 200 - 16 bytes - 51.839 ms
+[Thu, 24 Sep 2020 03:17:10 GMT] HTTP/Method: POST URL: /task/new/upload/2a529fbc-90f3-401c-a996-cbeda8fb2928?token= Status: 200 - 16 bytes - 55.487 ms
+[Thu, 24 Sep 2020 03:17:10 GMT] HTTP/Method: GET URL: /info Status: 200 - 182 bytes - 42.788 ms
+[Thu, 24 Sep 2020 03:17:10 GMT] HTTP/Method: GET URL: /options Status: 200 - 17240 bytes - 0.985 ms
+Current Time in handle initialization in taskNew.js,  Thu Sep 24 2020 04:17:10 GMT+0100 (BST) and Milliseconds: 220
+Request Body in handle init in taskNew.js [{"name":"orthophoto-cutline","value":true},{"name":"dem-euclidean-map","value":true},{"name":"skip-3dmodel","value":true}]
+[Thu, 24 Sep 2020 03:17:10 GMT] HTTP/Method: POST URL: /task/new/init?token= Status: 200 - 47 bytes - 10.285 ms
+About to Upload the File DJI_0031.JPG at Path tmp/df59c89e-12e9-4c3d-8170-6a54e9606dde,  Thu Sep 24 2020 04:17:10 GMT+0100 (BST) and Milliseconds: 238
+About to Upload the File DJI_0033.JPG at Path tmp/df59c89e-12e9-4c3d-8170-6a54e9606dde,  Thu Sep 24 2020 04:17:10 GMT+0100 (BST) and Milliseconds: 249
+About to Upload the File DJI_0034.JPG at Path tmp/df59c89e-12e9-4c3d-8170-6a54e9606dde,  Thu Sep 24 2020 04:17:10 GMT+0100 (BST) and Milliseconds: 249
+About to Upload the File DJI_0032.JPG at Path tmp/df59c89e-12e9-4c3d-8170-6a54e9606dde,  Thu Sep 24 2020 04:17:10 GMT+0100 (BST) and Milliseconds: 249
+About to Upload the File seed.zip at Path tmp/df59c89e-12e9-4c3d-8170-6a54e9606dde,  Thu Sep 24 2020 04:17:10 GMT+0100 (BST) and Milliseconds: 265
+About to Upload the File DJI_0035.JPG at Path tmp/df59c89e-12e9-4c3d-8170-6a54e9606dde,  Thu Sep 24 2020 04:17:10 GMT+0100 (BST) and Milliseconds: 266
+[Thu, 24 Sep 2020 03:17:10 GMT] HTTP/Method: POST URL: /task/new/upload/df59c89e-12e9-4c3d-8170-6a54e9606dde?token= Status: 200 - 16 bytes - 42.789 ms
+[Thu, 24 Sep 2020 03:17:10 GMT] HTTP/Method: POST URL: /task/new/upload/df59c89e-12e9-4c3d-8170-6a54e9606dde?token= Status: 200 - 16 bytes - 40.827 ms
+[Thu, 24 Sep 2020 03:17:10 GMT] HTTP/Method: POST URL: /task/new/upload/df59c89e-12e9-4c3d-8170-6a54e9606dde?token= Status: 200 - 16 bytes - 40.626 ms
+[Thu, 24 Sep 2020 03:17:10 GMT] HTTP/Method: POST URL: /task/new/upload/df59c89e-12e9-4c3d-8170-6a54e9606dde?token= Status: 200 - 16 bytes - 46.514 ms
+[Thu, 24 Sep 2020 03:17:10 GMT] HTTP/Method: POST URL: /task/new/upload/df59c89e-12e9-4c3d-8170-6a54e9606dde?token= Status: 200 - 16 bytes - 30.433 ms
+[Thu, 24 Sep 2020 03:17:10 GMT] HTTP/Method: POST URL: /task/new/upload/df59c89e-12e9-4c3d-8170-6a54e9606dde?token= Status: 200 - 16 bytes - 44.521 ms
+Created Task in TaskNew.js Thu Sep 24 2020 04:17:10 GMT+0100 (BST)  and Milliseconds: 437
+info: About to run in odm Runner.js: /home/pi/testODM/ODM/run.sh --orthophoto-cutline --dem-euclidean-map --skip-3dmodel --project-path /home/pi/testODM/ODM/NodeODM2/nodeodm/data 2a529fbc-90f3-401c-a996-cbeda8fb2928
+Going to Run command in odm Runner.js Thu Sep 24 2020 04:17:10 GMT+0100 (BST) and Milliseconds: 445
+[Thu, 24 Sep 2020 03:17:10 GMT] HTTP/Method: POST URL: /task/new/commit/2a529fbc-90f3-401c-a996-cbeda8fb2928?token= Status: 200 - 47 bytes - 331.558 ms
+Created Task in TaskNew.js Thu Sep 24 2020 04:17:10 GMT+0100 (BST)  and Milliseconds: 474
+[Thu, 24 Sep 2020 03:17:10 GMT] HTTP/Method: POST URL: /task/new/commit/df59c89e-12e9-4c3d-8170-6a54e9606dde?token= Status: 200 - 47 bytes - 191.429 ms
+[Thu, 24 Sep 2020 03:17:13 GMT] HTTP/Method: GET URL: /task/2a529fbc-90f3-401c-a996-cbeda8fb2928/info Status: 200 - 323 bytes - 1.199 ms
+[Thu, 24 Sep 2020 03:17:13 GMT] HTTP/Method: GET URL: /task/df59c89e-12e9-4c3d-8170-6a54e9606dde/info Status: 200 - 321 bytes - 0.787 ms
+[Thu, 24 Sep 2020 03:17:13 GMT] HTTP/Method: GET URL: /task/2a529fbc-90f3-401c-a996-cbeda8fb2928/info?with_output=-3 Status: 200 - 335 bytes - 1.460 ms
+[Thu, 24 Sep 2020 03:17:13 GMT] HTTP/Method: GET URL: /task/df59c89e-12e9-4c3d-8170-6a54e9606dde/info?with_output=-3 Status: 200 - 333 bytes - 0.699 ms
+Task is now being Removed Thu Sep 24 2020 04:17:13 GMT+0100 (BST) and Milliseconds: 317
+[Thu, 24 Sep 2020 03:17:13 GMT] HTTP/Method: POST URL: /task/remove Status: 200 - 16 bytes - 64.717 ms
+[Thu, 24 Sep 2020 03:17:14 GMT] HTTP/Method: GET URL: /info Status: 200 - 182 bytes - 26.925 ms
+[Thu, 24 Sep 2020 03:17:16 GMT] HTTP/Method: GET URL: /task/2a529fbc-90f3-401c-a996-cbeda8fb2928/info Status: 200 - 325 bytes - 1.167 ms
+[Thu, 24 Sep 2020 03:17:19 GMT] HTTP/Method: GET URL: /task/2a529fbc-90f3-401c-a996-cbeda8fb2928/info Status: 200 - 325 bytes - 1.217 ms
+[Thu, 24 Sep 2020 03:17:22 GMT] HTTP/Method: GET URL: /task/2a529fbc-90f3-401c-a996-cbeda8fb2928/info Status: 200 - 326 bytes - 1.265 ms
+[Thu, 24 Sep 2020 03:17:25 GMT] HTTP/Method: GET URL: /task/2a529fbc-90f3-401c-a996-cbeda8fb2928/info Status: 200 - 326 bytes - 1.028 ms
+[Thu, 24 Sep 2020 03:17:28 GMT] HTTP/Method: GET URL: /task/2a529fbc-90f3-401c-a996-cbeda8fb2928/info Status: 200 - 326 bytes - 0.806 ms
+[Thu, 24 Sep 2020 03:17:31 GMT] HTTP/Method: GET URL: /task/2a529fbc-90f3-401c-a996-cbeda8fb2928/info Status: 200 - 326 bytes - 0.539 ms
+[Thu, 24 Sep 2020 03:17:34 GMT] HTTP/Method: GET URL: /task/2a529fbc-90f3-401c-a996-cbeda8fb2928/info Status: 200 - 326 bytes - 0.570 ms
+[Thu, 24 Sep 2020 03:17:37 GMT] HTTP/Method: GET URL: /task/2a529fbc-90f3-401c-a996-cbeda8fb2928/info Status: 200 - 326 bytes - 0.732 ms
+[Thu, 24 Sep 2020 03:17:40 GMT] HTTP/Method: GET URL: /task/2a529fbc-90f3-401c-a996-cbeda8fb2928/info Status: 200 - 327 bytes - 0.640 ms
+[Thu, 24 Sep 2020 03:17:43 GMT] HTTP/Method: GET URL: /task/2a529fbc-90f3-401c-a996-cbeda8fb2928/info Status: 200 - 327 bytes - 0.508 ms
+[Thu, 24 Sep 2020 03:17:46 GMT] HTTP/Method: GET URL: /task/2a529fbc-90f3-401c-a996-cbeda8fb2928/info Status: 200 - 327 bytes - 0.559 ms
+[Thu, 24 Sep 2020 03:17:49 GMT] HTTP/Method: GET URL: /task/2a529fbc-90f3-401c-a996-cbeda8fb2928/info Status: 200 - 327 bytes - 0.563 ms
+Task.js paths to archive to send back to original Node
+[ 'opensfm/matches',
+  'opensfm/features',
+  'opensfm/reconstruction.json',
+  'opensfm/tracks.csv',
+  'cameras.json' ]
+info: About to run in processRunner.js: 7z a -mx=0 -r -bd /home/pi/testODM/ODM/NodeODM2/nodeodm/data/2a529fbc-90f3-401c-a996-cbeda8fb2928/all.zip opensfm/matches opensfm/features opensfm/reconstruction.json opensfm/tracks.csv cameras.json
+Current Time is now Thu Sep 24 2020 04:17:50 GMT+0100 (BST) and Milliseconds:197
+[Thu, 24 Sep 2020 03:17:52 GMT] HTTP/Method: GET URL: /task/2a529fbc-90f3-401c-a996-cbeda8fb2928/info Status: 200 - 326 bytes - 1.204 ms
+[Thu, 24 Sep 2020 03:17:52 GMT] HTTP/Method: GET URL: /task/2a529fbc-90f3-401c-a996-cbeda8fb2928/info Status: 200 - 326 bytes - 0.977 ms
+Filestream pipe has ran to Download Dataset Thu Sep 24 2020 04:17:52 GMT+0100 (BST) and Milliseconds: 248
+[Thu, 24 Sep 2020 03:17:52 GMT] HTTP/Method: GET URL: /task/2a529fbc-90f3-401c-a996-cbeda8fb2928/download/all.zip Status: 200 - 3151910 bytes - 6.210 ms
+Task is now being Removed Thu Sep 24 2020 04:17:52 GMT+0100 (BST) and Milliseconds: 685
+[Thu, 24 Sep 2020 03:17:52 GMT] HTTP/Method: POST URL: /task/remove Status: 200 - 16 bytes - 37.062 ms
+[Thu, 24 Sep 2020 03:17:53 GMT] HTTP/Method: GET URL: /options Status: 200 - 17240 bytes - 2.348 ms
+[Thu, 24 Sep 2020 03:17:53 GMT] HTTP/Method: GET URL: /info Status: 200 - 182 bytes - 57.287 ms
+[Thu, 24 Sep 2020 03:17:53 GMT] HTTP/Method: GET URL: /options Status: 200 - 17240 bytes - 2.370 ms
+Current Time in handle initialization in taskNew.js,  Thu Sep 24 2020 04:17:53 GMT+0100 (BST) and Milliseconds: 655
+Request Body in handle init in taskNew.js [{"name":"orthophoto-cutline","value":true},{"name":"dem-euclidean-map","value":true},{"name":"skip-3dmodel","value":true}]
+[Thu, 24 Sep 2020 03:17:53 GMT] HTTP/Method: POST URL: /task/new/init?token= Status: 200 - 47 bytes - 19.968 ms
+About to Upload the File DJI_0031.JPG at Path tmp/092debae-54a8-40c5-8829-da656a2d76f7,  Thu Sep 24 2020 04:17:53 GMT+0100 (BST) and Milliseconds: 674
+About to Upload the File DJI_0032.JPG at Path tmp/092debae-54a8-40c5-8829-da656a2d76f7,  Thu Sep 24 2020 04:17:53 GMT+0100 (BST) and Milliseconds: 713
+About to Upload the File DJI_0033.JPG at Path tmp/092debae-54a8-40c5-8829-da656a2d76f7,  Thu Sep 24 2020 04:17:53 GMT+0100 (BST) and Milliseconds: 714
+About to Upload the File DJI_0034.JPG at Path tmp/092debae-54a8-40c5-8829-da656a2d76f7,  Thu Sep 24 2020 04:17:53 GMT+0100 (BST) and Milliseconds: 715
+About to Upload the File DJI_0035.JPG at Path tmp/092debae-54a8-40c5-8829-da656a2d76f7,  Thu Sep 24 2020 04:17:53 GMT+0100 (BST) and Milliseconds: 716
+About to Upload the File seed.zip at Path tmp/092debae-54a8-40c5-8829-da656a2d76f7,  Thu Sep 24 2020 04:17:53 GMT+0100 (BST) and Milliseconds: 716
+[Thu, 24 Sep 2020 03:17:53 GMT] HTTP/Method: POST URL: /task/new/upload/092debae-54a8-40c5-8829-da656a2d76f7?token= Status: 200 - 16 bytes - 57.137 ms
+[Thu, 24 Sep 2020 03:17:53 GMT] HTTP/Method: POST URL: /task/new/upload/092debae-54a8-40c5-8829-da656a2d76f7?token= Status: 200 - 16 bytes - 45.816 ms
+[Thu, 24 Sep 2020 03:17:53 GMT] HTTP/Method: POST URL: /task/new/upload/092debae-54a8-40c5-8829-da656a2d76f7?token= Status: 200 - 16 bytes - 53.924 ms
+[Thu, 24 Sep 2020 03:17:53 GMT] HTTP/Method: POST URL: /task/new/upload/092debae-54a8-40c5-8829-da656a2d76f7?token= Status: 200 - 16 bytes - 52.932 ms
+[Thu, 24 Sep 2020 03:17:53 GMT] HTTP/Method: POST URL: /task/new/upload/092debae-54a8-40c5-8829-da656a2d76f7?token= Status: 200 - 16 bytes - 51.862 ms
+[Thu, 24 Sep 2020 03:17:53 GMT] HTTP/Method: POST URL: /task/new/upload/092debae-54a8-40c5-8829-da656a2d76f7?token= Status: 200 - 16 bytes - 50.794 ms
+Created Task in TaskNew.js Thu Sep 24 2020 04:17:53 GMT+0100 (BST)  and Milliseconds: 826
+info: About to run in odm Runner.js: /home/pi/testODM/ODM/run.sh --orthophoto-cutline --dem-euclidean-map --skip-3dmodel --project-path /home/pi/testODM/ODM/NodeODM2/nodeodm/data 092debae-54a8-40c5-8829-da656a2d76f7
+Going to Run command in odm Runner.js Thu Sep 24 2020 04:17:53 GMT+0100 (BST) and Milliseconds: 828
+[Thu, 24 Sep 2020 03:17:53 GMT] HTTP/Method: POST URL: /task/new/commit/092debae-54a8-40c5-8829-da656a2d76f7?token= Status: 200 - 47 bytes - 104.062 ms
+[Thu, 24 Sep 2020 03:17:56 GMT] HTTP/Method: GET URL: /task/092debae-54a8-40c5-8829-da656a2d76f7/info Status: 200 - 323 bytes - 0.574 ms
+[Thu, 24 Sep 2020 03:17:59 GMT] HTTP/Method: GET URL: /task/092debae-54a8-40c5-8829-da656a2d76f7/info Status: 200 - 325 bytes - 0.754 ms
+[Thu, 24 Sep 2020 03:18:02 GMT] HTTP/Method: GET URL: /task/092debae-54a8-40c5-8829-da656a2d76f7/info Status: 200 - 325 bytes - 0.973 ms
+[Thu, 24 Sep 2020 03:18:05 GMT] HTTP/Method: GET URL: /task/092debae-54a8-40c5-8829-da656a2d76f7/info Status: 200 - 326 bytes - 1.141 ms
+[Thu, 24 Sep 2020 03:18:08 GMT] HTTP/Method: GET URL: /task/092debae-54a8-40c5-8829-da656a2d76f7/info Status: 200 - 326 bytes - 0.840 ms
+[Thu, 24 Sep 2020 03:18:11 GMT] HTTP/Method: GET URL: /task/092debae-54a8-40c5-8829-da656a2d76f7/info Status: 200 - 326 bytes - 1.538 ms
+[Thu, 24 Sep 2020 03:18:14 GMT] HTTP/Method: GET URL: /info Status: 200 - 182 bytes - 30.841 ms
+[Thu, 24 Sep 2020 03:18:14 GMT] HTTP/Method: GET URL: /task/092debae-54a8-40c5-8829-da656a2d76f7/info Status: 200 - 326 bytes - 0.627 ms
+[Thu, 24 Sep 2020 03:18:17 GMT] HTTP/Method: GET URL: /task/092debae-54a8-40c5-8829-da656a2d76f7/info Status: 200 - 326 bytes - 0.547 ms
+[Thu, 24 Sep 2020 03:18:20 GMT] HTTP/Method: GET URL: /task/092debae-54a8-40c5-8829-da656a2d76f7/info Status: 200 - 327 bytes - 0.481 ms
+[Thu, 24 Sep 2020 03:18:23 GMT] HTTP/Method: GET URL: /task/092debae-54a8-40c5-8829-da656a2d76f7/info Status: 200 - 327 bytes - 0.497 ms
+[Thu, 24 Sep 2020 03:18:26 GMT] HTTP/Method: GET URL: /task/092debae-54a8-40c5-8829-da656a2d76f7/info Status: 200 - 327 bytes - 0.543 ms
+[Thu, 24 Sep 2020 03:18:29 GMT] HTTP/Method: GET URL: /task/092debae-54a8-40c5-8829-da656a2d76f7/info Status: 200 - 327 bytes - 0.481 ms
+Task.js paths to archive to send back to original Node
+[ 'opensfm/matches',
+  'opensfm/features',
+  'opensfm/reconstruction.json',
+  'opensfm/tracks.csv',
+  'cameras.json' ]
+info: About to run in processRunner.js: 7z a -mx=0 -r -bd /home/pi/testODM/ODM/NodeODM2/nodeodm/data/092debae-54a8-40c5-8829-da656a2d76f7/all.zip opensfm/matches opensfm/features opensfm/reconstruction.json opensfm/tracks.csv cameras.json
+Current Time is now Thu Sep 24 2020 04:18:32 GMT+0100 (BST) and Milliseconds:562
+[Thu, 24 Sep 2020 03:18:32 GMT] HTTP/Method: GET URL: /task/092debae-54a8-40c5-8829-da656a2d76f7/info Status: 200 - 326 bytes - 0.586 ms
+[Thu, 24 Sep 2020 03:18:32 GMT] HTTP/Method: GET URL: /task/092debae-54a8-40c5-8829-da656a2d76f7/info Status: 200 - 326 bytes - 0.473 ms
+Filestream pipe has ran to Download Dataset Thu Sep 24 2020 04:18:32 GMT+0100 (BST) and Milliseconds: 995
+[Thu, 24 Sep 2020 03:18:33 GMT] HTTP/Method: GET URL: /task/092debae-54a8-40c5-8829-da656a2d76f7/download/all.zip Status: 200 - 2452419 bytes - 1.945 ms
+Task is now being Removed Thu Sep 24 2020 04:18:33 GMT+0100 (BST) and Milliseconds: 146
+[Thu, 24 Sep 2020 03:18:33 GMT] HTTP/Method: POST URL: /task/remove Status: 200 - 16 bytes - 36.356 ms
+[Thu, 24 Sep 2020 03:18:35 GMT] HTTP/Method: GET URL: /options Status: 200 - 17240 bytes - 2.316 ms
+[Thu, 24 Sep 2020 03:18:35 GMT] HTTP/Method: GET URL: /info Status: 200 - 182 bytes - 55.961 ms
+[Thu, 24 Sep 2020 03:18:35 GMT] HTTP/Method: GET URL: /options Status: 200 - 17240 bytes - 2.252 ms
+Current Time in handle initialization in taskNew.js,  Thu Sep 24 2020 04:18:35 GMT+0100 (BST) and Milliseconds: 243
+Request Body in handle init in taskNew.js [{"name":"orthophoto-cutline","value":true},{"name":"dem-euclidean-map","value":true},{"name":"skip-3dmodel","value":true}]
+[Thu, 24 Sep 2020 03:18:35 GMT] HTTP/Method: POST URL: /task/new/init?token= Status: 200 - 47 bytes - 18.677 ms
+About to Upload the File DJI_0021.JPG at Path tmp/78ab506b-b385-4411-a3ed-23523e4f0208,  Thu Sep 24 2020 04:18:35 GMT+0100 (BST) and Milliseconds: 267
+About to Upload the File DJI_0022.JPG at Path tmp/78ab506b-b385-4411-a3ed-23523e4f0208,  Thu Sep 24 2020 04:18:35 GMT+0100 (BST) and Milliseconds: 305
+About to Upload the File DJI_0023.JPG at Path tmp/78ab506b-b385-4411-a3ed-23523e4f0208,  Thu Sep 24 2020 04:18:35 GMT+0100 (BST) and Milliseconds: 306
+About to Upload the File DJI_0024.JPG at Path tmp/78ab506b-b385-4411-a3ed-23523e4f0208,  Thu Sep 24 2020 04:18:35 GMT+0100 (BST) and Milliseconds: 306
+About to Upload the File DJI_0025.JPG at Path tmp/78ab506b-b385-4411-a3ed-23523e4f0208,  Thu Sep 24 2020 04:18:35 GMT+0100 (BST) and Milliseconds: 307
+About to Upload the File DJI_0026.JPG at Path tmp/78ab506b-b385-4411-a3ed-23523e4f0208,  Thu Sep 24 2020 04:18:35 GMT+0100 (BST) and Milliseconds: 307
+About to Upload the File seed.zip at Path tmp/78ab506b-b385-4411-a3ed-23523e4f0208,  Thu Sep 24 2020 04:18:35 GMT+0100 (BST) and Milliseconds: 315
+[Thu, 24 Sep 2020 03:18:35 GMT] HTTP/Method: GET URL: /options Status: 200 - 17240 bytes - 1.031 ms
+[Thu, 24 Sep 2020 03:18:35 GMT] HTTP/Method: POST URL: /task/new/upload/78ab506b-b385-4411-a3ed-23523e4f0208?token= Status: 200 - 16 bytes - 66.133 ms
+[Thu, 24 Sep 2020 03:18:35 GMT] HTTP/Method: POST URL: /task/new/upload/78ab506b-b385-4411-a3ed-23523e4f0208?token= Status: 200 - 16 bytes - 54.884 ms
+[Thu, 24 Sep 2020 03:18:35 GMT] HTTP/Method: POST URL: /task/new/upload/78ab506b-b385-4411-a3ed-23523e4f0208?token= Status: 200 - 16 bytes - 56.967 ms
+[Thu, 24 Sep 2020 03:18:35 GMT] HTTP/Method: POST URL: /task/new/upload/78ab506b-b385-4411-a3ed-23523e4f0208?token= Status: 200 - 16 bytes - 54.218 ms
+[Thu, 24 Sep 2020 03:18:35 GMT] HTTP/Method: POST URL: /task/new/upload/78ab506b-b385-4411-a3ed-23523e4f0208?token= Status: 200 - 16 bytes - 53.103 ms
+[Thu, 24 Sep 2020 03:18:35 GMT] HTTP/Method: POST URL: /task/new/upload/78ab506b-b385-4411-a3ed-23523e4f0208?token= Status: 200 - 16 bytes - 53.878 ms
+[Thu, 24 Sep 2020 03:18:35 GMT] HTTP/Method: POST URL: /task/new/upload/78ab506b-b385-4411-a3ed-23523e4f0208?token= Status: 200 - 16 bytes - 52.886 ms
+Created Task in TaskNew.js Thu Sep 24 2020 04:18:35 GMT+0100 (BST)  and Milliseconds: 374
+info: About to run in odm Runner.js: /home/pi/testODM/ODM/run.sh --orthophoto-cutline --dem-euclidean-map --skip-3dmodel --project-path /home/pi/testODM/ODM/NodeODM2/nodeodm/data 78ab506b-b385-4411-a3ed-23523e4f0208
+Going to Run command in odm Runner.js Thu Sep 24 2020 04:18:35 GMT+0100 (BST) and Milliseconds: 376
+[Thu, 24 Sep 2020 03:18:35 GMT] HTTP/Method: POST URL: /task/new/commit/78ab506b-b385-4411-a3ed-23523e4f0208?token= Status: 200 - 47 bytes - 54.502 ms
+[Thu, 24 Sep 2020 03:18:35 GMT] HTTP/Method: GET URL: /info Status: 200 - 182 bytes - 29.319 ms
+[Thu, 24 Sep 2020 03:18:35 GMT] HTTP/Method: GET URL: /options Status: 200 - 17240 bytes - 1.139 ms
+Current Time in handle initialization in taskNew.js,  Thu Sep 24 2020 04:18:35 GMT+0100 (BST) and Milliseconds: 462
+Request Body in handle init in taskNew.js [{"name":"orthophoto-cutline","value":true},{"name":"dem-euclidean-map","value":true},{"name":"skip-3dmodel","value":true}]
+[Thu, 24 Sep 2020 03:18:35 GMT] HTTP/Method: POST URL: /task/new/init?token= Status: 200 - 47 bytes - 6.896 ms
+About to Upload the File DJI_0032.JPG at Path tmp/98ad9b9a-10b1-4fde-b134-81d42b3d50c4,  Thu Sep 24 2020 04:18:35 GMT+0100 (BST) and Milliseconds: 483
+About to Upload the File DJI_0033.JPG at Path tmp/98ad9b9a-10b1-4fde-b134-81d42b3d50c4,  Thu Sep 24 2020 04:18:35 GMT+0100 (BST) and Milliseconds: 483
+About to Upload the File DJI_0034.JPG at Path tmp/98ad9b9a-10b1-4fde-b134-81d42b3d50c4,  Thu Sep 24 2020 04:18:35 GMT+0100 (BST) and Milliseconds: 484
+About to Upload the File DJI_0031.JPG at Path tmp/98ad9b9a-10b1-4fde-b134-81d42b3d50c4,  Thu Sep 24 2020 04:18:35 GMT+0100 (BST) and Milliseconds: 484
+About to Upload the File DJI_0035.JPG at Path tmp/98ad9b9a-10b1-4fde-b134-81d42b3d50c4,  Thu Sep 24 2020 04:18:35 GMT+0100 (BST) and Milliseconds: 490
+About to Upload the File seed.zip at Path tmp/98ad9b9a-10b1-4fde-b134-81d42b3d50c4,  Thu Sep 24 2020 04:18:35 GMT+0100 (BST) and Milliseconds: 494
+[Thu, 24 Sep 2020 03:18:35 GMT] HTTP/Method: POST URL: /task/new/upload/98ad9b9a-10b1-4fde-b134-81d42b3d50c4?token= Status: 200 - 16 bytes - 30.607 ms
+[Thu, 24 Sep 2020 03:18:35 GMT] HTTP/Method: POST URL: /task/new/upload/98ad9b9a-10b1-4fde-b134-81d42b3d50c4?token= Status: 200 - 16 bytes - 30.261 ms
+[Thu, 24 Sep 2020 03:18:35 GMT] HTTP/Method: POST URL: /task/new/upload/98ad9b9a-10b1-4fde-b134-81d42b3d50c4?token= Status: 200 - 16 bytes - 30.154 ms
+[Thu, 24 Sep 2020 03:18:35 GMT] HTTP/Method: POST URL: /task/new/upload/98ad9b9a-10b1-4fde-b134-81d42b3d50c4?token= Status: 200 - 16 bytes - 33.753 ms
+[Thu, 24 Sep 2020 03:18:35 GMT] HTTP/Method: POST URL: /task/new/upload/98ad9b9a-10b1-4fde-b134-81d42b3d50c4?token= Status: 200 - 16 bytes - 23.135 ms
+[Thu, 24 Sep 2020 03:18:35 GMT] HTTP/Method: POST URL: /task/new/upload/98ad9b9a-10b1-4fde-b134-81d42b3d50c4?token= Status: 200 - 16 bytes - 23.521 ms
+Created Task in TaskNew.js Thu Sep 24 2020 04:18:35 GMT+0100 (BST)  and Milliseconds: 559
+[Thu, 24 Sep 2020 03:18:35 GMT] HTTP/Method: POST URL: /task/new/commit/98ad9b9a-10b1-4fde-b134-81d42b3d50c4?token= Status: 200 - 47 bytes - 53.176 ms
+[Thu, 24 Sep 2020 03:18:38 GMT] HTTP/Method: GET URL: /task/78ab506b-b385-4411-a3ed-23523e4f0208/info Status: 200 - 323 bytes - 0.526 ms
+[Thu, 24 Sep 2020 03:18:38 GMT] HTTP/Method: GET URL: /task/98ad9b9a-10b1-4fde-b134-81d42b3d50c4/info Status: 200 - 321 bytes - 0.645 ms
+[Thu, 24 Sep 2020 03:18:38 GMT] HTTP/Method: GET URL: /task/78ab506b-b385-4411-a3ed-23523e4f0208/info?with_output=-3 Status: 200 - 796 bytes - 0.855 ms
+[Thu, 24 Sep 2020 03:18:38 GMT] HTTP/Method: GET URL: /task/98ad9b9a-10b1-4fde-b134-81d42b3d50c4/info?with_output=-3 Status: 200 - 333 bytes - 0.658 ms
+Task is now being Removed Thu Sep 24 2020 04:18:38 GMT+0100 (BST) and Milliseconds: 512
+[Thu, 24 Sep 2020 03:18:38 GMT] HTTP/Method: POST URL: /task/remove Status: 200 - 16 bytes - 12.412 ms
+[Thu, 24 Sep 2020 03:18:41 GMT] HTTP/Method: GET URL: /task/78ab506b-b385-4411-a3ed-23523e4f0208/info Status: 200 - 327 bytes - 0.947 ms
+[Thu, 24 Sep 2020 03:18:44 GMT] HTTP/Method: GET URL: /task/78ab506b-b385-4411-a3ed-23523e4f0208/info Status: 200 - 327 bytes - 0.989 ms
+[Thu, 24 Sep 2020 03:18:47 GMT] HTTP/Method: GET URL: /task/78ab506b-b385-4411-a3ed-23523e4f0208/info Status: 200 - 325 bytes - 0.926 ms
+[Thu, 24 Sep 2020 03:18:50 GMT] HTTP/Method: GET URL: /task/78ab506b-b385-4411-a3ed-23523e4f0208/info Status: 200 - 328 bytes - 0.789 ms
+[Thu, 24 Sep 2020 03:18:53 GMT] HTTP/Method: GET URL: /task/78ab506b-b385-4411-a3ed-23523e4f0208/info Status: 200 - 328 bytes - 0.484 ms
+[Thu, 24 Sep 2020 03:18:56 GMT] HTTP/Method: GET URL: /task/78ab506b-b385-4411-a3ed-23523e4f0208/info Status: 200 - 328 bytes - 0.511 ms
+[Thu, 24 Sep 2020 03:18:59 GMT] HTTP/Method: GET URL: /task/78ab506b-b385-4411-a3ed-23523e4f0208/info Status: 200 - 328 bytes - 0.491 ms
+[Thu, 24 Sep 2020 03:19:02 GMT] HTTP/Method: GET URL: /task/78ab506b-b385-4411-a3ed-23523e4f0208/info Status: 200 - 328 bytes - 0.477 ms
+[Thu, 24 Sep 2020 03:19:05 GMT] HTTP/Method: GET URL: /task/78ab506b-b385-4411-a3ed-23523e4f0208/info Status: 200 - 328 bytes - 0.470 ms
+[Thu, 24 Sep 2020 03:19:08 GMT] HTTP/Method: GET URL: /task/78ab506b-b385-4411-a3ed-23523e4f0208/info Status: 200 - 325 bytes - 0.467 ms
+[Thu, 24 Sep 2020 03:19:11 GMT] HTTP/Method: GET URL: /task/78ab506b-b385-4411-a3ed-23523e4f0208/info Status: 200 - 327 bytes - 0.508 ms
+[Thu, 24 Sep 2020 03:19:14 GMT] HTTP/Method: GET URL: /info Status: 200 - 182 bytes - 29.600 ms
+[Thu, 24 Sep 2020 03:19:14 GMT] HTTP/Method: GET URL: /task/78ab506b-b385-4411-a3ed-23523e4f0208/info Status: 200 - 325 bytes - 1.862 ms
+[Thu, 24 Sep 2020 03:19:17 GMT] HTTP/Method: GET URL: /task/78ab506b-b385-4411-a3ed-23523e4f0208/info Status: 200 - 325 bytes - 0.468 ms
+[Thu, 24 Sep 2020 03:19:20 GMT] HTTP/Method: GET URL: /task/78ab506b-b385-4411-a3ed-23523e4f0208/info Status: 200 - 325 bytes - 0.557 ms
+[Thu, 24 Sep 2020 03:19:23 GMT] HTTP/Method: GET URL: /task/78ab506b-b385-4411-a3ed-23523e4f0208/info Status: 200 - 325 bytes - 0.471 ms
+[Thu, 24 Sep 2020 03:19:26 GMT] HTTP/Method: GET URL: /task/78ab506b-b385-4411-a3ed-23523e4f0208/info Status: 200 - 325 bytes - 0.521 ms
+[Thu, 24 Sep 2020 03:19:29 GMT] HTTP/Method: GET URL: /task/78ab506b-b385-4411-a3ed-23523e4f0208/info Status: 200 - 325 bytes - 0.489 ms
+[Thu, 24 Sep 2020 03:19:32 GMT] HTTP/Method: GET URL: /task/78ab506b-b385-4411-a3ed-23523e4f0208/info Status: 200 - 325 bytes - 0.458 ms
+[Thu, 24 Sep 2020 03:19:35 GMT] HTTP/Method: GET URL: /task/78ab506b-b385-4411-a3ed-23523e4f0208/info Status: 200 - 325 bytes - 0.557 ms
+[Thu, 24 Sep 2020 03:19:38 GMT] HTTP/Method: GET URL: /task/78ab506b-b385-4411-a3ed-23523e4f0208/info Status: 200 - 325 bytes - 0.538 ms
+Task.js paths to archive to send back to original Node
+[ 'odm_orthophoto/odm_orthophoto.tif',
+  'odm_orthophoto/cutline.gpkg',
+  'odm_orthophoto/odm_orthophoto_cut.tif',
+  'odm_orthophoto/odm_orthophoto_feathered.tif',
+  'odm_dem',
+  'odm_meshing',
+  'odm_texturing_25d',
+  'odm_filterpoints',
+  'mve',
+  'odm_report',
+  'odm_georeferencing',
+  'odm_georeferencing_25d',
+  'mve' ]
+info: About to run in processRunner.js: 7z a -mx=0 -r -bd /home/pi/testODM/ODM/NodeODM2/nodeodm/data/78ab506b-b385-4411-a3ed-23523e4f0208/all.zip odm_orthophoto/odm_orthophoto.tif odm_orthophoto/cutline.gpkg odm_orthophoto/odm_orthophoto_cut.tif odm_orthophoto/odm_orthophoto_feathered.tif odm_dem odm_meshing odm_texturing_25d odm_filterpoints mve odm_report odm_georeferencing odm_georeferencing_25d mve
+Current Time is now Thu Sep 24 2020 04:19:41 GMT+0100 (BST) and Milliseconds:280
+[Thu, 24 Sep 2020 03:19:41 GMT] HTTP/Method: GET URL: /task/78ab506b-b385-4411-a3ed-23523e4f0208/info Status: 200 - 326 bytes - 0.560 ms
+[Thu, 24 Sep 2020 03:19:41 GMT] HTTP/Method: GET URL: /task/78ab506b-b385-4411-a3ed-23523e4f0208/info Status: 200 - 326 bytes - 0.437 ms
+Filestream pipe has ran to Download Dataset Thu Sep 24 2020 04:19:41 GMT+0100 (BST) and Milliseconds: 574
+[Thu, 24 Sep 2020 03:19:41 GMT] HTTP/Method: GET URL: /task/78ab506b-b385-4411-a3ed-23523e4f0208/download/all.zip Status: 200 - 9157151 bytes - 1.921 ms
+Task is now being Removed Thu Sep 24 2020 04:19:42 GMT+0100 (BST) and Milliseconds: 771
+[Thu, 24 Sep 2020 03:19:42 GMT] HTTP/Method: POST URL: /task/remove Status: 200 - 16 bytes - 117.272 ms
+[Thu, 24 Sep 2020 03:19:44 GMT] HTTP/Method: GET URL: /options Status: 200 - 17240 bytes - 6.904 ms
+[Thu, 24 Sep 2020 03:19:44 GMT] HTTP/Method: GET URL: /info Status: 200 - 182 bytes - 59.127 ms
+[Thu, 24 Sep 2020 03:19:44 GMT] HTTP/Method: GET URL: /options Status: 200 - 17240 bytes - 2.218 ms
+Current Time in handle initialization in taskNew.js,  Thu Sep 24 2020 04:19:44 GMT+0100 (BST) and Milliseconds: 841
+Request Body in handle init in taskNew.js [{"name":"orthophoto-cutline","value":true},{"name":"dem-euclidean-map","value":true},{"name":"skip-3dmodel","value":true}]
+[Thu, 24 Sep 2020 03:19:44 GMT] HTTP/Method: POST URL: /task/new/init?token= Status: 200 - 47 bytes - 20.014 ms
+About to Upload the File DJI_0031.JPG at Path tmp/d51473ea-b17e-44f1-867b-43fce6ee4e5e,  Thu Sep 24 2020 04:19:44 GMT+0100 (BST) and Milliseconds: 859
+About to Upload the File DJI_0032.JPG at Path tmp/d51473ea-b17e-44f1-867b-43fce6ee4e5e,  Thu Sep 24 2020 04:19:44 GMT+0100 (BST) and Milliseconds: 876
+About to Upload the File DJI_0033.JPG at Path tmp/d51473ea-b17e-44f1-867b-43fce6ee4e5e,  Thu Sep 24 2020 04:19:44 GMT+0100 (BST) and Milliseconds: 876
+About to Upload the File DJI_0034.JPG at Path tmp/d51473ea-b17e-44f1-867b-43fce6ee4e5e,  Thu Sep 24 2020 04:19:44 GMT+0100 (BST) and Milliseconds: 877
+About to Upload the File DJI_0035.JPG at Path tmp/d51473ea-b17e-44f1-867b-43fce6ee4e5e,  Thu Sep 24 2020 04:19:44 GMT+0100 (BST) and Milliseconds: 877
+About to Upload the File seed.zip at Path tmp/d51473ea-b17e-44f1-867b-43fce6ee4e5e,  Thu Sep 24 2020 04:19:44 GMT+0100 (BST) and Milliseconds: 893
+[Thu, 24 Sep 2020 03:19:44 GMT] HTTP/Method: POST URL: /task/new/upload/d51473ea-b17e-44f1-867b-43fce6ee4e5e?token= Status: 200 - 16 bytes - 46.700 ms
+[Thu, 24 Sep 2020 03:19:44 GMT] HTTP/Method: POST URL: /task/new/upload/d51473ea-b17e-44f1-867b-43fce6ee4e5e?token= Status: 200 - 16 bytes - 41.317 ms
+[Thu, 24 Sep 2020 03:19:44 GMT] HTTP/Method: POST URL: /task/new/upload/d51473ea-b17e-44f1-867b-43fce6ee4e5e?token= Status: 200 - 16 bytes - 41.041 ms
+[Thu, 24 Sep 2020 03:19:44 GMT] HTTP/Method: POST URL: /task/new/upload/d51473ea-b17e-44f1-867b-43fce6ee4e5e?token= Status: 200 - 16 bytes - 40.758 ms
+[Thu, 24 Sep 2020 03:19:44 GMT] HTTP/Method: POST URL: /task/new/upload/d51473ea-b17e-44f1-867b-43fce6ee4e5e?token= Status: 200 - 16 bytes - 40.377 ms
+[Thu, 24 Sep 2020 03:19:44 GMT] HTTP/Method: POST URL: /task/new/upload/d51473ea-b17e-44f1-867b-43fce6ee4e5e?token= Status: 200 - 16 bytes - 42.311 ms
+Created Task in TaskNew.js Thu Sep 24 2020 04:19:44 GMT+0100 (BST)  and Milliseconds: 954
+info: About to run in odm Runner.js: /home/pi/testODM/ODM/run.sh --orthophoto-cutline --dem-euclidean-map --skip-3dmodel --project-path /home/pi/testODM/ODM/NodeODM2/nodeodm/data d51473ea-b17e-44f1-867b-43fce6ee4e5e
+Going to Run command in odm Runner.js Thu Sep 24 2020 04:19:44 GMT+0100 (BST) and Milliseconds: 956
+[Thu, 24 Sep 2020 03:19:44 GMT] HTTP/Method: POST URL: /task/new/commit/d51473ea-b17e-44f1-867b-43fce6ee4e5e?token= Status: 200 - 47 bytes - 58.136 ms
+[Thu, 24 Sep 2020 03:19:47 GMT] HTTP/Method: GET URL: /task/d51473ea-b17e-44f1-867b-43fce6ee4e5e/info Status: 200 - 323 bytes - 0.533 ms
+[Thu, 24 Sep 2020 03:19:50 GMT] HTTP/Method: GET URL: /task/d51473ea-b17e-44f1-867b-43fce6ee4e5e/info Status: 200 - 327 bytes - 0.978 ms
+[Thu, 24 Sep 2020 03:19:53 GMT] HTTP/Method: GET URL: /task/d51473ea-b17e-44f1-867b-43fce6ee4e5e/info Status: 200 - 327 bytes - 0.837 ms
+[Thu, 24 Sep 2020 03:19:56 GMT] HTTP/Method: GET URL: /task/d51473ea-b17e-44f1-867b-43fce6ee4e5e/info Status: 200 - 325 bytes - 0.657 ms
+[Thu, 24 Sep 2020 03:19:59 GMT] HTTP/Method: GET URL: /task/d51473ea-b17e-44f1-867b-43fce6ee4e5e/info Status: 200 - 327 bytes - 0.485 ms
+[Thu, 24 Sep 2020 03:20:02 GMT] HTTP/Method: GET URL: /task/d51473ea-b17e-44f1-867b-43fce6ee4e5e/info Status: 200 - 328 bytes - 0.456 ms
+[Thu, 24 Sep 2020 03:20:05 GMT] HTTP/Method: GET URL: /task/d51473ea-b17e-44f1-867b-43fce6ee4e5e/info Status: 200 - 328 bytes - 0.478 ms
+[Thu, 24 Sep 2020 03:20:08 GMT] HTTP/Method: GET URL: /task/d51473ea-b17e-44f1-867b-43fce6ee4e5e/info Status: 200 - 328 bytes - 0.464 ms
+[Thu, 24 Sep 2020 03:20:11 GMT] HTTP/Method: GET URL: /task/d51473ea-b17e-44f1-867b-43fce6ee4e5e/info Status: 200 - 328 bytes - 0.469 ms
+[Thu, 24 Sep 2020 03:20:14 GMT] HTTP/Method: GET URL: /info Status: 200 - 182 bytes - 36.368 ms
+[Thu, 24 Sep 2020 03:20:14 GMT] HTTP/Method: GET URL: /task/d51473ea-b17e-44f1-867b-43fce6ee4e5e/info Status: 200 - 328 bytes - 0.560 ms
+[Thu, 24 Sep 2020 03:20:17 GMT] HTTP/Method: GET URL: /task/d51473ea-b17e-44f1-867b-43fce6ee4e5e/info Status: 200 - 328 bytes - 0.446 ms
+[Thu, 24 Sep 2020 03:20:20 GMT] HTTP/Method: GET URL: /task/d51473ea-b17e-44f1-867b-43fce6ee4e5e/info Status: 200 - 328 bytes - 0.463 ms
+[Thu, 24 Sep 2020 03:20:24 GMT] HTTP/Method: GET URL: /task/d51473ea-b17e-44f1-867b-43fce6ee4e5e/info Status: 200 - 325 bytes - 0.474 ms
+[Thu, 24 Sep 2020 03:20:27 GMT] HTTP/Method: GET URL: /task/d51473ea-b17e-44f1-867b-43fce6ee4e5e/info Status: 200 - 327 bytes - 0.494 ms
+[Thu, 24 Sep 2020 03:20:30 GMT] HTTP/Method: GET URL: /task/d51473ea-b17e-44f1-867b-43fce6ee4e5e/info Status: 200 - 325 bytes - 1.265 ms
+[Thu, 24 Sep 2020 03:20:33 GMT] HTTP/Method: GET URL: /task/d51473ea-b17e-44f1-867b-43fce6ee4e5e/info Status: 200 - 325 bytes - 0.456 ms
+[Thu, 24 Sep 2020 03:20:36 GMT] HTTP/Method: GET URL: /task/d51473ea-b17e-44f1-867b-43fce6ee4e5e/info Status: 200 - 325 bytes - 0.531 ms
+[Thu, 24 Sep 2020 03:20:39 GMT] HTTP/Method: GET URL: /task/d51473ea-b17e-44f1-867b-43fce6ee4e5e/info Status: 200 - 325 bytes - 0.518 ms
+[Thu, 24 Sep 2020 03:20:42 GMT] HTTP/Method: GET URL: /task/d51473ea-b17e-44f1-867b-43fce6ee4e5e/info Status: 200 - 325 bytes - 0.508 ms
+[Thu, 24 Sep 2020 03:20:45 GMT] HTTP/Method: GET URL: /task/d51473ea-b17e-44f1-867b-43fce6ee4e5e/info Status: 200 - 325 bytes - 0.626 ms
+[Thu, 24 Sep 2020 03:20:48 GMT] HTTP/Method: GET URL: /task/d51473ea-b17e-44f1-867b-43fce6ee4e5e/info Status: 200 - 325 bytes - 0.531 ms
+[Thu, 24 Sep 2020 03:20:51 GMT] HTTP/Method: GET URL: /task/d51473ea-b17e-44f1-867b-43fce6ee4e5e/info Status: 200 - 325 bytes - 0.516 ms
+[Thu, 24 Sep 2020 03:20:54 GMT] HTTP/Method: GET URL: /task/d51473ea-b17e-44f1-867b-43fce6ee4e5e/info Status: 200 - 325 bytes - 0.557 ms
+[Thu, 24 Sep 2020 03:20:57 GMT] HTTP/Method: GET URL: /task/d51473ea-b17e-44f1-867b-43fce6ee4e5e/info Status: 200 - 327 bytes - 0.483 ms
+Task.js paths to archive to send back to original Node
+[ 'odm_orthophoto/odm_orthophoto.tif',
+  'odm_orthophoto/cutline.gpkg',
+  'odm_orthophoto/odm_orthophoto_cut.tif',
+  'odm_orthophoto/odm_orthophoto_feathered.tif',
+  'odm_dem',
+  'odm_meshing',
+  'odm_texturing_25d',
+  'odm_filterpoints',
+  'mve',
+  'odm_report',
+  'odm_georeferencing',
+  'odm_georeferencing_25d',
+  'mve' ]
+info: About to run in processRunner.js: 7z a -mx=0 -r -bd /home/pi/testODM/ODM/NodeODM2/nodeodm/data/d51473ea-b17e-44f1-867b-43fce6ee4e5e/all.zip odm_orthophoto/odm_orthophoto.tif odm_orthophoto/cutline.gpkg odm_orthophoto/odm_orthophoto_cut.tif odm_orthophoto/odm_orthophoto_feathered.tif odm_dem odm_meshing odm_texturing_25d odm_filterpoints mve odm_report odm_georeferencing odm_georeferencing_25d mve
+Current Time is now Thu Sep 24 2020 04:20:57 GMT+0100 (BST) and Milliseconds:747
+[Thu, 24 Sep 2020 03:21:00 GMT] HTTP/Method: GET URL: /task/d51473ea-b17e-44f1-867b-43fce6ee4e5e/info Status: 200 - 326 bytes - 1.183 ms
+[Thu, 24 Sep 2020 03:21:00 GMT] HTTP/Method: GET URL: /task/d51473ea-b17e-44f1-867b-43fce6ee4e5e/info Status: 200 - 326 bytes - 1.500 ms
+Filestream pipe has ran to Download Dataset Thu Sep 24 2020 04:21:00 GMT+0100 (BST) and Milliseconds: 186
+[Thu, 24 Sep 2020 03:21:00 GMT] HTTP/Method: GET URL: /task/d51473ea-b17e-44f1-867b-43fce6ee4e5e/download/all.zip Status: 200 - 9390338 bytes - 4.014 ms
+Task is now being Removed Thu Sep 24 2020 04:21:00 GMT+0100 (BST) and Milliseconds: 592
+[Thu, 24 Sep 2020 03:21:00 GMT] HTTP/Method: POST URL: /task/remove Status: 200 - 16 bytes - 119.009 ms
+[Thu, 24 Sep 2020 03:21:14 GMT] HTTP/Method: GET URL: /info Status: 200 - 182 bytes - 62.936 ms
+[Thu, 24 Sep 2020 03:22:14 GMT] HTTP/Method: GET URL: /info Status: 200 - 182 bytes - 61.311 ms
+[Thu, 24 Sep 2020 03:23:14 GMT] HTTP/Method: GET URL: /info Status: 200 - 182 bytes - 60.090 ms
+[Thu, 24 Sep 2020 03:24:14 GMT] HTTP/Method: GET URL: /info Status: 200 - 182 bytes - 59.286 ms
+[Thu, 24 Sep 2020 03:25:14 GMT] HTTP/Method: GET URL: /info Status: 200 - 182 bytes - 59.145 ms
+[Thu, 24 Sep 2020 03:26:14 GMT] HTTP/Method: GET URL: /info Status: 200 - 182 bytes - 50.813 ms
+[Thu, 24 Sep 2020 03:27:14 GMT] HTTP/Method: GET URL: /info Status: 200 - 182 bytes - 51.048 ms
+[Thu, 24 Sep 2020 03:28:14 GMT] HTTP/Method: GET URL: /info Status: 200 - 182 bytes - 59.650 ms
+[Thu, 24 Sep 2020 03:29:14 GMT] HTTP/Method: GET URL: /info Status: 200 - 182 bytes - 51.367 ms
+

@@ -1,0 +1,2425 @@
+pi@raspberrypi:~/test/ODM $ ls
+build               datasets      licenses               run.sh
+CMakeLists.txt      dem2mesh.txt  modules                settings.yaml
+CNAME               docker        odm_docker_readme.txt  stages
+code_of_conduct.md  Dockerfile    opendm                 start-dev-env.sh
+configure_18_04.sh  docs          portable.Dockerfile    SuperBuild
+configure.sh        hooks         README.md              tests
+contrib             img           requirements.txt       test.sh
+CONTRIBUTING.md     LICENSE       run.py                 VERSION
+pi@raspberrypi:~/test/ODM $ cd datasets
+pi@raspberrypi:~/test/ODM/datasets $ ls
+drone_dataset_brighton_beach  exifimageresize  odm_mygla_dataset
+pi@raspberrypi:~/test/ODM/datasets $ cd drone_dataset_brighton_beach
+pi@raspberrypi:~/test/ODM/datasets/drone_dataset_brighton_beach $ ls
+images       img_list.txt        odm_georeferencing_25d  odm_report  submodels
+images.json  odm_georeferencing  odm_orthophoto          opensfm
+pi@raspberrypi:~/test/ODM/datasets/drone_dataset_brighton_beach $ rm -rf img_list.txt odm_georeferencing_25d odm_report submodels images.json odm_georeferencing odm_orthophoto opensfm
+pi@raspberrypi:~/test/ODM/datasets/drone_dataset_brighton_beach $ ls
+images
+pi@raspberrypi:~/test/ODM/datasets/drone_dataset_brighton_beach $ cd ..
+pi@raspberrypi:~/test/ODM/datasets $ cd ..
+pi@raspberrypi:~/test/ODM $ ./run.sh --split 8 --split-overlap 10 --project-path ./datasets  drone_dataset_brighton_beach --sm-cluster http://192.168.1.55:3000
+[INFO]    Initializing ODM - Thu Sep 24 00:08:27  2020
+[INFO]    ==============
+[INFO]    build_overviews: False
+[INFO]    camera_lens: auto
+[INFO]    cameras: {}
+[INFO]    crop: 3
+[INFO]    debug: False
+[INFO]    dem_decimation: 1
+[INFO]    dem_euclidean_map: False
+[INFO]    dem_gapfill_steps: 3
+[INFO]    dem_resolution: 5
+[INFO]    depthmap_resolution: 640
+[INFO]    dsm: False
+[INFO]    dtm: False
+[INFO]    end_with: odm_report
+[INFO]    fast_orthophoto: False
+[INFO]    feature_type: sift
+[INFO]    force_gps: False
+[INFO]    gcp: None
+[INFO]    gps_accuracy: 15
+[INFO]    ignore_gsd: False
+[INFO]    matcher_distance: 0
+[INFO]    matcher_neighbors: 8
+[INFO]    max_concurrency: 4
+[INFO]    merge: all
+[INFO]    mesh_octree_depth: 10
+[INFO]    mesh_point_weight: 4
+[INFO]    mesh_samples: 1.0
+[INFO]    mesh_size: 200000
+[INFO]    min_num_features: 8000
+[INFO]    mve_confidence: 0.6
+[INFO]    name: drone_dataset_brighton_beach
+[INFO]    opensfm_depthmap_method: PATCH_MATCH
+[INFO]    opensfm_depthmap_min_consistent_views: 3
+[INFO]    opensfm_depthmap_min_patch_sd: 1
+[INFO]    optimize_disk_space: False
+[INFO]    orthophoto_compression: DEFLATE
+[INFO]    orthophoto_cutline: False
+[INFO]    orthophoto_no_tiled: False
+[INFO]    orthophoto_png: False
+[INFO]    orthophoto_resolution: 5
+[INFO]    pc_classify: False
+[INFO]    pc_csv: False
+[INFO]    pc_ept: False
+[INFO]    pc_filter: 2.5
+[INFO]    pc_las: False
+[INFO]    pc_rectify: False
+[INFO]    pc_sample: 0
+[INFO]    project_path: ./datasets
+[INFO]    radiometric_calibration: none
+[INFO]    rerun: None
+[INFO]    rerun_all: False
+[INFO]    rerun_from: None
+[INFO]    resize_to: 2048
+[INFO]    skip_3dmodel: False
+[INFO]    sm_cluster: True
+[INFO]    smrf_scalar: 1.25
+[INFO]    smrf_slope: 0.15
+[INFO]    smrf_threshold: 0.5
+[INFO]    smrf_window: 18.0
+[INFO]    split: 8
+[INFO]    split_multitracks: False
+[INFO]    split_overlap: 10.0
+[INFO]    texturing_data_term: gmi
+[INFO]    texturing_keep_unseen_faces: False
+[INFO]    texturing_nadir_weight: 16
+[INFO]    texturing_outlier_removal_type: gauss_clamping
+[INFO]    texturing_skip_global_seam_leveling: False
+[INFO]    texturing_skip_hole_filling: False
+[INFO]    texturing_skip_local_seam_leveling: False
+[INFO]    texturing_skip_visibility_test: False
+[INFO]    texturing_tone_mapping: none
+[INFO]    time: False
+[INFO]    use_3dmesh: False
+[INFO]    use_exif: False
+[INFO]    use_fixed_camera_params: False
+[INFO]    use_hybrid_bundle_adjustment: False
+[INFO]    use_opensfm_dense: False
+[INFO]    verbose: False
+[INFO]    ==============
+[INFO]    Running dataset stage and start time is 2020-09-24 00:08:27.196445
+[INFO]    Loading dataset from: /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/images
+[INFO]    Loading 18 images
+[INFO]    Wrote images database: /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/images.json
+[INFO]    Found 18 usable images
+[INFO]    Parsing SRS header: WGS84 UTM 15N
+[INFO]    Finished dataset stage and end time is 2020-09-24 00:08:27.493890 
+[INFO]    Finished dataset stage
+[INFO]    Running split stage and start time is 2020-09-24 00:08:27.494157
+[INFO]    Setting max-concurrency to 3 to better handle remote splits
+[INFO]    Large dataset detected (18 photos) and split set at 8. Preparing split merge.
+[INFO]    Altitude data detected, enabling it for GPS alignment
+[INFO]    ['use_exif_size: no', 'flann_algorithm: KDTREE', 'feature_process_size: 2048', 'feature_min_frames: 8000', 'processes: 3', 'matching_gps_neighbors: 8', 'matching_gps_distance: 0', 'depthmap_method: PATCH_MATCH', 'depthmap_resolution: 640', 'depthmap_min_patch_sd: 1', 'depthmap_min_consistent_views: 3', 'optimize_camera_parameters: yes', 'undistorted_image_format: tif', 'bundle_outlier_filtering_type: AUTO', 'align_orientation_prior: vertical', 'triangulation_type: ROBUST', 'bundle_common_position_constraints: no', 'feature_type: SIFT', 'use_altitude_tag: yes', 'align_method: auto', 'local_bundle_radius: 0', 'submodels_relpath: ../submodels/opensfm', 'submodel_relpath_template: ../submodels/submodel_%04d/opensfm', 'submodel_images_relpath_template: ../submodels/submodel_%04d/images', 'submodel_size: 8', 'submodel_overlap: 10.0']
+[INFO]    running /usr/bin/env python2 /home/pi/test/ODM/SuperBuild/src/opensfm/bin/opensfm extract_metadata "/home/pi/test/ODM/datasets/drone_dataset_brighton_beach/opensfm"
+2020-09-24 00:08:29,830 INFO: Extracting EXIF for DJI_0035.JPG
+2020-09-24 00:08:29,861 INFO: Extracting EXIF for DJI_0021.JPG
+2020-09-24 00:08:29,875 INFO: Extracting EXIF for DJI_0018.JPG
+2020-09-24 00:08:29,890 INFO: Extracting EXIF for DJI_0024.JPG
+2020-09-24 00:08:29,905 INFO: Extracting EXIF for DJI_0031.JPG
+2020-09-24 00:08:29,920 INFO: Extracting EXIF for DJI_0026.JPG
+2020-09-24 00:08:29,934 INFO: Extracting EXIF for DJI_0033.JPG
+2020-09-24 00:08:29,949 INFO: Extracting EXIF for DJI_0023.JPG
+2020-09-24 00:08:29,963 INFO: Extracting EXIF for DJI_0032.JPG
+2020-09-24 00:08:29,978 INFO: Extracting EXIF for DJI_0019.JPG
+2020-09-24 00:08:29,993 INFO: Extracting EXIF for DJI_0022.JPG
+2020-09-24 00:08:30,008 INFO: Extracting EXIF for DJI_0034.JPG
+2020-09-24 00:08:30,022 INFO: Extracting EXIF for DJI_0030.JPG
+2020-09-24 00:08:30,037 INFO: Extracting EXIF for DJI_0027.JPG
+2020-09-24 00:08:30,051 INFO: Extracting EXIF for DJI_0029.JPG
+2020-09-24 00:08:30,066 INFO: Extracting EXIF for DJI_0025.JPG
+2020-09-24 00:08:30,080 INFO: Extracting EXIF for DJI_0020.JPG
+2020-09-24 00:08:30,095 INFO: Extracting EXIF for DJI_0028.JPG
+[INFO]    running /usr/bin/env python2 /home/pi/test/ODM/SuperBuild/src/opensfm/bin/opensfm create_submodels "/home/pi/test/ODM/datasets/drone_dataset_brighton_beach/opensfm"
+[INFO]    Dataset has been split into 3 submodels. Reconstructing each submodel...
+[INFO]    LRE: Initializing using cluster node 192.168.1.55:3000
+[INFO]    LRE: Node is online and running odm version 1.0.2
+[INFO]    LRE: Adding to queue /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0000
+[INFO]    LRE: Adding to queue /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0001
+[INFO]    LRE: Adding to queue /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002
+[INFO]    LRE: About to process submodel_0000 locally
+[INFO]    ==================================
+ [INFO]    LRE: About to process submodel_0001 remotely
+[INFO]    ==================================
+ [INFO]    Local Reconstruction submodel_0000
+[INFO]    ==================================
+[INFO]    running /usr/bin/env python2 /home/pi/test/ODM/SuperBuild/src/opensfm/bin/opensfm detect_features "/home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0000/opensfm"
+[INFO]    Remote OpenSfm submodel_0001 with Before Execution Current Time is  2020-09-24 00:08:33.196390
+[INFO]    ==================================
+[INFO]    ==================================
+[INFO]    Create the Remote Task of submodel_0001 with Upload Current Time is  2020-09-24 00:08:33.220782
+[INFO]    ==================================
+[INFO]    LRE: Upload of submodel_0001 at [100%]
+[INFO]    ==================================
+[INFO]    Task Creation of submodel_0001 and Upload is Complete Task with Upload Current Time is  2020-09-24 00:08:33.532458
+[INFO]    ==================================
+[INFO]    ==================================
+[INFO]    Remote OpenSfm submodel_0001 with After Execution Current Time is  2020-09-24 00:08:33.541135
+[INFO]    ==================================
+[INFO]    LRE: About to process submodel_0002 remotely
+[INFO]    ==================================
+[INFO]    Remote OpenSfm submodel_0002 with Before Execution Current Time is  2020-09-24 00:08:33.543913
+[INFO]    ==================================
+[INFO]    ==================================
+[INFO]    Create the Remote Task of submodel_0002 with Upload Current Time is  2020-09-24 00:08:33.559348
+[INFO]    ==================================
+[INFO]    LRE: Upload of submodel_0002 at [83%]
+[INFO]    LRE: Upload of submodel_0002 at [100%]
+[INFO]    ==================================
+[INFO]    Task Creation of submodel_0002 and Upload is Complete Task with Upload Current Time is  2020-09-24 00:08:33.778119
+[INFO]    ==================================
+[INFO]    ==================================
+[INFO]    Remote OpenSfm submodel_0002 with After Execution Current Time is  2020-09-24 00:08:33.787984
+[INFO]    ==================================
+[WARNING] LRE: submodel_0002 (335de494-1099-4826-92bb-352af99de892) turned from RUNNING to QUEUED. Re-adding to back of the queue.
+[WARNING] LRE: submodel_0002 failed with: Delayed task limit reached
+[INFO]    LRE: Node task limit reached. Setting max remote tasks to 1
+[INFO]    LRE: Cleaning up remote task (335de494-1099-4826-92bb-352af99de892)... OK
+[INFO]    LRE: Re-queueing submodel_0002 (retries: 0)
+2020-09-24 00:08:38,040 INFO: Extracting ROOT_SIFT features for image DJI_0018.JPG
+2020-09-24 00:08:38,050 DEBUG: Computing sift with threshold 0.1
+2020-09-24 00:08:38,220 DEBUG: Found 302 points in 0.170049190521s
+2020-09-24 00:08:38,220 DEBUG: reducing threshold
+2020-09-24 00:08:38,221 DEBUG: Computing sift with threshold 0.0666666666667
+2020-09-24 00:08:38,395 DEBUG: Found 871 points in 0.174088001251s
+2020-09-24 00:08:38,395 DEBUG: reducing threshold
+2020-09-24 00:08:38,396 DEBUG: Computing sift with threshold 0.0444444444444
+2020-09-24 00:08:38,572 DEBUG: Found 1297 points in 0.176277160645s
+2020-09-24 00:08:38,572 DEBUG: reducing threshold
+2020-09-24 00:08:38,573 DEBUG: Computing sift with threshold 0.0296296296296
+2020-09-24 00:08:38,753 DEBUG: Found 1435 points in 0.180265188217s
+2020-09-24 00:08:38,753 DEBUG: reducing threshold
+2020-09-24 00:08:38,754 DEBUG: Computing sift with threshold 0.0197530864198
+2020-09-24 00:08:38,932 DEBUG: Found 1548 points in 0.178179979324s
+2020-09-24 00:08:38,932 DEBUG: reducing threshold
+2020-09-24 00:08:38,933 DEBUG: Computing sift with threshold 0.0131687242798
+2020-09-24 00:08:39,114 DEBUG: Found 1647 points in 0.181416034698s
+2020-09-24 00:08:39,114 DEBUG: reducing threshold
+2020-09-24 00:08:39,115 DEBUG: Computing sift with threshold 0.00877914951989
+2020-09-24 00:08:39,300 DEBUG: Found 1707 points in 0.184965133667s
+2020-09-24 00:08:39,300 DEBUG: reducing threshold
+2020-09-24 00:08:39,300 DEBUG: Computing sift with threshold 0.00585276634659
+2020-09-24 00:08:39,478 DEBUG: Found 1731 points in 0.177812099457s
+2020-09-24 00:08:39,479 DEBUG: reducing threshold
+2020-09-24 00:08:39,479 DEBUG: Computing sift with threshold 0.00390184423106
+2020-09-24 00:08:39,660 DEBUG: Found 1732 points in 0.180552005768s
+2020-09-24 00:08:39,660 DEBUG: reducing threshold
+2020-09-24 00:08:39,661 DEBUG: Computing sift with threshold 0.00260122948737
+2020-09-24 00:08:39,840 DEBUG: Found 1732 points in 0.178775072098s
+2020-09-24 00:08:39,841 DEBUG: reducing threshold
+2020-09-24 00:08:39,842 DEBUG: Computing sift with threshold 0.00173415299158
+2020-09-24 00:08:40,026 DEBUG: Found 1732 points in 0.183916091919s
+2020-09-24 00:08:40,027 DEBUG: reducing threshold
+2020-09-24 00:08:40,027 DEBUG: Computing sift with threshold 0.00115610199439
+2020-09-24 00:08:40,046 INFO: Extracting ROOT_SIFT features for image DJI_0019.JPG
+2020-09-24 00:08:40,056 DEBUG: Computing sift with threshold 0.1
+2020-09-24 00:08:40,234 DEBUG: Found 1732 points in 0.206601142883s
+2020-09-24 00:08:40,235 DEBUG: reducing threshold
+2020-09-24 00:08:40,236 DEBUG: Computing sift with threshold 0.000770734662926
+2020-09-24 00:08:40,257 DEBUG: Found 331 points in 0.201102018356s
+2020-09-24 00:08:40,258 DEBUG: reducing threshold
+2020-09-24 00:08:40,260 DEBUG: Computing sift with threshold 0.0666666666667
+2020-09-24 00:08:40,460 DEBUG: Found 1732 points in 0.22402882576s
+2020-09-24 00:08:40,461 DEBUG: reducing threshold
+2020-09-24 00:08:40,461 DEBUG: Computing sift with threshold 0.000513823108617
+2020-09-24 00:08:40,471 DEBUG: Found 986 points in 0.211096048355s
+2020-09-24 00:08:40,472 DEBUG: reducing threshold
+2020-09-24 00:08:40,472 DEBUG: Computing sift with threshold 0.0444444444444
+2020-09-24 00:08:40,692 DEBUG: Found 1732 points in 0.230316162109s
+2020-09-24 00:08:40,693 DEBUG: reducing threshold
+2020-09-24 00:08:40,693 DEBUG: Computing sift with threshold 0.000342548739078
+2020-09-24 00:08:40,719 DEBUG: Found 1412 points in 0.245451211929s
+2020-09-24 00:08:40,719 DEBUG: reducing threshold
+2020-09-24 00:08:40,719 DEBUG: Computing sift with threshold 0.0296296296296
+2020-09-24 00:08:40,896 DEBUG: Found 1732 points in 0.202123880386s
+2020-09-24 00:08:40,897 DEBUG: reducing threshold
+2020-09-24 00:08:40,898 DEBUG: Computing sift with threshold 0.000228365826052
+2020-09-24 00:08:40,964 DEBUG: Found 1563 points in 0.244651794434s
+2020-09-24 00:08:40,964 DEBUG: reducing threshold
+2020-09-24 00:08:40,965 DEBUG: Computing sift with threshold 0.0197530864198
+2020-09-24 00:08:41,128 DEBUG: Found 1732 points in 0.229838132858s
+2020-09-24 00:08:41,131 DEBUG: reducing threshold
+2020-09-24 00:08:41,132 DEBUG: Computing sift with threshold 0.000152243884035
+2020-09-24 00:08:41,186 DEBUG: Found 1674 points in 0.221472024918s
+2020-09-24 00:08:41,187 DEBUG: reducing threshold
+2020-09-24 00:08:41,187 DEBUG: Computing sift with threshold 0.0131687242798
+2020-09-24 00:08:41,356 DEBUG: Found 1732 points in 0.223065853119s
+2020-09-24 00:08:41,356 DEBUG: reducing threshold
+2020-09-24 00:08:41,357 DEBUG: Computing sift with threshold 0.00010149592269
+2020-09-24 00:08:41,399 DEBUG: Found 1766 points in 0.211815834045s
+2020-09-24 00:08:41,399 DEBUG: reducing threshold
+2020-09-24 00:08:41,400 DEBUG: Computing sift with threshold 0.00877914951989
+2020-09-24 00:08:41,600 DEBUG: Found 1732 points in 0.2428150177s
+2020-09-24 00:08:41,601 DEBUG: reducing threshold
+2020-09-24 00:08:41,601 DEBUG: Computing sift with threshold 6.76639484599e-05
+2020-09-24 00:08:41,608 DEBUG: Found 1797 points in 0.207681894302s
+2020-09-24 00:08:41,608 DEBUG: reducing threshold
+2020-09-24 00:08:41,609 DEBUG: Computing sift with threshold 0.00585276634659
+2020-09-24 00:08:41,856 DEBUG: Found 1807 points in 0.246196985245s
+2020-09-24 00:08:41,858 DEBUG: reducing threshold
+2020-09-24 00:08:41,859 DEBUG: Computing sift with threshold 0.00390184423106
+2020-09-24 00:08:41,862 DEBUG: Found 1732 points in 0.260667085648s
+2020-09-24 00:08:41,862 DEBUG: done
+2020-09-24 00:08:42,102 DEBUG: Found 1811 points in 0.242862939835s
+2020-09-24 00:08:42,108 DEBUG: reducing threshold
+2020-09-24 00:08:42,109 DEBUG: Computing sift with threshold 0.00260122948737
+2020-09-24 00:08:42,222 DEBUG: No segmentation for DJI_0018.JPG, no features masked.
+2020-09-24 00:08:42,257 INFO: Extracting ROOT_SIFT features for image DJI_0030.JPG
+2020-09-24 00:08:42,268 DEBUG: Computing sift with threshold 0.1
+2020-09-24 00:08:42,322 DEBUG: Found 1814 points in 0.212168216705s
+2020-09-24 00:08:42,323 DEBUG: reducing threshold
+2020-09-24 00:08:42,323 DEBUG: Computing sift with threshold 0.00173415299158
+2020-09-24 00:08:42,461 DEBUG: Found 151 points in 0.192545890808s
+2020-09-24 00:08:42,464 DEBUG: reducing threshold
+2020-09-24 00:08:42,465 DEBUG: Computing sift with threshold 0.0666666666667
+2020-09-24 00:08:42,485 INFO: Extracting ROOT_SIFT features for image DJI_0027.JPG
+2020-09-24 00:08:42,494 DEBUG: Computing sift with threshold 0.1
+2020-09-24 00:08:42,562 DEBUG: Found 1815 points in 0.238748073578s
+2020-09-24 00:08:42,562 DEBUG: reducing threshold
+2020-09-24 00:08:42,563 DEBUG: Computing sift with threshold 0.00115610199439
+2020-09-24 00:08:42,659 DEBUG: Found 300 points in 0.193265914917s
+2020-09-24 00:08:42,664 DEBUG: reducing threshold
+2020-09-24 00:08:42,666 DEBUG: Computing sift with threshold 0.0444444444444
+2020-09-24 00:08:42,672 DEBUG: Found 191 points in 0.177745103836s
+2020-09-24 00:08:42,672 DEBUG: reducing threshold
+2020-09-24 00:08:42,673 DEBUG: Computing sift with threshold 0.0666666666667
+2020-09-24 00:08:42,784 DEBUG: Found 1815 points in 0.220278978348s
+2020-09-24 00:08:42,784 DEBUG: reducing threshold
+2020-09-24 00:08:42,785 DEBUG: Computing sift with threshold 0.000770734662926
+2020-09-24 00:08:42,864 DEBUG: Found 559 points in 0.191208839417s
+2020-09-24 00:08:42,864 DEBUG: reducing threshold
+2020-09-24 00:08:42,865 DEBUG: Computing sift with threshold 0.0444444444444
+2020-09-24 00:08:42,877 DEBUG: Found 453 points in 0.210584878922s
+2020-09-24 00:08:42,878 DEBUG: reducing threshold
+2020-09-24 00:08:42,878 DEBUG: Computing sift with threshold 0.0296296296296
+2020-09-24 00:08:43,002 DEBUG: Found 1815 points in 0.216730117798s
+2020-09-24 00:08:43,003 DEBUG: reducing threshold
+2020-09-24 00:08:43,003 DEBUG: Computing sift with threshold 0.000513823108617
+2020-09-24 00:08:43,070 DEBUG: Found 830 points in 0.205425024033s
+2020-09-24 00:08:43,071 DEBUG: reducing threshold
+2020-09-24 00:08:43,071 DEBUG: Computing sift with threshold 0.0296296296296
+2020-09-24 00:08:43,075 DEBUG: Found 655 points in 0.195813894272s
+2020-09-24 00:08:43,075 DEBUG: reducing threshold
+2020-09-24 00:08:43,075 DEBUG: Computing sift with threshold 0.0197530864198
+2020-09-24 00:08:43,282 DEBUG: Found 884 points in 0.20693397522s
+2020-09-24 00:08:43,282 DEBUG: reducing threshold
+2020-09-24 00:08:43,283 DEBUG: Computing sift with threshold 0.0131687242798
+2020-09-24 00:08:43,301 DEBUG: Found 1815 points in 0.297732114792s
+2020-09-24 00:08:43,302 DEBUG: reducing threshold
+2020-09-24 00:08:43,303 DEBUG: Computing sift with threshold 0.000342548739078
+2020-09-24 00:08:43,319 DEBUG: Found 1067 points in 0.247512817383s
+2020-09-24 00:08:43,319 DEBUG: reducing threshold
+2020-09-24 00:08:43,319 DEBUG: Computing sift with threshold 0.0197530864198
+2020-09-24 00:08:43,529 DEBUG: Found 1126 points in 0.246575832367s
+2020-09-24 00:08:43,530 DEBUG: reducing threshold
+2020-09-24 00:08:43,530 DEBUG: Computing sift with threshold 0.00877914951989
+2020-09-24 00:08:43,547 DEBUG: Found 1248 points in 0.227581977844s
+2020-09-24 00:08:43,547 DEBUG: reducing threshold
+2020-09-24 00:08:43,548 DEBUG: Computing sift with threshold 0.0131687242798
+2020-09-24 00:08:43,562 DEBUG: Found 1815 points in 0.258141994476s
+2020-09-24 00:08:43,562 DEBUG: reducing threshold
+2020-09-24 00:08:43,562 DEBUG: Computing sift with threshold 0.000228365826052
+2020-09-24 00:08:43,775 DEBUG: Found 1258 points in 0.244936227798s
+2020-09-24 00:08:43,776 DEBUG: reducing threshold
+2020-09-24 00:08:43,776 DEBUG: Computing sift with threshold 0.00585276634659
+2020-09-24 00:08:43,786 DEBUG: Found 1397 points in 0.237881183624s
+2020-09-24 00:08:43,786 DEBUG: reducing threshold
+2020-09-24 00:08:43,786 DEBUG: Computing sift with threshold 0.00877914951989
+2020-09-24 00:08:43,811 DEBUG: Found 1815 points in 0.247988939285s
+2020-09-24 00:08:43,811 DEBUG: reducing threshold
+2020-09-24 00:08:43,812 DEBUG: Computing sift with threshold 0.000152243884035
+2020-09-24 00:08:44,015 DEBUG: Found 1454 points in 0.229002952576s
+2020-09-24 00:08:44,016 DEBUG: reducing threshold
+2020-09-24 00:08:44,016 DEBUG: Computing sift with threshold 0.00585276634659
+2020-09-24 00:08:44,017 DEBUG: Found 1320 points in 0.240689992905s
+2020-09-24 00:08:44,017 DEBUG: reducing threshold
+2020-09-24 00:08:44,017 DEBUG: Computing sift with threshold 0.00390184423106
+2020-09-24 00:08:44,067 DEBUG: Found 1815 points in 0.254834890366s
+2020-09-24 00:08:44,068 DEBUG: reducing threshold
+2020-09-24 00:08:44,068 DEBUG: Computing sift with threshold 0.00010149592269
+2020-09-24 00:08:44,256 DEBUG: Found 1395 points in 0.238609075546s
+2020-09-24 00:08:44,256 DEBUG: reducing threshold
+2020-09-24 00:08:44,256 DEBUG: Computing sift with threshold 0.00260122948737
+2020-09-24 00:08:44,273 DEBUG: Found 1495 points in 0.256735801697s
+2020-09-24 00:08:44,273 DEBUG: reducing threshold
+2020-09-24 00:08:44,274 DEBUG: Computing sift with threshold 0.00390184423106
+2020-09-24 00:08:44,308 DEBUG: Found 1815 points in 0.239686965942s
+2020-09-24 00:08:44,308 DEBUG: reducing threshold
+2020-09-24 00:08:44,308 DEBUG: Computing sift with threshold 6.76639484599e-05
+2020-09-24 00:08:44,434 DEBUG: Found 1448 points in 0.17783498764s
+2020-09-24 00:08:44,435 DEBUG: reducing threshold
+2020-09-24 00:08:44,436 DEBUG: Computing sift with threshold 0.00173415299158
+2020-09-24 00:08:44,485 DEBUG: Found 1514 points in 0.210721969604s
+2020-09-24 00:08:44,485 DEBUG: reducing threshold
+2020-09-24 00:08:44,486 DEBUG: Computing sift with threshold 0.00260122948737
+2020-09-24 00:08:44,541 DEBUG: Found 1815 points in 0.232434988022s
+2020-09-24 00:08:44,541 DEBUG: done
+2020-09-24 00:08:44,692 DEBUG: Found 1472 points in 0.255911827087s
+2020-09-24 00:08:44,693 DEBUG: reducing threshold
+2020-09-24 00:08:44,694 DEBUG: Computing sift with threshold 0.00115610199439
+2020-09-24 00:08:44,758 DEBUG: Found 1516 points in 0.272031068802s
+2020-09-24 00:08:44,759 DEBUG: reducing threshold
+2020-09-24 00:08:44,759 DEBUG: Computing sift with threshold 0.00173415299158
+2020-09-24 00:08:44,868 DEBUG: No segmentation for DJI_0019.JPG, no features masked.
+2020-09-24 00:08:44,923 DEBUG: Found 1479 points in 0.228633880615s
+2020-09-24 00:08:44,923 DEBUG: reducing threshold
+2020-09-24 00:08:44,923 DEBUG: Computing sift with threshold 0.000770734662926
+2020-09-24 00:08:44,996 DEBUG: Found 1516 points in 0.236767053604s
+2020-09-24 00:08:44,996 DEBUG: reducing threshold
+2020-09-24 00:08:44,996 DEBUG: Computing sift with threshold 0.00115610199439
+2020-09-24 00:08:45,128 INFO: Extracting ROOT_SIFT features for image DJI_0029.JPG
+2020-09-24 00:08:45,136 DEBUG: Computing sift with threshold 0.1
+2020-09-24 00:08:45,137 DEBUG: Found 1479 points in 0.213450908661s
+2020-09-24 00:08:45,138 DEBUG: reducing threshold
+2020-09-24 00:08:45,138 DEBUG: Computing sift with threshold 0.000513823108617
+2020-09-24 00:08:45,211 DEBUG: Found 1516 points in 0.214615106583s
+2020-09-24 00:08:45,212 DEBUG: reducing threshold
+2020-09-24 00:08:45,213 DEBUG: Computing sift with threshold 0.000770734662926
+2020-09-24 00:08:45,328 DEBUG: Found 102 points in 0.191298007965s
+2020-09-24 00:08:45,329 DEBUG: reducing threshold
+2020-09-24 00:08:45,336 DEBUG: Computing sift with threshold 0.0666666666667
+2020-09-24 00:08:45,399 DEBUG: Found 1479 points in 0.260445833206s
+2020-09-24 00:08:45,399 DEBUG: reducing threshold
+2020-09-24 00:08:45,400 DEBUG: Computing sift with threshold 0.000342548739078
+2020-09-24 00:08:45,409 DEBUG: Found 1516 points in 0.195646047592s
+2020-09-24 00:08:45,409 DEBUG: reducing threshold
+2020-09-24 00:08:45,410 DEBUG: Computing sift with threshold 0.000513823108617
+2020-09-24 00:08:45,574 DEBUG: Found 364 points in 0.236921072006s
+2020-09-24 00:08:45,574 DEBUG: reducing threshold
+2020-09-24 00:08:45,574 DEBUG: Computing sift with threshold 0.0444444444444
+2020-09-24 00:08:45,610 DEBUG: Found 1516 points in 0.199475049973s
+2020-09-24 00:08:45,610 DEBUG: reducing threshold
+2020-09-24 00:08:45,613 DEBUG: Computing sift with threshold 0.000342548739078
+2020-09-24 00:08:45,648 DEBUG: Found 1479 points in 0.248080968857s
+2020-09-24 00:08:45,649 DEBUG: reducing threshold
+2020-09-24 00:08:45,649 DEBUG: Computing sift with threshold 0.000228365826052
+2020-09-24 00:08:45,810 DEBUG: Found 1516 points in 0.196187973022s
+2020-09-24 00:08:45,811 DEBUG: reducing threshold
+2020-09-24 00:08:45,812 DEBUG: Computing sift with threshold 0.000228365826052
+2020-09-24 00:08:45,856 DEBUG: Found 713 points in 0.281533002853s
+2020-09-24 00:08:45,857 DEBUG: reducing threshold
+2020-09-24 00:08:45,857 DEBUG: Computing sift with threshold 0.0296296296296
+2020-09-24 00:08:45,877 DEBUG: Found 1479 points in 0.227467060089s
+2020-09-24 00:08:45,877 DEBUG: reducing threshold
+2020-09-24 00:08:45,878 DEBUG: Computing sift with threshold 0.000152243884035
+2020-09-24 00:08:46,052 DEBUG: Found 1516 points in 0.239055871964s
+2020-09-24 00:08:46,052 DEBUG: reducing threshold
+2020-09-24 00:08:46,052 DEBUG: Computing sift with threshold 0.000152243884035
+2020-09-24 00:08:46,085 DEBUG: Found 976 points in 0.228121042252s
+2020-09-24 00:08:46,086 DEBUG: reducing threshold
+2020-09-24 00:08:46,086 DEBUG: Computing sift with threshold 0.0197530864198
+2020-09-24 00:08:46,104 DEBUG: Found 1479 points in 0.225552082062s
+2020-09-24 00:08:46,104 DEBUG: reducing threshold
+2020-09-24 00:08:46,104 DEBUG: Computing sift with threshold 0.00010149592269
+2020-09-24 00:08:46,295 DEBUG: Found 1242 points in 0.207896947861s
+2020-09-24 00:08:46,297 DEBUG: reducing threshold
+2020-09-24 00:08:46,298 DEBUG: Computing sift with threshold 0.0131687242798
+2020-09-24 00:08:46,324 DEBUG: Found 1479 points in 0.218968153s
+2020-09-24 00:08:46,324 DEBUG: reducing threshold
+2020-09-24 00:08:46,325 DEBUG: Computing sift with threshold 6.76639484599e-05
+2020-09-24 00:08:46,345 DEBUG: Found 1516 points in 0.292992115021s
+2020-09-24 00:08:46,346 DEBUG: reducing threshold
+2020-09-24 00:08:46,346 DEBUG: Computing sift with threshold 0.00010149592269
+2020-09-24 00:08:46,534 DEBUG: Found 1479 points in 0.209185123444s
+2020-09-24 00:08:46,535 DEBUG: done
+2020-09-24 00:08:46,535 DEBUG: Found 1454 points in 0.236970901489s
+2020-09-24 00:08:46,536 DEBUG: reducing threshold
+2020-09-24 00:08:46,536 DEBUG: Computing sift with threshold 0.00877914951989
+2020-09-24 00:08:46,576 DEBUG: Found 1516 points in 0.229408979416s
+2020-09-24 00:08:46,576 DEBUG: reducing threshold
+2020-09-24 00:08:46,577 DEBUG: Computing sift with threshold 6.76639484599e-05
+2020-09-24 00:08:46,798 DEBUG: Found 1567 points in 0.261658906937s
+2020-09-24 00:08:46,799 DEBUG: reducing threshold
+2020-09-24 00:08:46,799 DEBUG: Computing sift with threshold 0.00585276634659
+2020-09-24 00:08:46,837 DEBUG: Found 1516 points in 0.25922703743s
+2020-09-24 00:08:46,837 DEBUG: done
+2020-09-24 00:08:46,872 DEBUG: No segmentation for DJI_0030.JPG, no features masked.
+2020-09-24 00:08:47,011 DEBUG: Found 1597 points in 0.209331989288s
+2020-09-24 00:08:47,012 DEBUG: reducing threshold
+2020-09-24 00:08:47,013 DEBUG: Computing sift with threshold 0.00390184423106
+2020-09-24 00:08:47,115 DEBUG: No segmentation for DJI_0027.JPG, no features masked.
+2020-09-24 00:08:47,197 DEBUG: Found 1601 points in 0.182843923569s
+2020-09-24 00:08:47,197 DEBUG: reducing threshold
+2020-09-24 00:08:47,197 DEBUG: Computing sift with threshold 0.00260122948737
+2020-09-24 00:08:47,366 DEBUG: Found 1602 points in 0.168221950531s
+2020-09-24 00:08:47,366 DEBUG: reducing threshold
+2020-09-24 00:08:47,366 DEBUG: Computing sift with threshold 0.00173415299158
+2020-09-24 00:08:47,532 DEBUG: Found 1602 points in 0.165594100952s
+2020-09-24 00:08:47,532 DEBUG: reducing threshold
+2020-09-24 00:08:47,533 DEBUG: Computing sift with threshold 0.00115610199439
+2020-09-24 00:08:47,698 DEBUG: Found 1602 points in 0.165321826935s
+2020-09-24 00:08:47,698 DEBUG: reducing threshold
+2020-09-24 00:08:47,698 DEBUG: Computing sift with threshold 0.000770734662926
+2020-09-24 00:08:47,874 DEBUG: Found 1602 points in 0.175544023514s
+2020-09-24 00:08:47,875 DEBUG: reducing threshold
+2020-09-24 00:08:47,875 DEBUG: Computing sift with threshold 0.000513823108617
+2020-09-24 00:08:48,049 DEBUG: Found 1602 points in 0.173756122589s
+2020-09-24 00:08:48,050 DEBUG: reducing threshold
+2020-09-24 00:08:48,050 DEBUG: Computing sift with threshold 0.000342548739078
+2020-09-24 00:08:48,218 DEBUG: Found 1602 points in 0.167474985123s
+2020-09-24 00:08:48,219 DEBUG: reducing threshold
+2020-09-24 00:08:48,219 DEBUG: Computing sift with threshold 0.000228365826052
+2020-09-24 00:08:48,385 DEBUG: Found 1602 points in 0.165759801865s
+2020-09-24 00:08:48,386 DEBUG: reducing threshold
+2020-09-24 00:08:48,386 DEBUG: Computing sift with threshold 0.000152243884035
+2020-09-24 00:08:48,560 DEBUG: Found 1602 points in 0.173255205154s
+2020-09-24 00:08:48,560 DEBUG: reducing threshold
+2020-09-24 00:08:48,560 DEBUG: Computing sift with threshold 0.00010149592269
+2020-09-24 00:08:48,734 DEBUG: Found 1602 points in 0.173458814621s
+2020-09-24 00:08:48,734 DEBUG: reducing threshold
+2020-09-24 00:08:48,734 DEBUG: Computing sift with threshold 6.76639484599e-05
+2020-09-24 00:08:48,899 DEBUG: Found 1602 points in 0.164251089096s
+2020-09-24 00:08:48,899 DEBUG: done
+2020-09-24 00:08:49,123 DEBUG: No segmentation for DJI_0029.JPG, no features masked.
+2020-09-24 00:08:50,728 INFO: Extracting ROOT_SIFT features for image DJI_0020.JPG
+2020-09-24 00:08:50,742 INFO: Extracting ROOT_SIFT features for image DJI_0028.JPG
+2020-09-24 00:08:50,747 DEBUG: Computing sift with threshold 0.1
+2020-09-24 00:08:50,752 DEBUG: Computing sift with threshold 0.1
+2020-09-24 00:08:50,926 DEBUG: Found 371 points in 0.178661108017s
+2020-09-24 00:08:50,927 DEBUG: reducing threshold
+2020-09-24 00:08:50,927 DEBUG: Computing sift with threshold 0.0666666666667
+2020-09-24 00:08:50,937 DEBUG: Found 148 points in 0.18452501297s
+2020-09-24 00:08:50,938 DEBUG: reducing threshold
+2020-09-24 00:08:50,938 DEBUG: Computing sift with threshold 0.0666666666667
+2020-09-24 00:08:51,098 DEBUG: Found 1124 points in 0.171389102936s
+2020-09-24 00:08:51,099 DEBUG: reducing threshold
+2020-09-24 00:08:51,100 DEBUG: Computing sift with threshold 0.0444444444444
+2020-09-24 00:08:51,132 DEBUG: Found 462 points in 0.193876028061s
+2020-09-24 00:08:51,132 DEBUG: reducing threshold
+2020-09-24 00:08:51,133 DEBUG: Computing sift with threshold 0.0444444444444
+2020-09-24 00:08:51,275 DEBUG: Found 1480 points in 0.174664020538s
+2020-09-24 00:08:51,275 DEBUG: reducing threshold
+2020-09-24 00:08:51,275 DEBUG: Computing sift with threshold 0.0296296296296
+2020-09-24 00:08:51,311 DEBUG: Found 824 points in 0.178515911102s
+2020-09-24 00:08:51,312 DEBUG: reducing threshold
+2020-09-24 00:08:51,312 DEBUG: Computing sift with threshold 0.0296296296296
+2020-09-24 00:08:51,483 DEBUG: Found 1642 points in 0.20712518692s
+2020-09-24 00:08:51,483 DEBUG: reducing threshold
+2020-09-24 00:08:51,484 DEBUG: Computing sift with threshold 0.0197530864198
+2020-09-24 00:08:51,497 DEBUG: Found 1081 points in 0.183697938919s
+2020-09-24 00:08:51,497 DEBUG: reducing threshold
+2020-09-24 00:08:51,497 DEBUG: Computing sift with threshold 0.0197530864198
+2020-09-24 00:08:51,685 DEBUG: Found 1297 points in 0.187486171722s
+2020-09-24 00:08:51,685 DEBUG: reducing threshold
+2020-09-24 00:08:51,686 DEBUG: Computing sift with threshold 0.0131687242798
+2020-09-24 00:08:51,703 DEBUG: Found 1730 points in 0.218348026276s
+2020-09-24 00:08:51,703 DEBUG: reducing threshold
+2020-09-24 00:08:51,703 DEBUG: Computing sift with threshold 0.0131687242798
+2020-09-24 00:08:51,877 DEBUG: Found 1514 points in 0.190504074097s
+2020-09-24 00:08:51,877 DEBUG: reducing threshold
+2020-09-24 00:08:51,878 DEBUG: Computing sift with threshold 0.00877914951989
+2020-09-24 00:08:51,898 DEBUG: Found 1776 points in 0.194802045822s
+2020-09-24 00:08:51,899 DEBUG: reducing threshold
+2020-09-24 00:08:51,899 DEBUG: Computing sift with threshold 0.00877914951989
+2020-09-24 00:08:52,077 DEBUG: Found 1598 points in 0.199075937271s
+2020-09-24 00:08:52,077 DEBUG: reducing threshold
+2020-09-24 00:08:52,078 DEBUG: Computing sift with threshold 0.00585276634659
+2020-09-24 00:08:52,099 DEBUG: Found 1797 points in 0.199739217758s
+2020-09-24 00:08:52,099 DEBUG: reducing threshold
+2020-09-24 00:08:52,100 DEBUG: Computing sift with threshold 0.00585276634659
+2020-09-24 00:08:52,277 DEBUG: Found 1619 points in 0.199247121811s
+2020-09-24 00:08:52,277 DEBUG: reducing threshold
+2020-09-24 00:08:52,278 DEBUG: Computing sift with threshold 0.00390184423106
+2020-09-24 00:08:52,300 DEBUG: Found 1811 points in 0.19991517067s
+2020-09-24 00:08:52,301 DEBUG: reducing threshold
+2020-09-24 00:08:52,301 DEBUG: Computing sift with threshold 0.00390184423106
+2020-09-24 00:08:52,494 DEBUG: Found 1814 points in 0.191882133484s
+2020-09-24 00:08:52,494 DEBUG: reducing threshold
+2020-09-24 00:08:52,494 DEBUG: Found 1622 points in 0.215143918991s
+2020-09-24 00:08:52,495 DEBUG: reducing threshold
+2020-09-24 00:08:52,495 DEBUG: Computing sift with threshold 0.00260122948737
+2020-09-24 00:08:52,495 DEBUG: Computing sift with threshold 0.00260122948737
+2020-09-24 00:08:52,689 DEBUG: Found 1817 points in 0.193903923035s
+2020-09-24 00:08:52,690 DEBUG: reducing threshold
+2020-09-24 00:08:52,690 DEBUG: Computing sift with threshold 0.00173415299158
+2020-09-24 00:08:52,711 DEBUG: Found 1622 points in 0.216428041458s
+2020-09-24 00:08:52,712 DEBUG: reducing threshold
+2020-09-24 00:08:52,712 DEBUG: Computing sift with threshold 0.00173415299158
+2020-09-24 00:08:52,888 DEBUG: Found 1817 points in 0.197145223618s
+2020-09-24 00:08:52,888 DEBUG: reducing threshold
+2020-09-24 00:08:52,889 DEBUG: Computing sift with threshold 0.00115610199439
+2020-09-24 00:08:52,917 DEBUG: Found 1622 points in 0.204541921616s
+2020-09-24 00:08:52,917 DEBUG: reducing threshold
+2020-09-24 00:08:52,917 DEBUG: Computing sift with threshold 0.00115610199439
+2020-09-24 00:08:53,084 DEBUG: Found 1817 points in 0.194617033005s
+2020-09-24 00:08:53,085 DEBUG: reducing threshold
+2020-09-24 00:08:53,085 DEBUG: Computing sift with threshold 0.000770734662926
+2020-09-24 00:08:53,108 DEBUG: Found 1622 points in 0.190705060959s
+2020-09-24 00:08:53,108 DEBUG: reducing threshold
+2020-09-24 00:08:53,109 DEBUG: Computing sift with threshold 0.000770734662926
+2020-09-24 00:08:53,279 DEBUG: Found 1817 points in 0.193782091141s
+2020-09-24 00:08:53,280 DEBUG: reducing threshold
+2020-09-24 00:08:53,280 DEBUG: Computing sift with threshold 0.000513823108617
+2020-09-24 00:08:53,302 DEBUG: Found 1622 points in 0.193589925766s
+2020-09-24 00:08:53,303 DEBUG: reducing threshold
+2020-09-24 00:08:53,304 DEBUG: Computing sift with threshold 0.000513823108617
+2020-09-24 00:08:53,498 DEBUG: Found 1817 points in 0.218201160431s
+2020-09-24 00:08:53,501 DEBUG: reducing threshold
+2020-09-24 00:08:53,501 DEBUG: Computing sift with threshold 0.000342548739078
+2020-09-24 00:08:53,505 DEBUG: Found 1622 points in 0.200912952423s
+2020-09-24 00:08:53,507 DEBUG: reducing threshold
+2020-09-24 00:08:53,507 DEBUG: Computing sift with threshold 0.000342548739078
+2020-09-24 00:08:53,706 DEBUG: Found 1817 points in 0.204073905945s
+2020-09-24 00:08:53,706 DEBUG: reducing threshold
+2020-09-24 00:08:53,707 DEBUG: Computing sift with threshold 0.000228365826052
+2020-09-24 00:08:53,717 DEBUG: Found 1622 points in 0.209635019302s
+2020-09-24 00:08:53,718 DEBUG: reducing threshold
+2020-09-24 00:08:53,718 DEBUG: Computing sift with threshold 0.000228365826052
+2020-09-24 00:08:53,905 DEBUG: Found 1817 points in 0.19788980484s
+2020-09-24 00:08:53,906 DEBUG: reducing threshold
+2020-09-24 00:08:53,906 DEBUG: Computing sift with threshold 0.000152243884035
+2020-09-24 00:08:53,927 DEBUG: Found 1622 points in 0.208792209625s
+2020-09-24 00:08:53,927 DEBUG: reducing threshold
+2020-09-24 00:08:53,928 DEBUG: Computing sift with threshold 0.000152243884035
+2020-09-24 00:08:54,116 DEBUG: Found 1817 points in 0.209619998932s
+2020-09-24 00:08:54,117 DEBUG: reducing threshold
+2020-09-24 00:08:54,118 DEBUG: Computing sift with threshold 0.00010149592269
+2020-09-24 00:08:54,123 DEBUG: Found 1622 points in 0.19510102272s
+2020-09-24 00:08:54,123 DEBUG: reducing threshold
+2020-09-24 00:08:54,123 DEBUG: Computing sift with threshold 0.00010149592269
+2020-09-24 00:08:54,322 DEBUG: Found 1622 points in 0.198468208313s
+2020-09-24 00:08:54,322 DEBUG: reducing threshold
+2020-09-24 00:08:54,323 DEBUG: Computing sift with threshold 6.76639484599e-05
+2020-09-24 00:08:54,330 DEBUG: Found 1817 points in 0.211588859558s
+2020-09-24 00:08:54,330 DEBUG: reducing threshold
+2020-09-24 00:08:54,331 DEBUG: Computing sift with threshold 6.76639484599e-05
+2020-09-24 00:08:54,529 DEBUG: Found 1622 points in 0.206260919571s
+2020-09-24 00:08:54,531 DEBUG: done
+2020-09-24 00:08:54,541 DEBUG: Found 1817 points in 0.209456920624s
+2020-09-24 00:08:54,541 DEBUG: done
+2020-09-24 00:08:54,841 DEBUG: No segmentation for DJI_0020.JPG, no features masked.
+2020-09-24 00:08:54,859 DEBUG: No segmentation for DJI_0028.JPG, no features masked.
+[INFO]    running /usr/bin/env python2 /home/pi/test/ODM/SuperBuild/src/opensfm/bin/opensfm match_features "/home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0000/opensfm"
+2020-09-24 00:08:57,794 INFO: Matching 21 image pairs
+2020-09-24 00:08:57,818 INFO: Computing pair matching with 3 processes
+2020-09-24 00:08:59,938 DEBUG: No segmentation for DJI_0027.JPG, no features masked.
+2020-09-24 00:08:59,941 DEBUG: No segmentation for DJI_0018.JPG, no features masked.
+2020-09-24 00:09:00,166 DEBUG: Matching DJI_0027.JPG and DJI_0018.JPG.  Matcher: FLANN (symmetric) T-desc: 0.188 T-robust: 0.040 T-total: 0.228 Matches: 22 Robust: 20 Success: True
+2020-09-24 00:09:00,194 DEBUG: No segmentation for DJI_0028.JPG, no features masked.
+2020-09-24 00:09:00,531 DEBUG: Matching DJI_0027.JPG and DJI_0028.JPG.  Matcher: FLANN (symmetric) T-desc: 0.130 T-robust: 0.210 T-total: 0.340 Matches: 203 Robust: 198 Success: True
+2020-09-24 00:09:00,560 DEBUG: No segmentation for DJI_0029.JPG, no features masked.
+2020-09-24 00:09:00,762 DEBUG: Matching DJI_0027.JPG and DJI_0029.JPG.  Matcher: FLANN (symmetric) T-desc: 0.131 T-robust: 0.074 T-total: 0.205 Matches: 67 Robust: 63 Success: True
+2020-09-24 00:09:00,791 DEBUG: No segmentation for DJI_0020.JPG, no features masked.
+2020-09-24 00:09:00,998 DEBUG: Matching DJI_0027.JPG and DJI_0020.JPG.  Matcher: FLANN (symmetric) T-desc: 0.146 T-robust: 0.063 T-total: 0.209 Matches: 56 Robust: 54 Success: True
+2020-09-24 00:09:01,023 DEBUG: No segmentation for DJI_0030.JPG, no features masked.
+2020-09-24 00:09:01,218 DEBUG: Matching DJI_0027.JPG and DJI_0030.JPG.  Matcher: FLANN (symmetric) T-desc: 0.121 T-robust: 0.077 T-total: 0.198 Matches: 64 Robust: 58 Success: True
+2020-09-24 00:09:01,247 DEBUG: No segmentation for DJI_0019.JPG, no features masked.
+2020-09-24 00:09:01,456 DEBUG: Matching DJI_0027.JPG and DJI_0019.JPG.  Matcher: FLANN (symmetric) T-desc: 0.141 T-robust: 0.070 T-total: 0.211 Matches: 57 Robust: 53 Success: True
+2020-09-24 00:09:01,456 DEBUG: Image DJI_0027.JPG matches: 6 out of 6
+2020-09-24 00:09:01,488 DEBUG: No segmentation for DJI_0019.JPG, no features masked.
+2020-09-24 00:09:01,492 DEBUG: No segmentation for DJI_0018.JPG, no features masked.
+2020-09-24 00:09:01,821 DEBUG: Matching DJI_0019.JPG and DJI_0018.JPG.  Matcher: FLANN (symmetric) T-desc: 0.209 T-robust: 0.123 T-total: 0.332 Matches: 116 Robust: 105 Success: True
+2020-09-24 00:09:01,850 DEBUG: No segmentation for DJI_0020.JPG, no features masked.
+2020-09-24 00:09:02,086 DEBUG: Matching DJI_0019.JPG and DJI_0020.JPG.  Matcher: FLANN (symmetric) T-desc: 0.150 T-robust: 0.089 T-total: 0.239 Matches: 84 Robust: 76 Success: True
+2020-09-24 00:09:02,114 DEBUG: No segmentation for DJI_0030.JPG, no features masked.
+2020-09-24 00:09:02,294 DEBUG: Matching DJI_0019.JPG and DJI_0030.JPG.  Matcher: FLANN (symmetric) T-desc: 0.131 T-robust: 0.052 T-total: 0.183 Matches: 35 Robust: 28 Success: True
+2020-09-24 00:09:02,322 DEBUG: No segmentation for DJI_0028.JPG, no features masked.
+2020-09-24 00:09:02,560 DEBUG: Matching DJI_0019.JPG and DJI_0028.JPG.  Matcher: FLANN (symmetric) T-desc: 0.143 T-robust: 0.098 T-total: 0.242 Matches: 95 Robust: 90 Success: True
+2020-09-24 00:09:02,588 DEBUG: No segmentation for DJI_0029.JPG, no features masked.
+2020-09-24 00:09:02,798 DEBUG: Matching DJI_0019.JPG and DJI_0029.JPG.  Matcher: FLANN (symmetric) T-desc: 0.137 T-robust: 0.077 T-total: 0.214 Matches: 69 Robust: 60 Success: True
+2020-09-24 00:09:02,799 DEBUG: Image DJI_0019.JPG matches: 5 out of 5
+2020-09-24 00:09:03,021 DEBUG: No segmentation for DJI_0018.JPG, no features masked.
+2020-09-24 00:09:03,025 DEBUG: No segmentation for DJI_0028.JPG, no features masked.
+2020-09-24 00:09:03,064 DEBUG: Matching DJI_0030.JPG and DJI_0020.JPG.  Matcher: FLANN (symmetric) T-desc: 0.090 Matches: FAILED
+2020-09-24 00:09:03,292 DEBUG: Matching DJI_0018.JPG and DJI_0028.JPG.  Matcher: FLANN (symmetric) T-desc: 0.192 T-robust: 0.078 T-total: 0.270 Matches: 82 Robust: 74 Success: True
+2020-09-24 00:09:03,319 DEBUG: No segmentation for DJI_0029.JPG, no features masked.
+2020-09-24 00:09:03,325 DEBUG: Matching DJI_0028.JPG and DJI_0029.JPG.  Matcher: FLANN (symmetric) T-desc: 0.090 T-robust: 0.264 T-total: 0.354 Matches: 274 Robust: 268 Success: True
+2020-09-24 00:09:03,393 DEBUG: Matching DJI_0030.JPG and DJI_0029.JPG.  Matcher: FLANN (symmetric) T-desc: 0.081 T-robust: 0.246 T-total: 0.327 Matches: 249 Robust: 247 Success: True
+2020-09-24 00:09:03,394 DEBUG: Image DJI_0030.JPG matches: 1 out of 2
+2020-09-24 00:09:03,476 DEBUG: Matching DJI_0028.JPG and DJI_0020.JPG.  Matcher: FLANN (symmetric) T-desc: 0.089 T-robust: 0.061 T-total: 0.150 Matches: 37 Robust: 30 Success: True
+2020-09-24 00:09:03,486 DEBUG: Matching DJI_0029.JPG and DJI_0020.JPG.  Matcher: FLANN (symmetric) T-desc: 0.090 Matches: FAILED
+2020-09-24 00:09:03,487 DEBUG: Image DJI_0029.JPG matches: 0 out of 1
+2020-09-24 00:09:03,489 DEBUG: Image DJI_0020.JPG matches: 0 out of 0
+2020-09-24 00:09:03,600 DEBUG: Matching DJI_0018.JPG and DJI_0029.JPG.  Matcher: FLANN (symmetric) T-desc: 0.140 T-robust: 0.143 T-total: 0.284 Matches: 145 Robust: 137 Success: True
+2020-09-24 00:09:03,628 DEBUG: No segmentation for DJI_0020.JPG, no features masked.
+2020-09-24 00:09:03,729 DEBUG: Matching DJI_0028.JPG and DJI_0030.JPG.  Matcher: FLANN (symmetric) T-desc: 0.078 T-robust: 0.173 T-total: 0.251 Matches: 179 Robust: 168 Success: True
+2020-09-24 00:09:03,730 DEBUG: Image DJI_0028.JPG matches: 3 out of 3
+2020-09-24 00:09:03,769 DEBUG: Matching DJI_0018.JPG and DJI_0020.JPG.  Matcher: FLANN (symmetric) T-desc: 0.143 Matches: FAILED
+2020-09-24 00:09:03,793 DEBUG: No segmentation for DJI_0030.JPG, no features masked.
+2020-09-24 00:09:03,974 DEBUG: Matching DJI_0018.JPG and DJI_0030.JPG.  Matcher: FLANN (symmetric) T-desc: 0.119 T-robust: 0.064 T-total: 0.183 Matches: 59 Robust: 54 Success: True
+2020-09-24 00:09:03,974 DEBUG: Image DJI_0018.JPG matches: 3 out of 4
+2020-09-24 00:09:03,977 INFO: Matched 21 pairs for 7 ref_images (brown-brown: 21) in 6.18304204941 seconds (0.294430664607 seconds/pair).
+[INFO]    running /usr/bin/env python2 /home/pi/test/ODM/SuperBuild/src/opensfm/bin/opensfm create_tracks "/home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0000/opensfm"
+2020-09-24 00:09:06,753 INFO: reading features
+2020-09-24 00:09:06,922 DEBUG: Merging features onto tracks
+2020-09-24 00:09:06,961 DEBUG: Good tracks: 843
+[INFO]    running /usr/bin/env python2 /home/pi/test/ODM/SuperBuild/src/opensfm/bin/opensfm reconstruct "/home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0000/opensfm"
+2020-09-24 00:09:09,627 INFO: Starting incremental reconstruction
+[INFO]    LRE: Downloading assets for submodel_0001
+[INFO]    LRE: Download Assets for submodel_0001 with and Current Time is  2020-09-24 00:09:12.757023
+[INFO]    LRE: Download of submodel_0001 at [0%]
+[INFO]    LRE: Download of submodel_0001 at [100%]
+[INFO]    LRE: Download Assets and extraction  Finished and the Process for this Submodel is Finished for submodel_0001 with and Current Time is  2020-09-24 00:09:12.922042
+[INFO]    LRE: Downloaded and extracted assets for submodel_0001
+[INFO]    LRE: submodel_0001 finished successfully
+[INFO]    LRE: Cleaning up remote task (5e30666e-d239-45cf-b55c-dac03be8d3a8)... OK
+2020-09-24 00:09:13,304 INFO: Starting reconstruction with DJI_0029.JPG and DJI_0030.JPG
+2020-09-24 00:09:13,424 INFO: Two-view reconstruction inliers: 269 / 272
+2020-09-24 00:09:13,501 INFO: Triangulated: 271
+2020-09-24 00:09:13,515 DEBUG: Ceres Solver Report: Iterations: 3, Initial cost: 9.242917e+01, Final cost: 9.218496e+01, Termination: CONVERGENCE
+2020-09-24 00:09:13,674 DEBUG: Ceres Solver Report: Iterations: 2, Initial cost: 9.223540e+01, Final cost: 9.212821e+01, Termination: CONVERGENCE
+2020-09-24 00:09:13,746 DEBUG: Ceres Solver Report: Iterations: 10, Initial cost: 6.610188e+00, Final cost: 1.234089e+00, Termination: CONVERGENCE
+2020-09-24 00:09:13,759 INFO: Removed outliers: 7
+2020-09-24 00:09:13,760 INFO: -------------------------------------------------------
+2020-09-24 00:09:13,796 INFO: DJI_0028.JPG resection inliers: 95 / 115
+2020-09-24 00:09:13,804 DEBUG: Ceres Solver Report: Iterations: 6, Initial cost: 2.344714e+00, Final cost: 6.805958e-01, Termination: CONVERGENCE
+2020-09-24 00:09:13,804 INFO: Adding DJI_0028.JPG to the reconstruction
+2020-09-24 00:09:13,865 INFO: Re-triangulating
+2020-09-24 00:09:13,866 INFO: Shots and/or GCPs are well-conditionned. Using naive 3D-3D alignment.
+2020-09-24 00:09:13,906 INFO: Shots and/or GCPs are well-conditionned. Using naive 3D-3D alignment.
+2020-09-24 00:09:14,060 DEBUG: Ceres Solver Report: Iterations: 19, Initial cost: 2.702883e+00, Final cost: 1.628048e+00, Termination: CONVERGENCE
+2020-09-24 00:09:14,340 INFO: Shots and/or GCPs are well-conditionned. Using naive 3D-3D alignment.
+2020-09-24 00:09:14,396 DEBUG: Ceres Solver Report: Iterations: 4, Initial cost: 2.360788e+00, Final cost: 1.668154e+00, Termination: CONVERGENCE
+2020-09-24 00:09:14,421 INFO: Removed outliers: 22
+2020-09-24 00:09:14,422 INFO: -------------------------------------------------------
+2020-09-24 00:09:14,455 INFO: DJI_0018.JPG resection inliers: 83 / 101
+2020-09-24 00:09:14,462 DEBUG: Ceres Solver Report: Iterations: 5, Initial cost: 3.028642e+00, Final cost: 1.309729e+00, Termination: CONVERGENCE
+2020-09-24 00:09:14,463 INFO: Adding DJI_0018.JPG to the reconstruction
+2020-09-24 00:09:14,483 INFO: -------------------------------------------------------
+2020-09-24 00:09:14,516 INFO: DJI_0027.JPG resection inliers: 97 / 104
+2020-09-24 00:09:14,535 DEBUG: Ceres Solver Report: Iterations: 5, Initial cost: 1.042095e+00, Final cost: 9.470355e-01, Termination: CONVERGENCE
+2020-09-24 00:09:14,536 INFO: Adding DJI_0027.JPG to the reconstruction
+2020-09-24 00:09:14,568 INFO: Re-triangulating
+2020-09-24 00:09:14,569 INFO: Shots and/or GCPs are well-conditionned. Using naive 3D-3D alignment.
+2020-09-24 00:09:14,626 INFO: Shots and/or GCPs are well-conditionned. Using naive 3D-3D alignment.
+2020-09-24 00:09:14,773 DEBUG: Ceres Solver Report: Iterations: 8, Initial cost: 4.366452e+00, Final cost: 2.801203e+00, Termination: CONVERGENCE
+[INFO]    LRE: About to process submodel_0002 remotely
+[INFO]    ==================================
+[INFO]    Remote OpenSfm submodel_0002 with Before Execution Current Time is  2020-09-24 00:09:14.890540
+[INFO]    ==================================
+[INFO]    ==================================
+[INFO]    Create the Remote Task of submodel_0002 with Upload Current Time is  2020-09-24 00:09:14.907804
+[INFO]    ==================================
+[INFO]    LRE: Upload of submodel_0002 at [50%]
+[INFO]    LRE: Upload of submodel_0002 at [100%]
+[INFO]    ==================================
+[INFO]    Task Creation of submodel_0002 and Upload is Complete Task with Upload Current Time is  2020-09-24 00:09:15.108901
+[INFO]    ==================================
+[INFO]    ==================================
+[INFO]    Remote OpenSfm submodel_0002 with After Execution Current Time is  2020-09-24 00:09:15.118656
+[INFO]    ==================================
+2020-09-24 00:09:15,256 INFO: Shots and/or GCPs are well-conditionned. Using naive 3D-3D alignment.
+2020-09-24 00:09:15,448 DEBUG: Ceres Solver Report: Iterations: 13, Initial cost: 5.768624e+00, Final cost: 3.466023e+00, Termination: CONVERGENCE
+2020-09-24 00:09:15,486 INFO: Removed outliers: 27
+2020-09-24 00:09:15,486 INFO: -------------------------------------------------------
+2020-09-24 00:09:15,519 INFO: DJI_0019.JPG resection inliers: 93 / 102
+2020-09-24 00:09:15,526 DEBUG: Ceres Solver Report: Iterations: 5, Initial cost: 1.116465e+00, Final cost: 8.428354e-01, Termination: CONVERGENCE
+2020-09-24 00:09:15,526 INFO: Adding DJI_0019.JPG to the reconstruction
+2020-09-24 00:09:15,547 INFO: -------------------------------------------------------
+2020-09-24 00:09:15,567 INFO: DJI_0020.JPG resection inliers: 50 / 53
+2020-09-24 00:09:15,572 DEBUG: Ceres Solver Report: Iterations: 5, Initial cost: 8.471852e-01, Final cost: 5.370770e-01, Termination: CONVERGENCE
+2020-09-24 00:09:15,572 INFO: Adding DJI_0020.JPG to the reconstruction
+2020-09-24 00:09:15,584 INFO: -------------------------------------------------------
+2020-09-24 00:09:15,585 INFO: Shots and/or GCPs are well-conditionned. Using naive 3D-3D alignment.
+2020-09-24 00:09:15,656 INFO: Shots and/or GCPs are well-conditionned. Using naive 3D-3D alignment.
+2020-09-24 00:09:15,857 DEBUG: Ceres Solver Report: Iterations: 11, Initial cost: 5.604705e+00, Final cost: 3.684930e+00, Termination: CONVERGENCE
+2020-09-24 00:09:15,904 INFO: Removed outliers: 9
+2020-09-24 00:09:15,921 INFO: {'average_track_length': 2.5264423076923075, 'points_count': 832, 'observations_count': 2102, 'cameras_count': 7, 'average_track_length_notwo': 3.4503311258278146}
+2020-09-24 00:09:15,921 INFO: Reconstruction 0: 7 images, 832 points
+2020-09-24 00:09:15,921 INFO: 1 partial reconstructions in total.
+[INFO]    LRE: submodel_0000 finished successfully
+[INFO]    LRE: Downloading assets for submodel_0002
+[INFO]    LRE: Download Assets for submodel_0002 with and Current Time is  2020-09-24 00:09:54.419832
+[INFO]    LRE: Download of submodel_0002 at [0%]
+[INFO]    LRE: Download of submodel_0002 at [100%]
+[INFO]    LRE: Download Assets and extraction  Finished and the Process for this Submodel is Finished for submodel_0002 with and Current Time is  2020-09-24 00:09:54.593346
+[INFO]    LRE: Downloaded and extracted assets for submodel_0002
+[INFO]    LRE: submodel_0002 finished successfully
+[INFO]    LRE: Cleaning up remote task (d0439c0a-0ba0-4726-8a04-6633c8e75ad6)... OK
+[INFO]    LRE: No remote tasks left to cleanup
+[INFO]    Aligning submodels...
+[INFO]    /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0000/opensfm/reconstruction.aligned.json is now /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0000/opensfm/reconstruction.json
+[INFO]    /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0001/opensfm/reconstruction.aligned.json is now /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0001/opensfm/reconstruction.json
+[INFO]    /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/reconstruction.aligned.json is now /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/reconstruction.json
+[INFO]    LRE: Adding to queue /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0000
+[INFO]    LRE: Adding to queue /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0001
+[INFO]    LRE: Adding to queue /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002
+[INFO]    LRE: About to process submodel_0000 locally
+[INFO]    LRE: About to process submodel_0001 remotely
+ [INFO]    =============================
+[INFO]    Local Toolchain submodel_0000
+[INFO]    =============================
+ [INFO]    ==================================
+[INFO]    Remote ODM Execution submodel_0001 with Before Execution Current Time is  <function now_raw at 0xb5d04470>
+ [INFO]    running /home/pi/test/ODM/run.py --orthophoto-cutline --dem-euclidean-map --skip-3dmodel --project-path /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels submodel_0000
+[INFO]    ==================================
+[INFO]    ==================================
+[INFO]    Create the Remote Task of submodel_0001 with Upload Current Time is  2020-09-24 00:09:56.131041
+[INFO]    ==================================
+[INFO]    LRE: Upload of submodel_0001 at [71%]
+[INFO]    LRE: Upload of submodel_0001 at [100%]
+[INFO]    ==================================
+[INFO]    Task Creation of submodel_0001 and Upload is Complete Task with Upload Current Time is  2020-09-24 00:09:56.321616
+[INFO]    ==================================
+[INFO]    ==================================
+[INFO]    Remote ODM Execution submodel_0001 with after Execution Current Time is  <function now_raw at 0xb5d04470>
+[INFO]    ==================================
+[INFO]    LRE: About to process submodel_0002 remotely
+[INFO]    ==================================
+[INFO]    Remote ODM Execution submodel_0002 with Before Execution Current Time is  <function now_raw at 0xb5d04470>
+[INFO]    ==================================
+[INFO]    ==================================
+[INFO]    Create the Remote Task of submodel_0002 with Upload Current Time is  2020-09-24 00:09:56.376516
+[INFO]    ==================================
+[INFO]    LRE: Upload of submodel_0002 at [83%]
+[INFO]    LRE: Upload of submodel_0002 at [100%]
+[INFO]    ==================================
+[INFO]    Task Creation of submodel_0002 and Upload is Complete Task with Upload Current Time is  2020-09-24 00:09:56.582625
+[INFO]    ==================================
+[INFO]    ==================================
+[INFO]    Remote ODM Execution submodel_0002 with after Execution Current Time is  <function now_raw at 0xb5d04470>
+[INFO]    ==================================
+[INFO]    Initializing ODM - Thu Sep 24 00:09:59  2020
+[INFO]    ==============
+[INFO]    build_overviews: False
+[INFO]    camera_lens: auto
+[INFO]    cameras: {}
+[INFO]    crop: 3
+[INFO]    debug: False
+[INFO]    dem_decimation: 1
+[INFO]    dem_euclidean_map: True
+[INFO]    dem_gapfill_steps: 3
+[INFO]    dem_resolution: 5
+[INFO]    depthmap_resolution: 640
+[INFO]    dsm: False
+[INFO]    dtm: False
+[INFO]    end_with: odm_report
+[INFO]    fast_orthophoto: False
+[INFO]    feature_type: sift
+[INFO]    force_gps: False
+[INFO]    gcp: None
+[INFO]    gps_accuracy: 15
+[INFO]    ignore_gsd: False
+[INFO]    matcher_distance: 0
+[INFO]    matcher_neighbors: 8
+[INFO]    max_concurrency: 4
+[INFO]    merge: all
+[INFO]    mesh_octree_depth: 10
+[INFO]    mesh_point_weight: 4
+[INFO]    mesh_samples: 1.0
+[INFO]    mesh_size: 200000
+[INFO]    min_num_features: 8000
+[INFO]    mve_confidence: 0.6
+[INFO]    name: submodel_0000
+[INFO]    opensfm_depthmap_method: PATCH_MATCH
+[INFO]    opensfm_depthmap_min_consistent_views: 3
+[INFO]    opensfm_depthmap_min_patch_sd: 1
+[INFO]    optimize_disk_space: False
+[INFO]    orthophoto_compression: DEFLATE
+[INFO]    orthophoto_cutline: True
+[INFO]    orthophoto_no_tiled: False
+[INFO]    orthophoto_png: False
+[INFO]    orthophoto_resolution: 5
+[INFO]    pc_classify: False
+[INFO]    pc_csv: False
+[INFO]    pc_ept: False
+[INFO]    pc_filter: 2.5
+[INFO]    pc_las: False
+[INFO]    pc_rectify: False
+[INFO]    pc_sample: 0
+[INFO]    project_path: /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels
+[INFO]    radiometric_calibration: none
+[INFO]    rerun: None
+[INFO]    rerun_all: False
+[INFO]    rerun_from: None
+[INFO]    resize_to: 2048
+[INFO]    skip_3dmodel: True
+[INFO]    sm_cluster: None
+[INFO]    smrf_scalar: 1.25
+[INFO]    smrf_slope: 0.15
+[INFO]    smrf_threshold: 0.5
+[INFO]    smrf_window: 18.0
+[INFO]    split: 999999
+[INFO]    split_multitracks: False
+[INFO]    split_overlap: 150
+[INFO]    texturing_data_term: gmi
+[INFO]    texturing_keep_unseen_faces: False
+[INFO]    texturing_nadir_weight: 16
+[INFO]    texturing_outlier_removal_type: gauss_clamping
+[INFO]    texturing_skip_global_seam_leveling: False
+[INFO]    texturing_skip_hole_filling: False
+[INFO]    texturing_skip_local_seam_leveling: False
+[INFO]    texturing_skip_visibility_test: False
+[INFO]    texturing_tone_mapping: none
+[INFO]    time: False
+[INFO]    use_3dmesh: False
+[INFO]    use_exif: False
+[INFO]    use_fixed_camera_params: False
+[INFO]    use_hybrid_bundle_adjustment: False
+[INFO]    use_opensfm_dense: False
+[INFO]    verbose: False
+[INFO]    ==============
+[INFO]    Running dataset stage and start time is 2020-09-24 00:09:59.376316
+[INFO]    Loading dataset from: /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0000/images
+[INFO]    Loading 7 images
+[INFO]    Wrote images database: /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0000/images.json
+[INFO]    Found 7 usable images
+[INFO]    Parsing SRS header: WGS84 UTM 15N
+[INFO]    Finished dataset stage and end time is 2020-09-24 00:09:59.506576 
+[INFO]    Finished dataset stage
+[INFO]    Running split stage and start time is 2020-09-24 00:09:59.507049
+[INFO]    Normal dataset, will process all at once.
+[INFO]    Finished split stage and end time is 2020-09-24 00:09:59.507231 
+[INFO]    Finished split stage
+[INFO]    Running merge stage and start time is 2020-09-24 00:09:59.507621
+[INFO]    Normal dataset, nothing to merge.
+[INFO]    Finished merge stage and end time is 2020-09-24 00:09:59.507787 
+[INFO]    Finished merge stage
+[INFO]    Running opensfm stage and start time is 2020-09-24 00:09:59.508169
+[WARNING] /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0000/opensfm/image_list.txt already exists, not rerunning OpenSfM setup
+[WARNING] Detect features already done: /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0000/opensfm/features exists
+[WARNING] Match features already done: /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0000/opensfm/matches exists
+[WARNING] Found a valid OpenSfM tracks file in: /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0000/opensfm/tracks.csv
+[WARNING] Found a valid OpenSfM reconstruction file in: /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0000/opensfm/reconstruction.json
+[WARNING] LRE: submodel_0002 (4a802828-a49a-4fa9-9885-f136d6b59d80) turned from RUNNING to QUEUED. Re-adding to back of the queue.
+[WARNING] LRE: submodel_0002 failed with: Delayed task limit reached
+[INFO]    LRE: Node task limit reached. Setting max remote tasks to 1
+[INFO]    LRE: Cleaning up remote task (4a802828-a49a-4fa9-9885-f136d6b59d80)... OK
+[INFO]    LRE: Re-queueing submodel_0002 (retries: 0)
+[INFO]    Updating /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0000/opensfm/config.yaml
+[INFO]    undistorted_image_max_size: 640
+[INFO]    Undistorting /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0000/opensfm ...
+2020-09-24 00:10:02,538 DEBUG: Undistorting image DJI_0027.JPG
+2020-09-24 00:10:04,318 DEBUG: Undistorting image DJI_0019.JPG
+2020-09-24 00:10:06,095 DEBUG: Undistorting image DJI_0030.JPG
+2020-09-24 00:10:06,096 DEBUG: Undistorting image DJI_0029.JPG
+2020-09-24 00:10:06,097 DEBUG: Undistorting image DJI_0020.JPG
+2020-09-24 00:10:06,136 DEBUG: Undistorting image DJI_0018.JPG
+2020-09-24 00:10:06,141 DEBUG: Undistorting image DJI_0028.JPG
+[INFO]    running /usr/bin/env python2 /home/pi/test/ODM/SuperBuild/src/opensfm/bin/opensfm export_visualsfm --points "/home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0000/opensfm"
+[INFO]    running /usr/bin/env python2 /home/pi/test/ODM/SuperBuild/src/opensfm/bin/opensfm export_geocoords --transformation --proj '+proj=utm +zone=15 +datum=WGS84 +units=m +no_defs +type=crs' "/home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0000/opensfm"
+[INFO]    Finished opensfm stage and end time is 2020-09-24 00:10:11.341901 
+[INFO]    Finished opensfm stage
+[INFO]    Running mve stage and start time is 2020-09-24 00:10:11.342480
+[INFO]    running /home/pi/test/ODM/SuperBuild/src/elibs/mve/apps/makescene/makescene "/home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0000/opensfm/undistorted/reconstruction.nvm" "/home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0000/mve"
+MVE Makescene (built on Sep 20 2020, 18:10:52)
+Info: Detected VisualSFM bundle format.
+NVM: Loading file.../home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0000/opensfm/undistorted/reconstruction.nvm
+NVM: Number of views: 7
+updated nvm 
+NVM: Number of features: 832
+return from bundle in bundle_io.cc
+Creating output directories...
+Writing MVE views updated ...
+Inside for loop Inside for loop Inside for loop Inside for loop 
+
+
+view_0001.mveview_0000.mve
+after view pointer create makescene
+after set name makescene 
+load any image call 
+byte image reader 
+after byte reader
+/home/pi/test/odm/datasets/drone_dataset_brighton_beach/submodels/submodel_0000/opensfm/undistorted/images/dji_0027.jpg.tif
+name of files
+/home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0000/opensfm/undistorted/images/DJI_0027.JPG.tif
+return from tif in makescene 
+
+view_0003.mve
+
+view_0002.mve
+after view pointer create makesceneafter view pointer create makescene
+
+after set name makescene 
+load any image call 
+byte image reader 
+after byte reader
+/home/pi/test/odm/datasets/drone_dataset_brighton_beach/submodels/submodel_0000/opensfm/undistorted/images/dji_0029.jpg.tif
+name of files
+/home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0000/opensfm/undistorted/images/DJI_0029.JPG.tif
+return from tif in makescene 
+after set name makescene 
+load any image call 
+byte image reader 
+after byte reader
+/home/pi/test/odm/datasets/drone_dataset_brighton_beach/submodels/submodel_0000/opensfm/undistorted/images/dji_0019.jpg.tif
+name of files
+/home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0000/opensfm/undistorted/images/DJI_0019.JPG.tif
+return from tif in makescene 
+after view pointer create makescene
+after set name makescene 
+load any image call 
+byte image reader 
+after byte reader
+/home/pi/test/odm/datasets/drone_dataset_brighton_beach/submodels/submodel_0000/opensfm/undistorted/images/dji_0030.jpg.tif
+name of files
+/home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0000/opensfm/undistorted/images/DJI_0030.JPG.tif
+return from tif in makescene 
+return jpeg from image ioreturn jpeg from image io
+image io filename: /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0000/opensfm/undistorted/images/DJI_0019.JPG.tif
+load_jpg_file function image io /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0000/opensfm/undistorted/images/DJI_0019.JPG.tif
+
+image io filename: /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0000/opensfm/undistorted/images/DJI_0029.JPG.tif
+load_jpg_file function image io /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0000/opensfm/undistorted/images/DJI_0029.JPG.tif
+after  fp file point image io 
+after set up error hander image io
+after if exif  image io
+return jpeg from image io
+image io filename: /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0000/opensfm/undistorted/images/DJI_0027.JPG.tif
+load_jpg_file function image io /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0000/opensfm/undistorted/images/DJI_0027.JPG.tif
+Not a JPEG file: starts with 0x49 0x49
+Not a JPEG file: starts with 0x49 0x49
+after  fp file point image io 
+after set up error hander image io
+after if exif  image io
+Not a JPEG file: starts with 0x49 0x49
+after  fp file point image io 
+Error in jump image io 
+after set up error hander image io
+after if exif  image io
+error in the load jpg function image io
+Not a JPEG file: starts with 0x49 0x49
+Exception in jpeg in image io
+name file in tiff name in image io: /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0000/opensfm/undistorted/images/DJI_0029.JPG.tif
+Not a JPEG file: starts with 0x49 0x49
+Error in jump image io 
+error in the load jpg function image io
+Exception in jpeg in image io
+name file in tiff name in image io: /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0000/opensfm/undistorted/images/DJI_0019.JPG.tif
+Not a JPEG file: starts with 0x49 0x49
+Error in jump image io 
+error in the load jpg function image io
+Exception in jpeg in image io
+name file in tiff name in image io: /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0000/opensfm/undistorted/images/DJI_0027.JPG.tif
+return jpeg from image io
+image io filename: /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0000/opensfm/undistorted/images/DJI_0030.JPG.tif
+load_jpg_file function image io /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0000/opensfm/undistorted/images/DJI_0030.JPG.tif
+after  fp file point image io 
+after set up error hander image io
+after if exif  image io
+Not a JPEG file: starts with 0x49 0x49
+Not a JPEG file: starts with 0x49 0x49
+Error in jump image io 
+error in the load jpg function image io
+Exception in jpeg in image io
+name file in tiff name in image io: /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0000/opensfm/undistorted/images/DJI_0030.JPG.tif
+return from img_8 in load any image
+image page pont load  after makescene 
+Before switch
+Add original image
+return from img_8 in load any image
+image page pont load  after makescene 
+Before switch
+Add original image
+Writing MVE view: view_0003.mve...
+Writing MVE view: view_0001.mve...
+return from img_8 in load any image
+image page pont load  after makescene 
+Before switch
+Add original image
+return from img_8 in load any image
+Writing MVE view: view_0002.mve...image page pont load  after makescene 
+Before switch
+Add original image
+
+Writing MVE view: view_0000.mve...
+Inside for loop 
+view_0004.mve
+after view pointer create makescene
+after set name makescene 
+load any image call 
+byte image reader 
+after byte reader
+/home/pi/test/odm/datasets/drone_dataset_brighton_beach/submodels/submodel_0000/opensfm/undistorted/images/dji_0020.jpg.tif
+name of files
+/home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0000/opensfm/undistorted/images/DJI_0020.JPG.tif
+return from tif in makescene 
+return jpeg from image io
+image io filename: /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0000/opensfm/undistorted/images/DJI_0020.JPG.tif
+load_jpg_file function image io /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0000/opensfm/undistorted/images/DJI_0020.JPG.tif
+after  fp file point image io 
+after set up error hander image io
+after if exif  image io
+Not a JPEG file: starts with 0x49 0x49
+Not a JPEG file: starts with 0x49 0x49
+Error in jump image io 
+error in the load jpg function image io
+Exception in jpeg in image io
+name file in tiff name in image io: /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0000/opensfm/undistorted/images/DJI_0020.JPG.tif
+Inside for loop 
+view_0005.mve
+after view pointer create makescene
+after set name makescene 
+load any image call 
+byte image reader 
+after byte reader
+/home/pi/test/odm/datasets/drone_dataset_brighton_beach/submodels/submodel_0000/opensfm/undistorted/images/dji_0018.jpg.tif
+name of files
+/home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0000/opensfm/undistorted/images/DJI_0018.JPG.tif
+return from tif in makescene 
+return jpeg from image io
+image io filename: /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0000/opensfm/undistorted/images/DJI_0018.JPG.tif
+load_jpg_file function image io /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0000/opensfm/undistorted/images/DJI_0018.JPG.tif
+after  fp file point image io 
+after set up error hander image io
+after if exif  image io
+Not a JPEG file: starts with 0x49 0x49
+Not a JPEG file: starts with 0x49 0x49
+Error in jump image io 
+error in the load jpg function image io
+Exception in jpeg in image io
+name file in tiff name in image io: /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0000/opensfm/undistorted/images/DJI_0018.JPG.tif
+Inside for loop 
+view_0006.mve
+after view pointer create makescene
+after set name makescene 
+load any image call 
+byte image reader 
+after byte reader
+/home/pi/test/odm/datasets/drone_dataset_brighton_beach/submodels/submodel_0000/opensfm/undistorted/images/dji_0028.jpg.tif
+name of files
+/home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0000/opensfm/undistorted/images/DJI_0028.JPG.tif
+return from tif in makescene 
+return jpeg from image io
+image io filename: /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0000/opensfm/undistorted/images/DJI_0028.JPG.tif
+load_jpg_file function image io /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0000/opensfm/undistorted/images/DJI_0028.JPG.tif
+after  fp file point image io 
+after set up error hander image io
+after if exif  image io
+Not a JPEG file: starts with 0x49 0x49
+Not a JPEG file: starts with 0x49 0x49
+Error in jump image io 
+error in the load jpg function image io
+Exception in jpeg in image io
+name file in tiff name in image io: /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0000/opensfm/undistorted/images/DJI_0028.JPG.tif
+return from img_8 in load any image
+image page pont load  after makescene 
+Before switch
+Add original image
+return from img_8 in load any image
+image page pont load  after makescene 
+Before switch
+Add original image
+Writing MVE view: view_0004.mve...
+return from img_8 in load any image
+image page pont load  after makescene 
+Before switch
+Add original image
+Writing MVE view: view_0005.mve...
+Writing MVE view: view_0006.mve...
+Writing bundle file...
+Writing bundle (7 cameras, 832 features): /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0000/mve/synth_0.out...
+
+Done importing NVM file!
+[INFO]    Running dense reconstruction. This might take a while.
+[INFO]    running /home/pi/test/ODM/SuperBuild/src/elibs/mve/apps/dmrecon/dmrecon -s0 --progress=fancy --local-neighbors=2 "/home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0000/mve"
+MVE Depth Map Reconstruction (built on Sep 20 2020, 18:10:36)
+Initializing scene with 7 views...
+Initialized 7 views (max ID is 6), took 1ms.
+in load mve bundle 
+Reading Photosynther file (7 cameras, 832 features)...
+Reconstructing all views...
+0 of 7 completed (0.00%)
+1 of 7 completed (14.29%)
+3 of 7 completed (42.86%)
+4 of 7 completed (57.14%)
+5 of 7 completed (71.43%)
+6 of 7 completed (85.71%)
+7 of 7 completed (100.00%)
+Reconstruction took 47367ms.
+Saving views back to disc...
+Saving views to MVE files... done.
+[INFO]    running /home/pi/test/ODM/SuperBuild/src/elibs/mve/apps/scene2pset/scene2pset -F0 "/home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0000/mve" "/home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0000/mve/mve_dense_point_cloud.ply"
+MVE Scene to Pointset (built on Sep 20 2020, 18:11:15)
+Using depthmap "depth-L0" and color image "undistorted"
+Initializing scene with 7 views...
+Initialized 7 views (max ID is 6), took 1ms.
+Inside load file header function jpg /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0000/mve/views/view_0001.mve/depth-L0.mvei
+after load jpg file headers image io
+Inside load file header function jpg /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0000/mve/views/view_0002.mve/depth-L0.mvei
+after load jpg file headers image io
+Not a JPEG file: starts with 0x89 0x4d
+Inside load file header function jpg /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0000/mve/views/view_0000.mve/depth-L0.mvei
+after load jpg file headers image io
+Not a JPEG file: starts with 0x89 0x4d
+Inside load file header function jpg /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0000/mve/views/view_0003.mve/depth-L0.mvei
+Not a JPEG file: starts with 0x89 0x4d
+after load jpg file headers image io
+Error in jump jpg header image io 
+after jpeg file headers error  image io
+Not a JPEG file: starts with 0x89 0x4d
+Not a JPEG file: starts with 0x89 0x4d
+Not a JPEG file: starts with 0x89 0x4d
+Error in jump jpg header image io 
+Error in jump jpg header image io 
+Not a JPEG file: starts with 0x89 0x4d
+file header jpeg catch in file header main function image io expection /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0000/mve/views/view_0001.mve/depth-L0.mvei
+tiff file header  image io /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0000/mve/views/view_0001.mve/depth-L0.mvei
+after jpeg file headers error  image io
+tif file header funtion /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0000/mve/views/view_0001.mve/depth-L0.mvei
+after jpeg file headers error  image io
+file header jpeg catch in file header main function image io expection /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0000/mve/views/view_0003.mve/depth-L0.mvei
+file header jpeg catch in file header main function image io expection /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0000/mve/views/view_0002.mve/depth-L0.mvei
+tiff file header  image io /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0000/mve/views/view_0002.mve/depth-L0.mvei
+tif file header funtion /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0000/mve/views/view_0002.mve/depth-L0.mvei
+tiff file header  image io /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0000/mve/views/view_0003.mve/depth-L0.mvei
+tif file header funtion /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0000/mve/views/view_0003.mve/depth-L0.mvei
+tiff header set jmp exception thrown /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0000/mve/views/view_0002.mve/depth-L0.mvei
+Aborted
+Traceback (most recent call last):
+  File "/home/pi/test/ODM/run.py", line 62, in <module>
+    app.execute()
+  File "/home/pi/test/ODM/stages/odm_app.py", line 95, in execute
+    self.first_stage.run()
+  File "/home/pi/test/ODM/opendm/types.py", line 353, in run
+    self.next_stage.run(outputs)
+  File "/home/pi/test/ODM/opendm/types.py", line 353, in run
+    self.next_stage.run(outputs)
+  File "/home/pi/test/ODM/opendm/types.py", line 353, in run
+    self.next_stage.run(outputs)
+  File "/home/pi/test/ODM/opendm/types.py", line 353, in run
+    self.next_stage.run(outputs)
+  File "/home/pi/test/ODM/opendm/types.py", line 331, in run
+    self.process(self.args, outputs)
+  File "/home/pi/test/ODM/stages/mve.py", line 84, in process
+    system.run('%s %s "%s" "%s"' % (context.scene2pset_path, ' '.join(scene2pset_config), tree.mve, tree.mve_model), env_vars={'OMP_NUM_THREADS': args.max_concurrency})
+  File "/home/pi/test/ODM/opendm/system.py", line 76, in run
+    raise Exception("Child returned {}".format(retcode))
+Exception: Child returned 134
+[WARNING] LRE: submodel_0000 failed with: Child returned 1
+[INFO]    LRE: Re-queueing submodel_0000 (retries: 1)
+[INFO]    LRE: About to process submodel_0002 locally
+[INFO]    =============================
+[INFO]    Local Toolchain submodel_0002
+[INFO]    =============================
+[INFO]    running /home/pi/test/ODM/run.py --orthophoto-cutline --dem-euclidean-map --skip-3dmodel --project-path /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels submodel_0002
+[INFO]    Initializing ODM - Thu Sep 24 00:11:02  2020
+[INFO]    ==============
+[INFO]    build_overviews: False
+[INFO]    camera_lens: auto
+[INFO]    cameras: {}
+[INFO]    crop: 3
+[INFO]    debug: False
+[INFO]    dem_decimation: 1
+[INFO]    dem_euclidean_map: True
+[INFO]    dem_gapfill_steps: 3
+[INFO]    dem_resolution: 5
+[INFO]    depthmap_resolution: 640
+[INFO]    dsm: False
+[INFO]    dtm: False
+[INFO]    end_with: odm_report
+[INFO]    fast_orthophoto: False
+[INFO]    feature_type: sift
+[INFO]    force_gps: False
+[INFO]    gcp: None
+[INFO]    gps_accuracy: 15
+[INFO]    ignore_gsd: False
+[INFO]    matcher_distance: 0
+[INFO]    matcher_neighbors: 8
+[INFO]    max_concurrency: 4
+[INFO]    merge: all
+[INFO]    mesh_octree_depth: 10
+[INFO]    mesh_point_weight: 4
+[INFO]    mesh_samples: 1.0
+[INFO]    mesh_size: 200000
+[INFO]    min_num_features: 8000
+[INFO]    mve_confidence: 0.6
+[INFO]    name: submodel_0002
+[INFO]    opensfm_depthmap_method: PATCH_MATCH
+[INFO]    opensfm_depthmap_min_consistent_views: 3
+[INFO]    opensfm_depthmap_min_patch_sd: 1
+[INFO]    optimize_disk_space: False
+[INFO]    orthophoto_compression: DEFLATE
+[INFO]    orthophoto_cutline: True
+[INFO]    orthophoto_no_tiled: False
+[INFO]    orthophoto_png: False
+[INFO]    orthophoto_resolution: 5
+[INFO]    pc_classify: False
+[INFO]    pc_csv: False
+[INFO]    pc_ept: False
+[INFO]    pc_filter: 2.5
+[INFO]    pc_las: False
+[INFO]    pc_rectify: False
+[INFO]    pc_sample: 0
+[INFO]    project_path: /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels
+[INFO]    radiometric_calibration: none
+[INFO]    rerun: None
+[INFO]    rerun_all: False
+[INFO]    rerun_from: None
+[INFO]    resize_to: 2048
+[INFO]    skip_3dmodel: True
+[INFO]    sm_cluster: None
+[INFO]    smrf_scalar: 1.25
+[INFO]    smrf_slope: 0.15
+[INFO]    smrf_threshold: 0.5
+[INFO]    smrf_window: 18.0
+[INFO]    split: 999999
+[INFO]    split_multitracks: False
+[INFO]    split_overlap: 150
+[INFO]    texturing_data_term: gmi
+[INFO]    texturing_keep_unseen_faces: False
+[INFO]    texturing_nadir_weight: 16
+[INFO]    texturing_outlier_removal_type: gauss_clamping
+[INFO]    texturing_skip_global_seam_leveling: False
+[INFO]    texturing_skip_hole_filling: False
+[INFO]    texturing_skip_local_seam_leveling: False
+[INFO]    texturing_skip_visibility_test: False
+[INFO]    texturing_tone_mapping: none
+[INFO]    time: False
+[INFO]    use_3dmesh: False
+[INFO]    use_exif: False
+[INFO]    use_fixed_camera_params: False
+[INFO]    use_hybrid_bundle_adjustment: False
+[INFO]    use_opensfm_dense: False
+[INFO]    verbose: False
+[INFO]    ==============
+[INFO]    Running dataset stage and start time is 2020-09-24 00:11:02.656762
+[INFO]    Loading dataset from: /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/images
+[INFO]    Loading 5 images
+[INFO]    Wrote images database: /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/images.json
+[INFO]    Found 5 usable images
+[INFO]    Parsing SRS header: WGS84 UTM 15N
+[INFO]    Finished dataset stage and end time is 2020-09-24 00:11:02.755927 
+[INFO]    Finished dataset stage
+[INFO]    Running split stage and start time is 2020-09-24 00:11:02.756252
+[INFO]    Normal dataset, will process all at once.
+[INFO]    Finished split stage and end time is 2020-09-24 00:11:02.756384 
+[INFO]    Finished split stage
+[INFO]    Running merge stage and start time is 2020-09-24 00:11:02.756590
+[INFO]    Normal dataset, nothing to merge.
+[INFO]    Finished merge stage and end time is 2020-09-24 00:11:02.756712 
+[INFO]    Finished merge stage
+[INFO]    Running opensfm stage and start time is 2020-09-24 00:11:02.756907
+[WARNING] /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/image_list.txt already exists, not rerunning OpenSfM setup
+[WARNING] Detect features already done: /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/features exists
+[WARNING] Match features already done: /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/matches exists
+[WARNING] Found a valid OpenSfM tracks file in: /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/tracks.csv
+[WARNING] Found a valid OpenSfM reconstruction file in: /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/reconstruction.json
+[INFO]    Already extracted cameras
+[INFO]    Updating /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/config.yaml
+[INFO]    undistorted_image_max_size: 640
+[INFO]    Undistorting /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm ...
+2020-09-24 00:11:05,503 DEBUG: Undistorting image DJI_0034.JPG
+[INFO]    LRE: Downloading assets for submodel_0001
+[INFO]    LRE: Download Assets for submodel_0001 with and Current Time is  2020-09-24 00:11:05.646988
+[INFO]    LRE: Download of submodel_0001 at [0%]
+[INFO]    LRE: Download of submodel_0001 at [100%]
+[INFO]    LRE: Download Assets and extraction  Finished and the Process for this Submodel is Finished for submodel_0001 with and Current Time is  2020-09-24 00:11:06.193484
+[INFO]    LRE: Downloaded and extracted assets for submodel_0001
+[INFO]    LRE: submodel_0001 finished successfully
+[INFO]    LRE: Cleaning up remote task (42e781a5-83f2-4e1a-bef5-cfb009f84d72)... OK
+2020-09-24 00:11:07,437 DEBUG: Undistorting image DJI_0031.JPG
+[INFO]    LRE: About to process submodel_0000 remotely
+[INFO]    LRE: Waiting 2 seconds before processing submodel_0000
+2020-09-24 00:11:09,205 DEBUG: Undistorting image DJI_0033.JPG
+2020-09-24 00:11:09,205 DEBUG: Undistorting image DJI_0035.JPG
+2020-09-24 00:11:09,206 DEBUG: Undistorting image DJI_0032.JPG
+[INFO]    running /usr/bin/env python2 /home/pi/test/ODM/SuperBuild/src/opensfm/bin/opensfm export_visualsfm --points "/home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm"
+[INFO]    ==================================
+[INFO]    Remote ODM Execution submodel_0000 with Before Execution Current Time is  <function now_raw at 0xb5d04470>
+[INFO]    ==================================
+[INFO]    ==================================
+[INFO]    Create the Remote Task of submodel_0000 with Upload Current Time is  2020-09-24 00:11:09.777248
+[INFO]    ==================================
+[INFO]    LRE: Upload of submodel_0000 at [37%]
+[INFO]    LRE: Upload of submodel_0000 at [100%]
+[INFO]    ==================================
+[INFO]    Task Creation of submodel_0000 and Upload is Complete Task with Upload Current Time is  2020-09-24 00:11:09.999304
+[INFO]    ==================================
+[INFO]    ==================================
+[INFO]    Remote ODM Execution submodel_0000 with after Execution Current Time is  <function now_raw at 0xb5d04470>
+[INFO]    ==================================
+[INFO]    running /usr/bin/env python2 /home/pi/test/ODM/SuperBuild/src/opensfm/bin/opensfm export_geocoords --transformation --proj '+proj=utm +zone=15 +datum=WGS84 +units=m +no_defs +type=crs' "/home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm"
+[INFO]    Finished opensfm stage and end time is 2020-09-24 00:11:14.434538 
+[INFO]    Finished opensfm stage
+[INFO]    Running mve stage and start time is 2020-09-24 00:11:14.435104
+[INFO]    running /home/pi/test/ODM/SuperBuild/src/elibs/mve/apps/makescene/makescene "/home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/reconstruction.nvm" "/home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/mve"
+MVE Makescene (built on Sep 20 2020, 18:10:52)
+Info: Detected VisualSFM bundle format.
+NVM: Loading file.../home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/reconstruction.nvm
+NVM: Number of views: 5
+updated nvm 
+NVM: Number of features: 705
+return from bundle in bundle_io.cc
+Creating output directories...
+Writing MVE views updated ...
+Inside for loop Inside for loop Inside for loop 
+
+
+view_0001.mveview_0000.mve
+Inside for loop 
+after view pointer create makescene
+after set name makescene 
+load any image call 
+byte image reader 
+after byte reader
+/home/pi/test/odm/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/dji_0034.jpg.tif
+name of files
+/home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/DJI_0034.JPG.tif
+return from tif in makescene 
+after view pointer create makesceneview_0002.mve
+
+
+after set name makescene return jpeg from image io
+image io filename: /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/DJI_0034.JPG.tif
+load_jpg_file function image io /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/DJI_0034.JPG.tif
+
+after  fp file point image io 
+load any image call 
+byte image reader after view pointer create makescene
+view_0003.mveafter byte reader
+/home/pi/test/odm/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/dji_0031.jpg.tif
+name of files
+/home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/DJI_0031.JPG.tif
+return from tif in makescene 
+return jpeg from image io
+image io filename: /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/DJI_0031.JPG.tif
+load_jpg_file function image io /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/DJI_0031.JPG.tif
+after set up error hander image ioafter  fp file point image io 
+
+
+after if exif  image io
+
+Not a JPEG file: starts with 0x49 0x49
+after set up error hander image io
+after if exif  image io
+Not a JPEG file: starts with 0x49 0x49
+Not a JPEG file: starts with 0x49 0x49
+Error in jump image io 
+error in the load jpg function image io
+Exception in jpeg in image io
+name file in tiff name in image io: /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/DJI_0031.JPG.tif
+after set name makescene 
+load any image call 
+after view pointer create makescenebyte image reader 
+after byte reader
+/home/pi/test/odm/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/dji_0033.jpg.tif
+name of files
+/home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/DJI_0033.JPG.tif
+return from tif in makescene 
+return jpeg from image io
+image io filename: /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/DJI_0033.JPG.tif
+load_jpg_file function image io /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/DJI_0033.JPG.tif
+after  fp file point image io 
+after set up error hander image io
+after if exif  image io
+Not a JPEG file: starts with 0x49 0x49
+Error in jump image io 
+
+Not a JPEG file: starts with 0x49 0x49
+Not a JPEG file: starts with 0x49 0x49
+Error in jump image io 
+error in the load jpg function image io
+Exception in jpeg in image io
+name file in tiff name in image io: /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/DJI_0033.JPG.tif
+after set name makescene 
+load any image call 
+byte image reader 
+after byte reader
+/home/pi/test/odm/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/dji_0035.jpg.tif
+name of files
+/home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/DJI_0035.JPG.tif
+return from tif in makescene 
+error in the load jpg function image io
+return jpeg from image io
+image io filename: /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/DJI_0035.JPG.tif
+load_jpg_file function image io /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/DJI_0035.JPG.tif
+after  fp file point image io 
+after set up error hander image io
+after if exif  image io
+Exception in jpeg in image io
+Not a JPEG file: starts with 0x49 0x49
+name file in tiff name in image io: /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/DJI_0034.JPG.tif
+Not a JPEG file: starts with 0x49 0x49
+Error in jump image io 
+error in the load jpg function image io
+Exception in jpeg in image io
+name file in tiff name in image io: /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/DJI_0035.JPG.tif
+return from img_8 in load any image
+image page pont load  after makescene 
+Before switch
+Add original image
+return from img_8 in load any image
+image page pont load  after makescene 
+Before switch
+Add original image
+return from img_8 in load any image
+image page pont load  after makescene 
+Before switch
+Add original image
+return from img_8 in load any image
+image page pont load  after makescene 
+Before switch
+Add original image
+Writing MVE view: view_0001.mve...
+Writing MVE view: view_0002.mve...
+Writing MVE view: view_0003.mve...
+Writing MVE view: view_0000.mve...
+Inside for loop 
+view_0004.mve
+after view pointer create makescene
+after set name makescene 
+load any image call 
+byte image reader 
+after byte reader
+/home/pi/test/odm/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/dji_0032.jpg.tif
+name of files
+/home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/DJI_0032.JPG.tif
+return from tif in makescene 
+return jpeg from image io
+image io filename: /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/DJI_0032.JPG.tif
+load_jpg_file function image io /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/DJI_0032.JPG.tif
+after  fp file point image io 
+after set up error hander image io
+after if exif  image io
+Not a JPEG file: starts with 0x49 0x49
+Not a JPEG file: starts with 0x49 0x49
+Error in jump image io 
+error in the load jpg function image io
+Exception in jpeg in image io
+name file in tiff name in image io: /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/DJI_0032.JPG.tif
+return from img_8 in load any image
+image page pont load  after makescene 
+Before switch
+Add original image
+Writing MVE view: view_0004.mve...
+Writing bundle file...
+Writing bundle (5 cameras, 705 features): /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/mve/synth_0.out...
+
+Done importing NVM file!
+[INFO]    Running dense reconstruction. This might take a while.
+[INFO]    running /home/pi/test/ODM/SuperBuild/src/elibs/mve/apps/dmrecon/dmrecon -s0 --progress=fancy --local-neighbors=2 "/home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/mve"
+MVE Depth Map Reconstruction (built on Sep 20 2020, 18:10:36)
+Initializing scene with 5 views...
+Initialized 5 views (max ID is 4), took 1ms.
+in load mve bundle 
+Reading Photosynther file (5 cameras, 705 features)...
+Reconstructing all views...
+0 of 5 completed (0.00%)
+1 of 5 completed (20.00%)
+2 of 5 completed (40.00%)
+3 of 5 completed (60.00%)
+4 of 5 completed (80.00%)
+5 of 5 completed (100.00%)
+Reconstruction took 21646ms.
+Saving views back to disc...
+Saving views to MVE files... done.
+[INFO]    running /home/pi/test/ODM/SuperBuild/src/elibs/mve/apps/scene2pset/scene2pset -F0 "/home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/mve" "/home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/mve/mve_dense_point_cloud.ply"
+MVE Scene to Pointset (built on Sep 20 2020, 18:11:15)
+Using depthmap "depth-L0" and color image "undistorted"
+Initializing scene with 5 views...
+Initialized 5 views (max ID is 4), took 1ms.
+Inside load file header function jpg Inside load file header function jpg /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/mve/views/view_0003.mve/depth-L0.mvei
+after load jpg file headers image io
+Inside load file header function jpg /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/mve/views/view_0002.mve/depth-L0.mvei
+after load jpg file headers image io
+/home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/mve/views/view_0000.mve/depth-L0.mvei
+Not a JPEG file: starts with 0x89 0x4d
+after load jpg file headers image io
+Inside load file header function jpg /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/mve/views/view_0001.mve/depth-L0.mvei
+Not a JPEG file: starts with 0x89 0x4d
+after load jpg file headers image io
+Not a JPEG file: starts with 0x89 0x4d
+Not a JPEG file: starts with 0x89 0x4d
+Not a JPEG file: starts with 0x89 0x4d
+Error in jump jpg header image io 
+Error in jump jpg header image io 
+Not a JPEG file: starts with 0x89 0x4d
+after jpeg file headers error  image ioNot a JPEG file: starts with 0x89 0x4d
+after jpeg file headers error  image io
+Not a JPEG file: starts with 0x89 0x4d
+Error in jump jpg header image io 
+file header jpeg catch in file header main function image io expection after jpeg file headers error  image io
+file header jpeg catch in file header main function image io expection /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/mve/views/view_0000.mve/depth-L0.mvei
+tiff file header  image io /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/mve/views/view_0000.mve/depth-L0.mvei
+/home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/mve/views/view_0003.mve/depth-L0.mvei
+tiff file header  image io /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/mve/views/view_0003.mve/depth-L0.mvei
+tif file header funtion tif file header funtion /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/mve/views/view_0003.mve/depth-L0.mvei
+file header jpeg catch in file header main function image io expection /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/mve/views/view_0002.mve/depth-L0.mvei
+tiff file header  image io /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/mve/views/view_0002.mve/depth-L0.mvei
+tif file header funtion /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/mve/views/view_0002.mve/depth-L0.mvei
+tiff header set jmp exception thrown /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/mve/views/view_0002.mve/depth-L0.mvei
+Received signal SIGSEGV (segmentation fault)
+Obtained 3 stack frames: 0x63484 0xb6a77120 0xb6aafbb8
+/home/pi/test/ODM/SuperBuild/src/elibs/mve/apps/scene2pset/scene2pset[0x63484]
+/lib/arm-linux-gnueabihf/libc.so.6(__default_sa_restorer+0x0)[0xb6a77120]
+/lib/arm-linux-gnueabihf/libc.so.6(_IO_putc+0x94)[0xb6aafbb8]
+Segmentation fault
+Traceback (most recent call last):
+  File "/home/pi/test/ODM/run.py", line 62, in <module>
+    app.execute()
+  File "/home/pi/test/ODM/stages/odm_app.py", line 95, in execute
+    self.first_stage.run()
+  File "/home/pi/test/ODM/opendm/types.py", line 353, in run
+    self.next_stage.run(outputs)
+  File "/home/pi/test/ODM/opendm/types.py", line 353, in run
+    self.next_stage.run(outputs)
+  File "/home/pi/test/ODM/opendm/types.py", line 353, in run
+    self.next_stage.run(outputs)
+  File "/home/pi/test/ODM/opendm/types.py", line 353, in run
+    self.next_stage.run(outputs)
+  File "/home/pi/test/ODM/opendm/types.py", line 331, in run
+    self.process(self.args, outputs)
+  File "/home/pi/test/ODM/stages/mve.py", line 84, in process
+    system.run('%s %s "%s" "%s"' % (context.scene2pset_path, ' '.join(scene2pset_config), tree.mve, tree.mve_model), env_vars={'OMP_NUM_THREADS': args.max_concurrency})
+  File "/home/pi/test/ODM/opendm/system.py", line 76, in run
+    raise Exception("Child returned {}".format(retcode))
+Exception: Child returned 1
+[WARNING] LRE: submodel_0002 failed with: Child returned 1
+[INFO]    LRE: Re-queueing submodel_0002 (retries: 1)
+[INFO]    LRE: About to process submodel_0002 locally
+[INFO]    =============================
+[INFO]    Local Toolchain submodel_0002
+[INFO]    =============================
+[INFO]    running /home/pi/test/ODM/run.py --orthophoto-cutline --dem-euclidean-map --skip-3dmodel --project-path /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels submodel_0002
+[INFO]    Initializing ODM - Thu Sep 24 00:11:40  2020
+[INFO]    ==============
+[INFO]    build_overviews: False
+[INFO]    camera_lens: auto
+[INFO]    cameras: {}
+[INFO]    crop: 3
+[INFO]    debug: False
+[INFO]    dem_decimation: 1
+[INFO]    dem_euclidean_map: True
+[INFO]    dem_gapfill_steps: 3
+[INFO]    dem_resolution: 5
+[INFO]    depthmap_resolution: 640
+[INFO]    dsm: False
+[INFO]    dtm: False
+[INFO]    end_with: odm_report
+[INFO]    fast_orthophoto: False
+[INFO]    feature_type: sift
+[INFO]    force_gps: False
+[INFO]    gcp: None
+[INFO]    gps_accuracy: 15
+[INFO]    ignore_gsd: False
+[INFO]    matcher_distance: 0
+[INFO]    matcher_neighbors: 8
+[INFO]    max_concurrency: 4
+[INFO]    merge: all
+[INFO]    mesh_octree_depth: 10
+[INFO]    mesh_point_weight: 4
+[INFO]    mesh_samples: 1.0
+[INFO]    mesh_size: 200000
+[INFO]    min_num_features: 8000
+[INFO]    mve_confidence: 0.6
+[INFO]    name: submodel_0002
+[INFO]    opensfm_depthmap_method: PATCH_MATCH
+[INFO]    opensfm_depthmap_min_consistent_views: 3
+[INFO]    opensfm_depthmap_min_patch_sd: 1
+[INFO]    optimize_disk_space: False
+[INFO]    orthophoto_compression: DEFLATE
+[INFO]    orthophoto_cutline: True
+[INFO]    orthophoto_no_tiled: False
+[INFO]    orthophoto_png: False
+[INFO]    orthophoto_resolution: 5
+[INFO]    pc_classify: False
+[INFO]    pc_csv: False
+[INFO]    pc_ept: False
+[INFO]    pc_filter: 2.5
+[INFO]    pc_las: False
+[INFO]    pc_rectify: False
+[INFO]    pc_sample: 0
+[INFO]    project_path: /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels
+[INFO]    radiometric_calibration: none
+[INFO]    rerun: None
+[INFO]    rerun_all: False
+[INFO]    rerun_from: None
+[INFO]    resize_to: 2048
+[INFO]    skip_3dmodel: True
+[INFO]    sm_cluster: None
+[INFO]    smrf_scalar: 1.25
+[INFO]    smrf_slope: 0.15
+[INFO]    smrf_threshold: 0.5
+[INFO]    smrf_window: 18.0
+[INFO]    split: 999999
+[INFO]    split_multitracks: False
+[INFO]    split_overlap: 150
+[INFO]    texturing_data_term: gmi
+[INFO]    texturing_keep_unseen_faces: False
+[INFO]    texturing_nadir_weight: 16
+[INFO]    texturing_outlier_removal_type: gauss_clamping
+[INFO]    texturing_skip_global_seam_leveling: False
+[INFO]    texturing_skip_hole_filling: False
+[INFO]    texturing_skip_local_seam_leveling: False
+[INFO]    texturing_skip_visibility_test: False
+[INFO]    texturing_tone_mapping: none
+[INFO]    time: False
+[INFO]    use_3dmesh: False
+[INFO]    use_exif: False
+[INFO]    use_fixed_camera_params: False
+[INFO]    use_hybrid_bundle_adjustment: False
+[INFO]    use_opensfm_dense: False
+[INFO]    verbose: False
+[INFO]    ==============
+[INFO]    Running dataset stage and start time is 2020-09-24 00:11:40.025069
+[INFO]    Loading dataset from: /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/images
+[INFO]    Loading images database: /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/images.json
+[INFO]    Found 5 usable images
+[INFO]    Coordinates file already exist: /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/odm_georeferencing/coords.txt
+[INFO]    Parsing SRS header: WGS84 UTM 15N
+[INFO]    Finished dataset stage and end time is 2020-09-24 00:11:40.029170 
+[INFO]    Finished dataset stage
+[INFO]    Running split stage and start time is 2020-09-24 00:11:40.029458
+[INFO]    Normal dataset, will process all at once.
+[INFO]    Finished split stage and end time is 2020-09-24 00:11:40.029543 
+[INFO]    Finished split stage
+[INFO]    Running merge stage and start time is 2020-09-24 00:11:40.029689
+[INFO]    Normal dataset, nothing to merge.
+[INFO]    Finished merge stage and end time is 2020-09-24 00:11:40.029761 
+[INFO]    Finished merge stage
+[INFO]    Running opensfm stage and start time is 2020-09-24 00:11:40.029897
+[WARNING] /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/image_list.txt already exists, not rerunning OpenSfM setup
+[WARNING] Detect features already done: /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/features exists
+[WARNING] Match features already done: /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/matches exists
+[WARNING] Found a valid OpenSfM tracks file in: /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/tracks.csv
+[WARNING] Found a valid OpenSfM reconstruction file in: /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/reconstruction.json
+[INFO]    Already extracted cameras
+[INFO]    Undistorting /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm ...
+[WARNING] Found an undistorted directory in /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images
+[WARNING] Found a valid OpenSfM NVM reconstruction file in: /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/reconstruction.nvm
+[WARNING] Will skip exporting /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/geocoords_transformation.txt
+[INFO]    Finished opensfm stage and end time is 2020-09-24 00:11:40.044917 
+[INFO]    Finished opensfm stage
+[INFO]    Running mve stage and start time is 2020-09-24 00:11:40.045087
+[INFO]    running /home/pi/test/ODM/SuperBuild/src/elibs/mve/apps/makescene/makescene "/home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/reconstruction.nvm" "/home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/mve"
+MVE Makescene (built on Sep 20 2020, 18:10:52)
+Info: Detected VisualSFM bundle format.
+NVM: Loading file.../home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/reconstruction.nvm
+NVM: Number of views: 5
+updated nvm 
+NVM: Number of features: 705
+return from bundle in bundle_io.cc
+Creating output directories...
+Writing MVE views updated ...
+Inside for loop Inside for loop Inside for loop 
+
+view_0003.mve
+Inside for loop 
+view_0002.mve
+after view pointer create makescene
+view_0001.mve
+after set name makescene 
+load any image call 
+byte image reader 
+after byte reader
+/home/pi/test/odm/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/dji_0033.jpg.tif
+name of files
+/home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/DJI_0033.JPG.tif
+return from tif in makescene 
+after view pointer create makescene
+after set name makescene 
+load any image call 
+byte image reader 
+after byte reader
+/home/pi/test/odm/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/dji_0035.jpg.tif
+after view pointer create makescene
+
+name of files
+/home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/DJI_0035.JPG.tif
+after set name makescene return from tif in makescene 
+
+load any image call 
+byte image reader 
+after byte reader
+/home/pi/test/odm/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/dji_0031.jpg.tif
+name of files
+/home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/DJI_0031.JPG.tif
+return from tif in makescene 
+return jpeg from image io
+image io filename: /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/DJI_0031.JPG.tif
+load_jpg_file function image io /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/DJI_0031.JPG.tif
+after  fp file point image io 
+after set up error hander image io
+after if exif  image io
+Not a JPEG file: starts with 0x49 0x49
+return jpeg from image ioNot a JPEG file: starts with 0x49 0x49view_0000.mve
+image io filename: /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/DJI_0033.JPG.tif
+load_jpg_file function image io /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/DJI_0033.JPG.tif
+after  fp file point image io 
+after set up error hander image io
+after if exif  image io
+Not a JPEG file: starts with 0x49 0x49
+Not a JPEG file: starts with 0x49 0x49
+Error in jump image io 
+
+error in the load jpg function image ioreturn jpeg from image io
+image io filename: /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/DJI_0035.JPG.tif
+load_jpg_file function image io /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/DJI_0035.JPG.tif
+
+Error in jump image io 
+after  fp file point image io 
+after view pointer create makescene
+after set up error hander image io
+after if exif  image io
+error in the load jpg function image io
+Not a JPEG file: starts with 0x49 0x49
+Not a JPEG file: starts with 0x49 0x49Exception in jpeg in image io
+
+Error in jump image io 
+Exception in jpeg in image io
+error in the load jpg function image io
+
+name file in tiff name in image io: name file in tiff name in image io: /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/DJI_0033.JPG.tif/home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/DJI_0031.JPG.tif
+
+Exception in jpeg in image io
+name file in tiff name in image io: /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/DJI_0035.JPG.tif
+after set name makescene 
+load any image call 
+byte image reader 
+after byte reader
+/home/pi/test/odm/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/dji_0034.jpg.tif
+name of files
+/home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/DJI_0034.JPG.tif
+return from tif in makescene 
+return jpeg from image io
+image io filename: /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/DJI_0034.JPG.tif
+load_jpg_file function image io /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/DJI_0034.JPG.tif
+after  fp file point image io 
+after set up error hander image io
+after if exif  image io
+Not a JPEG file: starts with 0x49 0x49
+Not a JPEG file: starts with 0x49 0x49
+Error in jump image io 
+error in the load jpg function image io
+Exception in jpeg in image io
+name file in tiff name in image io: /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/DJI_0034.JPG.tif
+return from img_8 in load any image
+image page pont load  after makescene 
+Before switch
+Add original image
+return from img_8 in load any image
+image page pont load  after makescene 
+Before switch
+Add original image
+return from img_8 in load any image
+image page pont load  after makescene 
+Before switch
+Add original image
+return from img_8 in load any image
+image page pont load  after makescene 
+Before switch
+Add original image
+Writing MVE view: view_0002.mve...
+Writing MVE view: view_0001.mve...
+Writing MVE view: view_0003.mve...
+Writing MVE view: view_0000.mve...
+Inside for loop 
+view_0004.mve
+after view pointer create makescene
+after set name makescene 
+load any image call 
+byte image reader 
+after byte reader
+/home/pi/test/odm/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/dji_0032.jpg.tif
+name of files
+/home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/DJI_0032.JPG.tif
+return from tif in makescene 
+return jpeg from image io
+image io filename: /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/DJI_0032.JPG.tif
+load_jpg_file function image io /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/DJI_0032.JPG.tif
+after  fp file point image io 
+after set up error hander image io
+after if exif  image io
+Not a JPEG file: starts with 0x49 0x49
+Not a JPEG file: starts with 0x49 0x49
+Error in jump image io 
+error in the load jpg function image io
+Exception in jpeg in image io
+name file in tiff name in image io: /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/DJI_0032.JPG.tif
+return from img_8 in load any image
+image page pont load  after makescene 
+Before switch
+Add original image
+Writing MVE view: view_0004.mve...
+Writing bundle file...
+Writing bundle (5 cameras, 705 features): /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/mve/synth_0.out...
+
+Done importing NVM file!
+[INFO]    Running dense reconstruction. This might take a while.
+[INFO]    running /home/pi/test/ODM/SuperBuild/src/elibs/mve/apps/dmrecon/dmrecon -s0 --progress=fancy --local-neighbors=2 "/home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/mve"
+MVE Depth Map Reconstruction (built on Sep 20 2020, 18:10:36)
+Initializing scene with 5 views...
+Initialized 5 views (max ID is 4), took 1ms.
+in load mve bundle 
+Reading Photosynther file (5 cameras, 705 features)...
+Reconstructing all views...
+0 of 5 completed (0.00%)
+1 of 5 completed (20.00%)
+2 of 5 completed (40.00%)
+3 of 5 completed (60.00%)
+4 of 5 completed (80.00%)
+5 of 5 completed (100.00%)
+Reconstruction took 21714ms.
+Saving views back to disc...
+Saving views to MVE files... done.
+[INFO]    running /home/pi/test/ODM/SuperBuild/src/elibs/mve/apps/scene2pset/scene2pset -F0 "/home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/mve" "/home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/mve/mve_dense_point_cloud.ply"
+MVE Scene to Pointset (built on Sep 20 2020, 18:11:15)
+Using depthmap "depth-L0" and color image "undistorted"
+Initializing scene with 5 views...
+Initialized 5 views (max ID is 4), took 1ms.
+Inside load file header function jpg Inside load file header function jpg Inside load file header function jpg /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/mve/views/view_0001.mve/depth-L0.mvei/home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/mve/views/view_0002.mve/depth-L0.mvei
+after load jpg file headers image io
+/home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/mve/views/view_0003.mve/depth-L0.mvei
+after load jpg file headers image io
+Not a JPEG file: starts with 0x89 0x4d
+Not a JPEG file: starts with 0x89 0x4d
+Not a JPEG file: starts with 0x89 0x4d
+Error in jump jpg header image io 
+
+after load jpg file headers image io
+after jpeg file headers error  image ioInside load file header function jpg /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/mve/views/view_0000.mve/depth-L0.mvei
+
+after load jpg file headers image io
+ot a JPEG file: starts with 0x89 0x4d
+Error in jump jpg header image io 
+Not a JPEG file: starts with 0x89 0x4d
+Not a JPEG file: starts with 0x89 0x4d
+after jpeg file headers error  image io
+Not a JPEG file: starts with 0x89 0x4d
+file header jpeg catch in file header main function image io expection /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/mve/views/view_0003.mve/depth-L0.mvei
+tiff file header  image io /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/mve/views/view_0003.mve/depth-L0.mvei
+file header jpeg catch in file header main function image io expection /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/mve/views/view_0001.mve/depth-L0.mvei
+tif file header funtion /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/mve/views/view_0003.mve/depth-L0.mvei
+Not a JPEG file: starts with 0x89 0x4d
+Error in jump jpg header image io 
+after jpeg file headers error  image io
+tiff header set jmp exception thrown /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/mve/views/view_0003.mve/depth-L0.mvei
+file header jpeg catch in file header main function image io expection /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/mve/views/view_0000.mve/depth-L0.mvei
+tiff file header  image io /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/mve/views/view_0000.mve/depth-L0.mvei
+tiff file header  image io try to load mvei file headers image iotif file header funtion 
+/home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/mve/views/view_0000.mve/depth-L0.mvei
+tiff header set jmp exception thrown /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/mve/views/view_0000.mve/depth-L0.mvei
+try to load mvei file headers image io
+Error in jump jpg header image io 
+/home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/mve/views/view_0001.mve/depth-L0.mvei
+tif file header funtion /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/mve/views/view_0001.mve/depth-L0.mvei
+after jpeg file headers error  image io
+tiff header set jmp exception thrown /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/mve/views/view_0001.mve/depth-L0.mvei
+file header jpeg catch in file header main function image io expection /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/mve/views/view_0002.mve/depth-L0.mvei
+tiff file header  image io /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/mve/views/view_0002.mve/depth-L0.mvei
+tif file header funtion /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/mve/views/view_0002.mve/depth-L0.mvei
+try to load mvei file headers image io
+tiff header set jmp exception thrown /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/mve/views/view_0002.mve/depth-L0.mvei
+try to load mvei file headers image io
+Processing view "0002" (with colors)...
+Processing view "0000" (with colors)...
+Processing view "0001" (with colors)...
+Processing view "0003" (with colors)...
+Inside load file header function jpg /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/mve/views/view_0004.mve/depth-L0.mvei
+after load jpg file headers image io
+Not a JPEG file: starts with 0x89 0x4d
+Not a JPEG file: starts with 0x89 0x4d
+Error in jump jpg header image io 
+after jpeg file headers error  image io
+file header jpeg catch in file header main function image io expection /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/mve/views/view_0004.mve/depth-L0.mvei
+tiff file header  image io /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/mve/views/view_0004.mve/depth-L0.mvei
+tif file header funtion /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/mve/views/view_0004.mve/depth-L0.mvei
+tiff header set jmp exception thrown /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/mve/views/view_0004.mve/depth-L0.mvei
+try to load mvei file headers image io
+Processing view "0004" (with colors)...
+Writing final point set (112705 points)...
+Writing PLY file (112705 verts, with colors, with normals, with confidences, with values, 0 faces)... done.
+[INFO]    running /home/pi/test/ODM/SuperBuild/src/elibs/mve/apps/meshclean/meshclean -t0.6 --no-clean --component-size=0 "/home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/mve/mve_dense_point_cloud.ply" "/home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/mve/mve_dense_point_cloud.filtered.ply"
+MVE FSSR Mesh Cleaning (built on Sep 20 2020, 18:12:33)
+Loading mesh: /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/mve/mve_dense_point_cloud.ply
+PLY Loader: comment Export generated by libmve
+Reading PLY: 112705 verts... done.
+Removing low-confidence geometry (threshold 0.6)...
+  Deleted 53361 low-confidence vertices.
+Writing mesh: /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/mve/mve_dense_point_cloud.filtered.ply
+Writing PLY file (59344 verts, with colors, with normals, with confidences, with values, 0 faces)... done.
+[INFO]    Finished mve stage and end time is 2020-09-24 00:12:02.625887 
+[INFO]    Finished mve stage
+[INFO]    Running odm_filterpoints stage and start time is 2020-09-24 00:12:02.626416
+[INFO]    Filtering /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/mve/mve_dense_point_cloud.ply (statistical, meanK 16, standard deviation 2.5)
+[INFO]    running pdal translate -i "/home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/mve/mve_dense_point_cloud.ply" -o "/home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/odm_filterpoints/point_cloud.ply" outlier range --writers.ply.sized_types=false --writers.ply.storage_mode='little endian' --writers.ply.dims="x=float,y=float,z=float,nx=float,ny=float,nz=float,red=uchar,blue=uchar,green=uchar" --filters.outlier.method='statistical' --filters.outlier.mean_k=16 --filters.outlier.multiplier=2.5 --filters.range.limits='Classification![7:7]' 
+[INFO]    Finished odm_filterpoints stage and end time is 2020-09-24 00:12:05.626580 
+[INFO]    Finished odm_filterpoints stage
+[INFO]    Running odm_meshing stage and start time is 2020-09-24 00:12:05.627103
+[INFO]    Writing ODM 2.5D Mesh file in: /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/odm_meshing/odm_25dmesh.ply
+[WARNING] Maximum resolution set to GSD - 10.0% (15.06 cm / pixel, requested resolution was 5.0 cm / pixel)
+[INFO]    ODM 2.5D DSM resolution: 2.5198913066010364
+[INFO]    Created temporary directory: /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/odm_meshing/tmp
+[INFO]    Creating DSM for 2.5D mesh
+[INFO]    running pdal info /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/odm_filterpoints/point_cloud.ply > /tmp/tmpSkGocK.json
+[INFO]    Point cloud bounds are [minx: -11.3850975, maxx: 62.47250366] [miny: -45.79225922, maxy: 17.90899658]
+[WARNING] Really low resolution DEM requested (30, 26) will set floor at 64 pixels. Resolution changed to 1.1811990499692357. The scale of this reconstruction might be off.
+[INFO]    DEM resolution is (56, 64), max tile size is 4096, will split DEM generation into 1 tiles
+[INFO]    Generating /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/odm_meshing/tmp/mesh_dsm_r1.67046771633_x0_y0.tif (max, radius: 1.67046771633, resolution: 1.1811990499692357)
+[INFO]    running pdal pipeline -i /tmp/tmpeivyeI.json > /dev/null 2>&1
+[INFO]    running gdalbuildvrt "/home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/odm_meshing/tmp/tiles.vrt" "/home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/odm_meshing/tmp/mesh_dsm_r1.67046771633_x0_y0.tif"
+0...10...20...30...40...50...60...70...80...90...100 - done.
+[INFO]    running gdal_translate -co NUM_THREADS=4 --config GDAL_CACHEMAX 41.05% /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/odm_meshing/tmp/tiles.vrt /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/odm_meshing/tmp/tiles.tmp.tif
+Input file size is 63, 54
+0...10...20...30...40...50...60...70...80...90...100 - done.
+[INFO]    running gdal_translate -co NUM_THREADS=4 --config GDAL_CACHEMAX 41.05% -outsize 10% 0 /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/odm_meshing/tmp/tiles.tmp.tif /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/odm_meshing/tmp/tiles.small.tif
+Input file size is 63, 54
+0...10...20...30...40...50...60...70...80...90...100 - done.
+[INFO]    running gdal_fillnodata.py -co NUM_THREADS=4 --config GDAL_CACHEMAX 41.05% -b 1 -of GTiff /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/odm_meshing/tmp/tiles.small.tif /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/odm_meshing/tmp/tiles.small_filled.tif
+0...10...20...30...40...50...60...70...80...90...100 - done.
+[INFO]    running gdalbuildvrt -resolution highest -r bilinear "/home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/odm_meshing/tmp/merged.vrt" "/home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/odm_meshing/tmp/tiles.small_filled.tif" "/home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/odm_meshing/tmp/tiles.tmp.tif"
+0...10...20...30...40...50...60...70...80...90...100 - done.
+[INFO]    running gdal_translate -co NUM_THREADS=4 --config GDAL_CACHEMAX 41.05% /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/odm_meshing/tmp/merged.vrt /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/odm_meshing/tmp/tiles.tif
+Input file size is 63, 54
+0...10...20...30...40...50...60...70...80...90...100 - done.
+[INFO]    Starting smoothing...
+[INFO]    Smoothing iteration 1
+[INFO]    Completed smoothing to create datasets/drone_dataset_brighton_beach/submodels/submodel_0002/odm_meshing/tmp/mesh_dsm.tif in 0:00:00.016409
+[INFO]    Completed mesh_dsm.tif in 0:00:02.406020
+[INFO]    Creating mesh from DSM: /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/odm_meshing/tmp/mesh_dsm.tif
+[INFO]    running /home/pi/test/ODM/SuperBuild/src/dem2mesh/dem2mesh -inputFile /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/odm_meshing/tmp/mesh_dsm.tif -outputFile /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/odm_meshing/odm_25dmesh.dirty.ply -maxTileLength 2000 -maxVertexCount 200000 -maxConcurrency 4   
+[INFO]    running /home/pi/test/ODM/build/bin/odm_cleanmesh -inputFile /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/odm_meshing/odm_25dmesh.dirty.ply -outputFile /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/odm_meshing/odm_25dmesh.ply -removeIslands -decimateMesh 200000  
+[INFO]    Finished odm_meshing stage and end time is 2020-09-24 00:12:10.088086 
+[INFO]    Finished odm_meshing stage
+[INFO]    Running mvs_texturing stage and start time is 2020-09-24 00:12:10.088589
+[INFO]    Writing MVS Textured file in: /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/odm_texturing_25d/odm_textured_model.obj
+[INFO]    running /home/pi/test/ODM/SuperBuild/src/mvstexturing/build/apps/texrecon/texrecon /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/reconstruction.nvm /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/odm_meshing/odm_25dmesh.ply /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/odm_texturing_25d/odm_textured_model -d gmi -o gauss_clamping -t none      --nadir_mode -n 65535
+/home/pi/test/ODM/SuperBuild/src/mvstexturing/build/apps/texrecon/texrecon (built on Sep 20 2020, 18:34:33)
+Load and prepare mesh: 
+PLY Loader: comment VTK generated PLY File
+Reading PLY: 3402 verts... 6572 faces... done.
+Generating texture views: 
+into the generate vies texrecon 
+before load nvm bundle in generate texture views cpp/home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/reconstruction.nvm
+NVM: Loading file.../home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/reconstruction.nvm
+NVM: Number of views: 5
+updated nvm 
+NVM: Number of features: 705
+return from bundle in bundle_io.cc
+after load bundle in generate text
+after bundle get camera generate text
+view counter generate text 
+Inside generate text file name  for loop Inside generate text file name  for loop /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/DJI_0034.JPG.tifInside generate text file name  for loop /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/DJI_0032.JPG.tif
+
+/home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/DJI_0035.JPG.tif
+Inside generate text file name  for loop /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/DJI_0033.JPG.tif
+return jpeg from image ioreturn jpeg from image io
+image io filename: /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/DJI_0033.JPG.tif
+load_jpg_file function image io /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/DJI_0033.JPG.tif
+
+image io filename: /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/DJI_0032.JPG.tif
+load_jpg_file function image io /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/DJI_0032.JPG.tif
+after  fp file point image io 
+after set up error hander image io
+after if exif  image io
+after  fp file point image io 
+after set up error hander image io
+after if exif  image io
+return jpeg from image io
+Not a JPEG file: starts with 0x49 0x49
+return jpeg from image ioimage io filename: /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/DJI_0035.JPG.tif
+load_jpg_file function image io /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/DJI_0035.JPG.tif
+Not a JPEG file: starts with 0x49 0x49
+after  fp file point image io 
+after set up error hander image io
+after if exif  image io
+Not a JPEG file: starts with 0x49 0x49
+Not a JPEG file: starts with 0x49 0x49
+Error in jump image io 
+
+error in the load jpg function image ioimage io filename: /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/DJI_0034.JPG.tif
+load_jpg_file function image io /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/DJI_0034.JPG.tif
+
+Not a JPEG file: starts with 0x49 0x49
+Error in jump image io 
+after  fp file point image io 
+Exception in jpeg in image io
+name file in tiff name in image io: /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/DJI_0035.JPG.tifafter set up error hander image io
+Not a JPEG file: starts with 0x49 0x49
+
+error in the load jpg function image io
+after if exif  image io
+Error in jump image io 
+error in the load jpg function image io
+Not a JPEG file: starts with 0x49 0x49
+Exception in jpeg in image io
+Exception in jpeg in image ioname file in tiff name in image io: /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/DJI_0033.JPG.tif
+name file in tiff name in image io: /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/DJI_0032.JPG.tif
+Not a JPEG file: starts with 0x49 0x49
+Error in jump image io 
+
+error in the load jpg function image io
+Exception in jpeg in image io
+name file in tiff name in image io: /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/DJI_0034.JPG.tif
+Inside load file header function jpg /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/DJI_0032.JPG.tif
+after load jpg file headers image io
+Not a JPEG file: starts with 0x49 0x49
+Not a JPEG file: starts with 0x49 0x49
+Error in jump jpg header image io 
+after jpeg file headers error  image io
+file header jpeg catch in file header main function image io expection /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/DJI_0032.JPG.tif
+tiff file header  image io /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/DJI_0032.JPG.tif
+tif file header funtion /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/DJI_0032.JPG.tif
+Inside load file header function jpg /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/DJI_0033.JPG.tif
+after load jpg file headers image io
+Not a JPEG file: starts with 0x49 0x49
+Not a JPEG file: starts with 0x49 0x49
+Error in jump jpg header image io 
+after jpeg file headers error  image io
+file header jpeg catch in file header main function image io expection /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/DJI_0033.JPG.tif
+tiff file header  image io /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/DJI_0033.JPG.tif
+tif file header funtion /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/DJI_0033.JPG.tif
+Inside load file header function jpg /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/DJI_0034.JPG.tif
+after load jpg file headers image io
+Not a JPEG file: starts with 0x49 0x49
+Not a JPEG file: starts with 0x49 0x49
+Error in jump jpg header image io 
+after jpeg file headers error  image io
+file header jpeg catch in file header main function image io expection /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/DJI_0034.JPG.tif
+tiff file header  image io /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/DJI_0034.JPG.tif
+tif file header funtion /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/DJI_0034.JPG.tif
+Inside generate text file name  for loop /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/DJI_0031.JPG.tif
+Inside load file header function jpg /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/DJI_0035.JPG.tif
+after load jpg file headers image io
+return jpeg from image io
+Not a JPEG file: starts with 0x49 0x49
+image io filename: /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/DJI_0031.JPG.tif
+load_jpg_file function image io /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/DJI_0031.JPG.tif
+Not a JPEG file: starts with 0x49 0x49
+Error in jump jpg header image io 
+after  fp file point image io 
+after set up error hander image io
+after if exif  image io
+after jpeg file headers error  image io
+Not a JPEG file: starts with 0x49 0x49
+file header jpeg catch in file header main function image io expection /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/DJI_0035.JPG.tif
+tiff file header  image io /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/DJI_0035.JPG.tif
+Not a JPEG file: starts with 0x49 0x49tif file header funtion 
+Error in jump image io 
+/home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/DJI_0035.JPG.tif
+error in the load jpg function image io
+Exception in jpeg in image io
+name file in tiff name in image io: /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/DJI_0031.JPG.tif
+Inside load file header function jpg /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/DJI_0031.JPG.tif
+after load jpg file headers image io
+Not a JPEG file: starts with 0x49 0x49
+Not a JPEG file: starts with 0x49 0x49
+Error in jump jpg header image io 
+after jpeg file headers error  image io
+file header jpeg catch in file header main function image io expection /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/DJI_0031.JPG.tif
+tiff file header  image io /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/DJI_0031.JPG.tif
+tif file header funtion /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/DJI_0031.JPG.tif
+        Loading 100%... done. (Took 0.02s)                                      
+return jpeg from image io
+image io filename: /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/DJI_0034.JPG.tif
+load_jpg_file function image io /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/DJI_0034.JPG.tif
+after  fp file point image io 
+after set up error hander image io
+after if exif  image io
+Not a JPEG file: starts with 0x49 0x49
+Not a JPEG file: starts with 0x49 0x49
+Error in jump image io 
+error in the load jpg function image io
+Exception in jpeg in image io
+name file in tiff name in image io: /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/DJI_0034.JPG.tif
+texrecon.cpp returned from generate texture views 
+textrecon.cpp write conf file 
+Building adjacency graph: 
+        Adding edges 100%... done. (Took 0.023s)                                
+	9743 total edges.
+View selection:
+	Building BVH from 6572 faces... done. (Took: 13 ms)
+return jpeg from image io
+return jpeg from image io
+return jpeg from image ioimage io filename: /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/DJI_0031.JPG.tif
+load_jpg_file function image io /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/DJI_0031.JPG.tif
+
+image io filename: /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/DJI_0033.JPG.tif
+load_jpg_file function image io /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/DJI_0033.JPG.tif
+after  fp file point image io 
+after  fp file point image io 
+after set up error hander image io
+after if exif  image io
+after set up error hander image io
+after if exif  image io
+Not a JPEG file: starts with 0x49 0x49
+Not a JPEG file: starts with 0x49 0x49
+Error in jump image io 
+error in the load jpg function image io
+Not a JPEG file: starts with 0x49 0x49
+Not a JPEG file: starts with 0x49 0x49
+Error in jump image io 
+Exception in jpeg in image io
+name file in tiff name in image io: /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/DJI_0033.JPG.tif
+error in the load jpg function image io
+Exception in jpeg in image io
+name file in tiff name in image io: /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/DJI_0031.JPG.tif
+image io filename: /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/DJI_0035.JPG.tif
+load_jpg_file function image io /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/DJI_0035.JPG.tif
+after  fp file point image io 
+after set up error hander image io
+after if exif  image io
+Not a JPEG file: starts with 0x49 0x49
+Not a JPEG file: starts with 0x49 0x49
+Error in jump image io 
+error in the load jpg function image io
+Exception in jpeg in image io
+name file in tiff name in image io: /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/DJI_0035.JPG.tif
+return jpeg from image io
+image io filename: /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/DJI_0032.JPG.tif
+load_jpg_file function image io /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/DJI_0032.JPG.tif
+after  fp file point image io 
+after set up error hander image io
+after if exif  image io
+Not a JPEG file: starts with 0x49 0x49
+Not a JPEG file: starts with 0x49 0x49
+Error in jump image io 
+error in the load jpg function image io
+Exception in jpeg in image io
+name file in tiff name in image io: /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/DJI_0032.JPG.tif
+        Calculating face qualities 100%... done. (Took 0.075s)                  
+        Postprocessing face infos 100%... done. (Took 0.001s)                   
+	Maximum quality of a face within an image: 22.8402
+	Clamping qualities to 18.2077 within normalization.
+	Writing data cost file... done.
+	Optimizing:
+		Time[s]	Energy
+		0	4557
+		0	4484
+		0	4411
+		0	4366
+		0	4334
+		0	4319
+		0	4302
+		0	4302
+		0	4295
+		0	4289
+		0	4286
+		0	4284
+		0	4282
+		0	4279
+		0	4275
+		0	4271
+	560 faces have not been seen
+	Took: 0.398s
+Generating texture patches:
+	Running... return jpeg from image io
+image io filename: /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/DJI_0034.JPG.tif
+load_jpg_file function image io /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/DJI_0034.JPG.tif
+return jpeg from image io
+image io filename: /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/DJI_0031.JPG.tif
+load_jpg_file function image io /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/DJI_0031.JPG.tif
+after  fp file point image io 
+after  fp file point image io 
+after set up error hander image ioafter set up error hander image io
+after if exif  image io
+after if exif  image io
+
+Not a JPEG file: starts with 0x49 0x49
+Not a JPEG file: starts with 0x49 0x49
+Error in jump image io 
+error in the load jpg function image io
+Not a JPEG file: starts with 0x49 0x49
+Exception in jpeg in image io
+name file in tiff name in image io: /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/DJI_0031.JPG.tif
+Not a JPEG file: starts with 0x49 0x49
+Error in jump image io 
+error in the load jpg function image io
+Exception in jpeg in image io
+name file in tiff name in image io: /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/DJI_0034.JPG.tif
+return jpeg from image io
+image io filename: /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/DJI_0033.JPG.tif
+load_jpg_file function image io /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/DJI_0033.JPG.tif
+after  fp file point image io 
+after set up error hander image io
+after if exif  image io
+Not a JPEG file: starts with 0x49 0x49
+Not a JPEG file: starts with 0x49 0x49
+Error in jump image io 
+error in the load jpg function image io
+Exception in jpeg in image io
+name file in tiff name in image io: /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/DJI_0033.JPG.tif
+return jpeg from image io
+image io filename: /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/DJI_0032.JPG.tif
+load_jpg_file function image io /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/DJI_0032.JPG.tif
+after  fp file point image io 
+return jpeg from image io
+image io filename: /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/DJI_0035.JPG.tif
+load_jpg_file function image io /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/DJI_0035.JPG.tif
+after  fp file point image io 
+after set up error hander image io
+after if exif  image io
+Not a JPEG file: starts with 0x49 0x49
+Not a JPEG file: starts with 0x49 0x49
+Error in jump image io 
+error in the load jpg function image io
+Exception in jpeg in image io
+name file in tiff name in image io: /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/DJI_0035.JPG.tif
+after set up error hander image io
+after if exif  image io
+Not a JPEG file: starts with 0x49 0x49
+Not a JPEG file: starts with 0x49 0x49
+Error in jump image io 
+error in the load jpg function image io
+Exception in jpeg in image io
+name file in tiff name in image io: /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/undistorted/images/DJI_0032.JPG.tif
+done. (Took 0.035s)
+	11 texture patches.
+Running global seam leveling:
+	Create matrices for optimization...  done.
+	Lhs dimensionality: 3399 x 3399
+	Calculating adjustments:
+		Color channel 0: CG took 79 iterations. Residual is 8.6183e-05
+		Color channel 1: CG took 79 iterations. Residual is 8.59702e-05
+		Color channel 2: CG took 79 iterations. Residual is 8.72494e-05
+		Took 0.013 seconds
+        Adjusting texture patches 100%... done. (Took 0.017s)                   
+Running local seam leveling:
+        Blending texture patches 100%... done. (Took 0.826s)                    
+Generating texture atlases:
+	Sorting texture patches... done.
+	Working on atlas 1 100%... done.
+	Finalizing texture atlases... done. (Took: 0.105s)
+Building objmodel:
+	Saving model... done.
+Whole texturing procedure took: 1.726s
+[INFO]    Finished mvs_texturing stage and end time is 2020-09-24 00:12:11.860451 
+[INFO]    Finished mvs_texturing stage
+[INFO]    Running odm_georeferencing stage and start time is 2020-09-24 00:12:11.860762
+[INFO]    Running georeferencing with OpenSfM transformation matrix
+[INFO]    running /home/pi/test/ODM/build/bin/odm_georef -bundleFile /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/bundle_r000.out -inputTransformFile /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/opensfm/geocoords_transformation.txt -inputCoordFile /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/odm_georeferencing/coords.txt -inputFile /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/odm_texturing_25d/odm_textured_model.obj -outputFile /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/odm_texturing_25d/odm_textured_model_geo.obj -inputPointCloudFile /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/odm_filterpoints/point_cloud.ply -outputPointCloudFile /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/odm_georeferencing/odm_georeferenced_model.laz -outputPointCloudSrs '+proj=utm +zone=15 +datum=WGS84 +units=m +no_defs +type=crs'  -logFile /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/odm_georeferencing_25d/odm_georeferencing_log.txt -outputTransformFile /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/odm_georeferencing_25d/odm_georeferencing_transform.txt -georefFileOutputPath /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/odm_georeferencing_25d/odm_georeferencing_model_geo.txt
+[INFO]    Calculating cropping area and generating bounds shapefile from point cloud
+[INFO]    running pdal translate -i "/home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/odm_georeferencing/odm_georeferenced_model.laz" -o "/home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/odm_georeferencing/odm_georeferenced_model.decimated.las" decimation --filters.decimation.step=90 
+[INFO]    running pdal info --boundary --filters.hexbin.edge_size=1 --filters.hexbin.threshold=0 /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/odm_georeferencing/odm_georeferenced_model.decimated.las > /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/odm_georeferencing/odm_georeferenced_model.boundary.json
+[INFO]    running pdal info --summary /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/odm_georeferencing/odm_georeferenced_model.laz > /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/odm_georeferencing/odm_georeferenced_model.summary.json
+[INFO]    running ogr2ogr -overwrite -f GPKG -a_srs "+proj=utm +zone=15 +datum=WGS84 +units=m +no_defs" /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/odm_georeferencing/odm_georeferenced_model.bounds.gpkg /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/odm_georeferencing/odm_georeferenced_model.bounds.geojson
+[INFO]    Finished odm_georeferencing stage and end time is 2020-09-24 00:12:16.098031 
+[INFO]    Finished odm_georeferencing stage
+[INFO]    Running odm_dem stage and start time is 2020-09-24 00:12:16.098342
+[WARNING] Maximum resolution set to GSD - -300% (66.93 cm / pixel, requested resolution was 5.0 cm / pixel)
+[INFO]    Classify: False
+[INFO]    Create DSM: False
+[INFO]    Create DTM: False
+[INFO]    DEM input file /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/odm_georeferencing/odm_georeferenced_model.laz found: True
+[WARNING] DEM will not be generated
+[INFO]    Finished odm_dem stage and end time is 2020-09-24 00:12:16.099261 
+[INFO]    Finished odm_dem stage
+[INFO]    Running odm_orthophoto stage and start time is 2020-09-24 00:12:16.099426
+[WARNING] Maximum resolution set to GSD - 10.0% (15.06 cm / pixel, requested resolution was 5.0 cm / pixel)
+[INFO]    running /home/pi/test/ODM/build/bin/odm_orthophoto -inputFiles /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/odm_texturing_25d/odm_textured_model_geo.obj -logFile /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/odm_orthophoto/odm_orthophoto_log.txt -outputFile /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/odm_orthophoto/odm_orthophoto_render.tif -resolution 6.64036577934  -outputCornerFile /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/odm_orthophoto/odm_orthophoto_corners.txt 
+[INFO]    Creating GeoTIFF
+[INFO]    running gdal_translate -a_ullr 576693.494969 5188189.38189 576767.500955 5188125.86623 -co NUM_THREADS=4 -co BIGTIFF=IF_SAFER -co BLOCKYSIZE=512 -co COMPRESS=DEFLATE -co BLOCKXSIZE=512 -co TILED=YES -co PREDICTOR=2 -a_srs "+proj=utm +zone=15 +datum=WGS84 +units=m +no_defs +type=crs" --config GDAL_CACHEMAX 41.05% --config GDAL_TIFF_INTERNAL_MASK YES /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/odm_orthophoto/odm_orthophoto_render.tif /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/odm_orthophoto/odm_orthophoto.tif > /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/odm_orthophoto/gdal_translate_log.txt
+[INFO]    Initializing GRASS engine using /usr/bin/grass76
+[INFO]    Computing cutline
+[INFO]    Scaling orthophoto to 25.0% to compute cutline
+[INFO]    running gdal_translate -outsize 25.0% 0 -co NUM_THREADS=4 --config GDAL_CACHEMAX 41.05% /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/odm_orthophoto/odm_orthophoto.tif /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/odm_orthophoto/grass_cutline_tmpdir/odm_orthophoto.scaled.tif
+Input file size is 492, 422
+0...10...20...30...40...50...60...70...80...90...100 - done.
+[INFO]    Orthophoto dimensions are 123x106
+[INFO]    Number of lines: 8
+[INFO]    Executing grass script from /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/odm_orthophoto/grass_cutline_tmpdir: /usr/bin/grass76 --tmp-location /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/odm_orthophoto/grass_cutline_tmpdir/odm_orthophoto.scaled.tif --exec bash script.sh
+[INFO]    Generated cutline file: /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/odm_orthophoto/grass_cutline_tmpdir/cutline.gpkg --> /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/odm_orthophoto/cutline.gpkg
+[INFO]    Computing mask raster: /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/odm_orthophoto/odm_orthophoto_cut.tif
+[INFO]    Cropping /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/odm_orthophoto/odm_orthophoto.tif
+[INFO]    running gdalwarp -cutline /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/odm_georeferencing/odm_georeferenced_model.bounds.gpkg -crop_to_cutline -co NUM_THREADS=4 -co BIGTIFF=IF_SAFER -co BLOCKYSIZE=512 -co COMPRESS=DEFLATE -co BLOCKXSIZE=512 -co TILED=YES -co PREDICTOR=2 -dstalpha /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/odm_orthophoto/odm_orthophoto.original.tif /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/odm_orthophoto/odm_orthophoto.tif --config GDAL_CACHEMAX 40.95%
+[INFO]    LRE: submodel_0000 (bf40f952-133b-42f4-a36e-f497d4516327) is still running
+Using band 4 of source image as alpha.
+Creating output file that is 423P x 276L.
+Processing /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/odm_orthophoto/odm_orthophoto.original.tif [1/1] : 0...10...20...30...40...50...60...70...80...90...100 - done.
+[INFO]    Computing feather raster: /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/odm_orthophoto/odm_orthophoto_feathered.tif
+[INFO]    Finished odm_orthophoto stage and end time is 2020-09-24 00:12:40.863986 
+[INFO]    Finished odm_orthophoto stage
+[INFO]    Running odm_report stage and start time is 2020-09-24 00:12:40.864409
+[INFO]    Wrote /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/odm_report/shots.geojson
+[INFO]    Finished odm_report stage and end time is 2020-09-24 00:12:40.968219 
+[INFO]    Finished odm_report stage
+[INFO]    No more stages to run
+[INFO]    OpenDroneMap app finished - Thu Sep 24 00:12:40  2020
+[INFO]    LRE: submodel_0002 finished successfully
+[INFO]    LRE: Downloading assets for submodel_0000
+[INFO]    LRE: Download Assets for submodel_0000 with and Current Time is  2020-09-24 00:12:58.570287
+[INFO]    LRE: Download of submodel_0000 at [0%]
+[INFO]    LRE: Download of submodel_0000 at [100%]
+[INFO]    LRE: Download Assets and extraction  Finished and the Process for this Submodel is Finished for submodel_0000 with and Current Time is  2020-09-24 00:12:59.624885
+[INFO]    LRE: Downloaded and extracted assets for submodel_0000
+[INFO]    LRE: submodel_0000 finished successfully
+[INFO]    LRE: Cleaning up remote task (bf40f952-133b-42f4-a36e-f497d4516327)... OK
+[INFO]    LRE: No remote tasks left to cleanup
+[INFO]    Finished split stage and end time is 2020-09-24 00:12:59.811743 
+[INFO]    Finished split stage
+[INFO]    Running merge stage and start time is 2020-09-24 00:12:59.812067
+[INFO]    running lasmerge -i /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/odm_georeferencing/odm_georeferenced_model.laz /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0000/odm_georeferencing/odm_georeferenced_model.laz /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0001/odm_georeferencing/odm_georeferenced_model.laz -o "/home/pi/test/ODM/datasets/drone_dataset_brighton_beach/odm_georeferencing/odm_georeferenced_model.laz"
+/bin/sh: 1: lasmerge: not found
+[WARNING] Could not merge point cloud: Child returned 127 (skipping)
+[INFO]    Merging all crop bounds: ['/home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/odm_georeferencing/odm_georeferenced_model.bounds.gpkg', '/home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0000/odm_georeferencing/odm_georeferenced_model.bounds.gpkg', '/home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0001/odm_georeferencing/odm_georeferenced_model.bounds.gpkg']
+inside merge bounds cropper.py
+['/home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/odm_georeferencing/odm_georeferenced_model.bounds.gpkg', '/home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0000/odm_georeferencing/odm_georeferenced_model.bounds.gpkg', '/home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0001/odm_georeferencing/odm_georeferenced_model.bounds.gpkg']
+before drive open file
+/home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0002/odm_georeferencing/odm_georeferenced_model.bounds.gpkg
+ds is not none
+layer is not none
+convexhull
+srs is not none
+before  feature for loop
+1
+feature is not none
+after feature for loop
+before drive open file
+/home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0000/odm_georeferencing/odm_georeferenced_model.bounds.gpkg
+ds is not none
+layer is not none
+convexhull
+srs is not none
+before  feature for loop
+1
+feature is not none
+after feature for loop
+before drive open file
+/home/pi/test/ODM/datasets/drone_dataset_brighton_beach/submodels/submodel_0001/odm_georeferencing/odm_georeferenced_model.bounds.gpkg
+ds is not none
+layer is not none
+convexhull
+srs is not none
+before  feature for loop
+1
+feature is not none
+after feature for loop
+[INFO]    Found 3 submodels with valid orthophotos and cutlines
+[INFO]    3 valid orthophoto rasters to merge
+[INFO]    Output bounds: 576669.2551513023 5188118.596277647 576761.7850455123 5188201.557172582
+[INFO]    Output width: 616, height: 552
+[INFO]    Adjusted bounds: 576669.2551513023 5188118.475077037 576761.9130524731 5188201.557172582
+[INFO]    Cropping /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/odm_orthophoto/odm_orthophoto.tif
+[INFO]    running gdalwarp -cutline /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/odm_georeferencing/odm_georeferenced_model.bounds.gpkg -crop_to_cutline -co NUM_THREADS=4 -co BIGTIFF=IF_SAFER -co BLOCKYSIZE=512 -co COMPRESS=DEFLATE -co BLOCKXSIZE=512 -co TILED=YES -co PREDICTOR=2 -dstalpha /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/odm_orthophoto/odm_orthophoto.original.tif /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/odm_orthophoto/odm_orthophoto.tif --config GDAL_CACHEMAX 41.9%
+Using band 4 of source image as alpha.
+Creating output file that is 615P x 551L.
+Processing /home/pi/test/ODM/datasets/drone_dataset_brighton_beach/odm_orthophoto/odm_orthophoto.original.tif [1/1] : 0...10...20...30...40...50...60...70...80...90...100 - done.
+[INFO]    Merging 3 shots.geojson files
+[INFO]    Finished merge stage and end time is 2020-09-24 00:13:02.146411 
+[INFO]    Finished merge stage
+[INFO]    MMMMMMMMMMMNNNMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMNNNMMMMMMMMMMM
+[INFO]    MMMMMMdo:..---../sNMMMMMMMMMMMMMMMMMMMMMMMMMMNs/..---..:odMMMMMM
+[INFO]    MMMMy-.odNMMMMMNy/`/mMMMMMMMMMMMMMMMMMMMMMMm/`/hNMMMMMNdo.-yMMMM
+[INFO]    MMN/`sMMMMMMMMMNNMm/`yMMMMMMMMMMMMMMMMMMMMy`/mMNNMMMMMMMMNs`/MMM
+[INFO]    MM/ hMMMMMMMMNs.+MMM/ dMMMMMMMMMMMMMMMMMMh +MMM+.sNMMMMMMMMh +MM
+[INFO]    MN /MMMMMMNo/./mMMMMN :MMMMMMMMMMMMMMMMMM: NMMMMm/./oNMMMMMM: NM
+[INFO]    Mm +MMMMMN+ `/MMMMMMM`-MMMMMMMMMMMMMMMMMM-`MMMMMMM:` oNMMMMM+ mM
+[INFO]    MM..NMMNs./mNMMMMMMMy sMMMMMMMMMMMMMMMMMMo hMMMMMMMNm/.sNMMN`-MM
+[INFO]    MMd`:mMNomMMMMMMMMMy`:MMMMMMMNmmmmNMMMMMMN:`hMMMMMMMMMdoNMm-`dMM
+[INFO]    MMMm:.omMMMMMMMMNh/  sdmmho/.`..`-``-/sddh+  /hNMMMMMMMMdo.:mMMM
+[INFO]    MMMMMd+--/osss+:-:/`  ```:- .ym+ hmo``:-`   `+:-:ossso/-:+dMMMMM
+[INFO]    MMMMMMMNmhysosydmNMo   /ds`/NMM+ hMMd..dh.  sMNmdysosyhmNMMMMMMM
+[INFO]    MMMMMMMMMMMMMMMMMMMs .:-:``hmmN+ yNmds -:.:`-NMMMMMMMMMMMMMMMMMM
+[INFO]    MMMMMMMMMMMMMMMMMMN.-mNm- //:::. -:://: +mMd`-NMMMMMMMMMMMMMMMMM
+[INFO]    MMMMMMMMMMMMMMMMMM+ dMMN -MMNNN+ yNNNMN :MMMs sMMMMMMMMMMMMMMMMM
+[INFO]    MMMMMMMMMMMMMMMMMM`.mmmy /mmmmm/ smmmmm``mmmh :MMMMMMMMMMMMMMMMM
+[INFO]    MMMMMMMMMMMMMMMMMM``:::- ./////. -:::::` :::: -MMMMMMMMMMMMMMMMM
+[INFO]    MMMMMMMMMMMMMMMMMM:`mNNd /NNNNN+ hNNNNN .NNNy +MMMMMMMMMMMMMMMMM
+[INFO]    MMMMMMMMMMMMMMMMMMd`/MMM.`ys+//. -/+oso +MMN.`mMMMMMMMMMMMMMMMMM
+[INFO]    MMMMMMMMMMMMMMMMMMMy /o:- `oyhd/ shys+ `-:s-`hMMMMMMMMMMMMMMMMMM
+[INFO]    MMMMMMMMNmdhhhdmNMMM`  +d+ sMMM+ hMMN:`hh-  sMMNmdhhhdmNMMMMMMMM
+[INFO]    MMMMMms:::/++//::+ho    .+- /dM+ hNh- +/`   -h+:://++/::/smMMMMM
+[INFO]    MMMN+./hmMMMMMMNds-  ./oso:.``:. :-``.:os+-  -sdNMMMMMMmy:.oNMMM
+[INFO]    MMm-.hMNhNMMMMMMMMNo`/MMMMMNdhyyyyhhdNMMMM+`oNMMMMMMMMNhNMh.-mMM
+[INFO]    MM:`mMMN/-sNNMMMMMMMo yMMMMMMMMMMMMMMMMMMy sMMMMMMMNNs-/NMMm`:MM
+[INFO]    Mm /MMMMMd/.-oMMMMMMN :MMMMMMMMMMMMMMMMMM-`MMMMMMMo-./dMMMMM/ NM
+[INFO]    Mm /MMMMMMm:-`sNMMMMN :MMMMMMMMMMMMMMMMMM-`MMMMMNs`-/NMMMMMM/ NM
+[INFO]    MM:`mMMMMMMMMd/-sMMMo yMMMMMMMMMMMMMMMMMMy sMMMs-/dMMMMMMMMd`:MM
+[INFO]    MMm-.hMMMMMMMMMdhMNo`+MMMMMMMMMMMMMMMMMMMM+`oNMhdMMMMMMMMMh.-mMM
+[INFO]    MMMNo./hmNMMMMMNms--yMMMMMMMMMMMMMMMMMMMMMMy--smNMMMMMNmy/.oNMMM
+[INFO]    MMMMMms:-:/+++/:-+hMMMMMMMMMMMMMMMMMMMMMMMMMNh+-:/+++/:-:smMMMMM
+[INFO]    MMMMMMMMNdhhyhdmMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMmdhyhhmNMMMMMMMM
+[INFO]    MMMMMMMMMMMMMMMNNNNNMMMMMMNNNNNNMMMMMMMMNNMMMMMMMNNMMMMMMMMMMMMM
+[INFO]    MMMMMMMMMMMMMh/-...-+dMMMm......:+hMMMMs../MMMMMo..sMMMMMMMMMMMM
+[INFO]    MMMMMMMMMMMM/  /yhy-  sMMm  -hhy/  :NMM+   oMMMy   /MMMMMMMMMMMM
+[INFO]    MMMMMMMMMMMy  /MMMMN`  NMm  /MMMMo  +MM: .` yMd``` :MMMMMMMMMMMM
+[INFO]    MMMMMMMMMMM+  sMMMMM:  hMm  /MMMMd  -MM- /s `h.`d- -MMMMMMMMMMMM
+[INFO]    MMMMMMMMMMMs  +MMMMM.  mMm  /MMMMy  /MM. +M/   yM: `MMMMMMMMMMMM
+[INFO]    MMMMMMMMMMMN-  smNm/  +MMm  :NNdo` .mMM` oMM+/yMM/  MMMMMMMMMMMM
+[INFO]    MMMMMMMMMMMMNo-    `:yMMMm      `:sNMMM` sMMMMMMM+  NMMMMMMMMMMM
+[INFO]    MMMMMMMMMMMMMMMNmmNMMMMMMMNmmmmNMMMMMMMNNMMMMMMMMMNNMMMMMMMMMMMM
+[INFO]    OpenDroneMap app finished - Thu Sep 24 00:13:02  2020
+pi@raspberrypi:~/test/ODM $ 
